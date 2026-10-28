@@ -23,8 +23,8 @@ export interface CategorySummary {
   spentMs: number
   /** Questions in this section the candidate got to. */
   reached: number
-  /** Average time on the questions reached in this section, in milliseconds. */
-  averageMs: number
+  /** Average time on the questions reached in this section, in milliseconds; null if none were. */
+  averageMs: number | null
 }
 
 export interface Summary {
@@ -100,6 +100,8 @@ function sectionSummary(
     spentMs: mine.reduce((sum, r) => sum + r.spentMs, 0),
     reached: reachedHere.length,
     averageMs:
-      reachedHere.length === 0 ? 0 : Math.round(reachedMs / reachedHere.length),
+      reachedHere.length === 0
+        ? null
+        : Math.round(reachedMs / reachedHere.length),
   }
 }

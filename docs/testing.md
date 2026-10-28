@@ -24,7 +24,9 @@ that 136 automated tests missed.
 3. **Be rough on purpose.** Double-click, tap twice, press keys fast, leave
    mid-test and come back. Automated clicks are too polite.
 4. **Write the expected behaviour first, in plain words.** Then assert that.
-   An assertion copied from the screen will pass a bug.
+   An assertion copied from the screen, or from the code, will pass a bug.
+   Include the empty cases: what should a person read when they reached or
+   answered nothing in a section? (A unit test once pinned "0.0s" for that.)
 5. **Screens display, logic calculates.** Sums in components escape unit and
    mutation tests. Put them in `src/domain` and show the result.
 

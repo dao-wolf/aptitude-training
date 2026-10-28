@@ -92,9 +92,6 @@ export function Results({
 }
 
 function Tiles({ summary }: { summary: Summary }) {
-  const accuracy = summary.answered
-    ? Math.round((summary.correct / summary.answered) * 100)
-    : 0
   const tiles: [string, string | number][] = [
     ["Answered", summary.answered],
     ["Skipped or unanswered", summary.skipped],
@@ -112,12 +109,19 @@ function Tiles({ summary }: { summary: Summary }) {
         ))}
       </dl>
       <p>
-        <strong>Accuracy:</strong> {accuracy}% of the questions you answered
-        were right. <strong>Speed:</strong> you reached {summary.reached} of{" "}
-        {summary.total}.
+        <strong>Accuracy:</strong> <Accuracy summary={summary} />{" "}
+        <strong>Speed:</strong> you reached {summary.reached} of {summary.total}
+        .
       </p>
     </>
   )
+}
+
+/** "0% of the questions you answered" would be untrue when you answered none. */
+function Accuracy({ summary }: { summary: Summary }) {
+  if (summary.answered === 0) return <>You didn&apos;t answer any questions.</>
+  const percent = Math.round((summary.correct / summary.answered) * 100)
+  return <>{percent}% of the questions you answered were right.</>
 }
 
 function SectionTable({ sections }: { sections: Section[] }) {
@@ -138,7 +142,9 @@ function SectionTable({ sections }: { sections: Section[] }) {
             <td>
               {s.correct} of {s.total}
             </td>
-            <td>{seconds(s.averageMs)}</td>
+            <td>
+              {s.averageMs === null ? "Not reached" : seconds(s.averageMs)}
+            </td>
           </tr>
         ))}
       </tbody>
