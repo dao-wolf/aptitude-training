@@ -1,8 +1,16 @@
-/* Copied from the real site (global.css): smooth scrolling, and overflow-x
-   hidden on body and the page wrapper, which breaks position: sticky for
-   everything inside. */
+/* Copied from the real site (global.css): smooth scrolling, overflow-x hidden
+   on body, clip on the page wrapper (hidden there broke position: sticky), and
+   --sticky-top, which clears the fixed menu button on narrow screens. */
 html {
   scroll-behavior: smooth;
+}
+:root {
+  --sticky-top: 0px;
+}
+@media (max-width: 768px) {
+  :root {
+    --sticky-top: 5rem;
+  }
 }
 body {
   margin: 0;
@@ -12,7 +20,7 @@ body {
   overflow-x: hidden;
 }
 .wrapper {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 main {
   max-width: 60rem;
@@ -35,12 +43,7 @@ main {
   height: 50px;
   z-index: 10;
 }
-/* What the real site sets: keep the app's sticky header clear of the menu button. */
+/* What the real site's page sets: the app's sticky header stops where the site's do. */
 .trainer {
-  --at-sticky-top: 0px;
-}
-@media (max-width: 768px) {
-  .trainer {
-    --at-sticky-top: 84px;
-  }
+  --at-sticky-top: var(--sticky-top);
 }

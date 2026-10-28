@@ -4,7 +4,7 @@
   "description": "Free practice for aptitude tests: verbal reasoning, numerical and spatial.",
   "license": "MIT",
   "author": "Oleg Desantis",
-  "homepage": "https://daowolf.com/aptitude-training",
+  "homepage": "https://daowolf.com/projects/aptitude-training",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dao-wolf/aptitude-training.git"
@@ -43,6 +43,7 @@
     "format:check": "prettier --check .",
     "test": "vitest run",
     "e2e": "playwright test",
+    "e2e:live": "playwright test -c playwright.live.config.ts",
     "check": "pnpm typecheck && pnpm lint && pnpm test && pnpm build && pnpm e2e",
     "docs": "vale README.md CONTRIBUTING.md SECURITY.md docs",
     "mutate": "stryker run",

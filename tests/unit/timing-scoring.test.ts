@@ -131,10 +131,11 @@ describe("score: section averages", () => {
         optionOrder: ["a", "b", "c", "d", "e"],
       })),
     }
-    // Reach v1 (8 s) and m2 (2 s), then finish: v2 and v3 are never reached.
+    // Reach v1 (8 s), m2 (2 s) and v2 (4 s), then finish: v3 is never reached.
     const played = [
       { type: "next", now: 8000 },
-      { type: "finish", now: 10000 },
+      { type: "next", now: 10000 },
+      { type: "finish", now: 14000 },
     ] as const
     const state = played.reduce(
       (s, a) => reduceSession(s, a, "one-way"),
@@ -143,8 +144,8 @@ describe("score: section averages", () => {
     const summary = score(paper, BANK, state)
     expect(summary.byCategory.verbal).toMatchObject({
       total: 3,
-      reached: 1,
-      averageMs: 8000,
+      reached: 2,
+      averageMs: 6000,
     })
     expect(summary.byCategory.maths).toMatchObject({
       total: 1,
@@ -152,7 +153,7 @@ describe("score: section averages", () => {
       averageMs: 2000,
     })
   })
-  it("a section with nothing reached averages zero", () => {
+  it("a section with nothing reached has no average time", () => {
     const paper: Paper = {
       specId: "t",
       seed: 1,
@@ -166,9 +167,10 @@ describe("score: section averages", () => {
       { type: "finish", now: 5000 },
       "one-way"
     )
+    // "0.0s" would read as answered instantly: there's no average to show.
     expect(score(paper, BANK, state).byCategory.maths).toMatchObject({
       reached: 0,
-      averageMs: 0,
+      averageMs: null,
     })
   })
 })
