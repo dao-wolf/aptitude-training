@@ -100,5 +100,6 @@ jobs:
             echo "::error::Tag $TAG doesn't match package.json version $version."
             exit 1
           fi
-      # publishConfig sets public access and signed provenance.
-      - run: npm publish
+      # Staged: the version stays hidden until the maintainer approves it on
+      # npmjs.com with two-factor sign-in. publishConfig sets public access and provenance.
+      - run: npm stage publish
