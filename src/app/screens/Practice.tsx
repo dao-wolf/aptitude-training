@@ -15,14 +15,18 @@ export function Practice({ items, onDone }: Props) {
   const [chosen, setChosen] = useState<OptionId | null>(null)
   const [checked, setChecked] = useState(false)
   const headingRef = useRef<HTMLHeadingElement>(null)
-  const item = items[step]
-
   useEffect(() => headingRef.current?.focus(), [step])
 
+  const item = items[step]
   if (!item) return null
-  const worked = step === 0
+  const { worked, eyebrow, label, stage } = practiceStep(
+    step,
+    items.length,
+    checked
+  )
+  const shown = stage !== "answering"
   const last = step === items.length - 1
-  const order = item.options.map(o => o.id)
+
   const next = () => {
     if (last) return onDone()
     setStep(step + 1)
@@ -32,63 +36,126 @@ export function Practice({ items, onDone }: Props) {
 
   return (
     <div className="at-screen">
-      <p className="at-eyebrow">
-        {worked ? "Worked example" : `Practice ${step} of ${items.length - 1}`}{" "}
-        · not scored
-      </p>
+      <p className="at-eyebrow">{eyebrow} · not scored</p>
       <h1 ref={headingRef} tabIndex={-1} className="at-sr-heading">
-        {worked ? "Worked example" : `Practice question ${step}`}
+        {label}
       </h1>
       <QuestionView
         item={item}
-        optionOrder={order}
+        optionOrder={item.options.map(o => o.id)}
         chosen={worked ? item.answer : chosen}
-        {...(worked || checked ? {} : { onChoose: setChosen })}
-        reveal={worked || checked}
+        {...(shown ? {} : { onChoose: setChosen })}
+        reveal={shown}
       />
-      {(worked || checked) && (
-        <>
-          {!worked && (
-            <p className="at-status" role="status">
-              {chosen === item.answer
-                ? "✓ Correct."
-                : "✗ Not quite. The correct answer is marked."}
-            </p>
-          )}
-          <Explanation item={item} method={METHODS[item.method]} />
-        </>
+      {shown && (
+        <Feedback
+          item={item}
+          worked={worked}
+          correct={chosen === item.answer}
+        />
       )}
-      <div className="at-actions">
-        {!worked && !checked ? (
-          <button
-            type="button"
-            className="at-primary"
-            disabled={!chosen}
-            onClick={() => setChecked(true)}
-          >
-            Check answer
-          </button>
-        ) : (
-          <button type="button" className="at-primary" onClick={next}>
-            {last ? "I'm ready" : "Next practice question"}
-          </button>
-        )}
-        {!worked && checked && chosen !== item.answer && (
-          <button
-            type="button"
-            className="at-secondary"
-            onClick={() => {
-              setChosen(null)
-              setChecked(false)
-            }}
-          >
-            Try again
-          </button>
-        )}
-        <button type="button" className="at-link" onClick={onDone}>
-          Skip practice
+      <PracticeActions
+        stage={stage}
+        canCheck={chosen !== null}
+        wrong={checked && chosen !== item.answer}
+        last={last}
+        onCheck={() => setChecked(true)}
+        onNext={next}
+        onRetry={() => {
+          setChosen(null)
+          setChecked(false)
+        }}
+        onSkip={onDone}
+      />
+    </div>
+  )
+}
+
+/** Step 0 is the worked example; the rest are practice questions. */
+function practiceStep(step: number, total: number, checked: boolean) {
+  if (step === 0)
+    return {
+      worked: true,
+      eyebrow: "Worked example",
+      label: "Worked example",
+      stage: "worked" as const,
+    }
+  return {
+    worked: false,
+    eyebrow: `Practice ${step} of ${total - 1}`,
+    label: `Practice question ${step}`,
+    stage: checked ? ("checked" as const) : ("answering" as const),
+  }
+}
+
+function Feedback({
+  item,
+  worked,
+  correct,
+}: {
+  item: Item
+  worked: boolean
+  correct: boolean
+}) {
+  return (
+    <>
+      {!worked && (
+        <p className="at-status" role="status">
+          {correct
+            ? "✓ Correct."
+            : "✗ Not quite. The correct answer is marked."}
+        </p>
+      )}
+      <Explanation item={item} method={METHODS[item.method]} />
+    </>
+  )
+}
+
+interface ActionProps {
+  stage: "worked" | "answering" | "checked"
+  canCheck: boolean
+  wrong: boolean
+  last: boolean
+  onCheck: () => void
+  onNext: () => void
+  onRetry: () => void
+  onSkip: () => void
+}
+
+function PracticeActions({
+  stage,
+  canCheck,
+  wrong,
+  last,
+  onCheck,
+  onNext,
+  onRetry,
+  onSkip,
+}: ActionProps) {
+  return (
+    <div className="at-actions">
+      {stage === "answering" ? (
+        <button
+          type="button"
+          className="at-primary"
+          disabled={!canCheck}
+          onClick={onCheck}
+        >
+          Check answer
         </button>
-      </div>
+      ) : (
+        <button type="button" className="at-primary" onClick={onNext}>
+          {last ? "I'm ready" : "Next practice question"}
+        </button>
+      )}
+      {wrong && (
+        <button type="button" className="at-secondary" onClick={onRetry}>
+          Try again
+        </button>
+      )}
+      <button type="button" className="at-link" onClick={onSkip}>
+        Skip practice
+      </button>
     </div>
   )
 }

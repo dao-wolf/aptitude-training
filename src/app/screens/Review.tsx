@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react"
-import type { Summary } from "../../domain/scoring"
+import { useEffect, useRef, useState, type Ref } from "react"
+import type { QuestionResult, Summary } from "../../domain/scoring"
 import { METHODS } from "../../content/bank"
 import { Explanation } from "../Explanation"
 import { QuestionView } from "../QuestionView"
@@ -14,6 +14,16 @@ const FILTERS: { id: Filter; label: string }[] = [
   { id: "flagged", label: "Flagged" },
 ]
 
+const FILTER_TEST: Record<
+  Filter,
+  (r: QuestionResult, flagged: boolean) => boolean
+> = {
+  all: () => true,
+  wrong: r => r.chosen !== null && !r.correct,
+  skipped: r => r.chosen === null,
+  flagged: (_r, flagged) => flagged,
+}
+
 interface Props {
   run: Run
   summary: Summary
@@ -26,27 +36,11 @@ export function Review({ run, summary, start, onDone }: Props) {
   const [index, setIndex] = useState(start)
   const headingRef = useRef<HTMLHeadingElement>(null)
 
-  const matches = summary.results
-    .map((r, i) => ({ r, i }))
-    .filter(({ r, i }) =>
-      filter === "all"
-        ? true
-        : filter === "wrong"
-          ? r.chosen !== null && !r.correct
-          : filter === "skipped"
-            ? r.chosen === null
-            : run.session.flags[i]
-    )
-    .map(({ i }) => i)
+  const matches = summary.results.flatMap((r, i) =>
+    FILTER_TEST[filter](r, run.session.flags[i] ?? false) ? [i] : []
+  )
   const current = matches.includes(index) ? index : matches[0]
-  const pos = current === undefined ? -1 : matches.indexOf(current)
-
   useEffect(() => headingRef.current?.focus(), [current])
-
-  const item = current === undefined ? undefined : run.items[current]
-  const question =
-    current === undefined ? undefined : run.paper.questions[current]
-  const result = current === undefined ? undefined : summary.results[current]
 
   return (
     <div className="at-screen">
@@ -65,53 +59,90 @@ export function Review({ run, summary, start, onDone }: Props) {
           </label>
         ))}
       </fieldset>
-
-      {item && question && result && current !== undefined ? (
-        <>
-          <p className="at-eyebrow">
-            Question {current + 1} of {run.items.length} ·{" "}
-            {CATEGORY_LABEL[item.category]} ·{" "}
-            {(result.spentMs / 1000).toFixed(1)}s
-            {result.chosen === null && " · unanswered"}
-          </p>
-          <QuestionView
-            item={item}
-            optionOrder={question.optionOrder}
-            chosen={result.chosen}
-            reveal
-            headingRef={headingRef}
-          />
-          <Explanation item={item} method={METHODS[item.method]} />
-          <div className="at-actions">
-            <button
-              type="button"
-              className="at-secondary"
-              disabled={pos <= 0}
-              onClick={() => setIndex(matches[pos - 1] ?? 0)}
-            >
-              Previous
-            </button>
-            <button
-              type="button"
-              className="at-secondary"
-              disabled={pos >= matches.length - 1}
-              onClick={() => setIndex(matches[pos + 1] ?? 0)}
-            >
-              Next
-            </button>
-            <button type="button" className="at-link" onClick={onDone}>
-              Back to your result
-            </button>
-          </div>
-        </>
+      {current === undefined ? (
+        <p className="at-lead">No questions match.</p>
       ) : (
+        <ReviewQuestion
+          run={run}
+          result={summary.results[current]}
+          index={current}
+          headingRef={headingRef}
+        />
+      )}
+      <ReviewNav
+        matches={matches}
+        current={current}
+        onGo={setIndex}
+        onDone={onDone}
+      />
+    </div>
+  )
+}
+
+interface QuestionProps {
+  run: Run
+  result: QuestionResult | undefined
+  index: number
+  headingRef: Ref<HTMLHeadingElement>
+}
+
+function ReviewQuestion({ run, result, index, headingRef }: QuestionProps) {
+  const item = run.items[index]
+  const question = run.paper.questions[index]
+  if (!item || !question || !result) return null
+  return (
+    <>
+      <p className="at-eyebrow">
+        Question {index + 1} of {run.items.length} ·{" "}
+        {CATEGORY_LABEL[item.category]} · {(result.spentMs / 1000).toFixed(1)}s
+        {result.chosen === null && " · unanswered"}
+      </p>
+      <QuestionView
+        item={item}
+        optionOrder={question.optionOrder}
+        chosen={result.chosen}
+        reveal
+        headingRef={headingRef}
+      />
+      <Explanation item={item} method={METHODS[item.method]} />
+    </>
+  )
+}
+
+interface NavProps {
+  matches: number[]
+  current: number | undefined
+  onGo: (index: number) => void
+  onDone: () => void
+}
+
+function ReviewNav({ matches, current, onGo, onDone }: NavProps) {
+  const pos = current === undefined ? -1 : matches.indexOf(current)
+  return (
+    <div className="at-actions">
+      {pos >= 0 && (
         <>
-          <p className="at-lead">No questions match.</p>
-          <button type="button" className="at-link" onClick={onDone}>
-            Back to your result
+          <button
+            type="button"
+            className="at-secondary"
+            disabled={pos === 0}
+            onClick={() => onGo(matches[pos - 1] ?? 0)}
+          >
+            Previous
+          </button>
+          <button
+            type="button"
+            className="at-secondary"
+            disabled={pos === matches.length - 1}
+            onClick={() => onGo(matches[pos + 1] ?? 0)}
+          >
+            Next
           </button>
         </>
       )}
+      <button type="button" className="at-link" onClick={onDone}>
+        Back to your result
+      </button>
     </div>
   )
 }

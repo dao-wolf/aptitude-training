@@ -94,78 +94,125 @@ export const methodSchema = z
 
 const OPTION_IDS = ["a", "b", "c", "d", "e"]
 
+type ParsedItem = z.infer<typeof itemSchema>
+type Methods = Record<string, z.infer<typeof methodSchema>>
+type Rule = (
+  item: ParsedItem,
+  ctx: { methods: Methods; items: ParsedItem[] }
+) => string[]
+
+// Each rule returns its problems for one item, as plain sentences.
+const RULES: Rule[] = [
+  item => {
+    const ids = item.options.map(o => o.id)
+    return [
+      ...(ids.join() === OPTION_IDS.join()
+        ? []
+        : ["options must be exactly a, b, c, d, e in order"]),
+      ...(ids.includes(item.answer)
+        ? []
+        : ["answer is not one of the options"]),
+    ]
+  },
+  (item, { methods }) => {
+    const method = methods[item.method]
+    if (!method) return [`unknown method "${item.method}"`]
+    return method.id === item.method
+      ? []
+      : [`method "${item.method}" has a different id`]
+  },
+  item => item.options.flatMap(o => optionKindProblems(item.kind, o)),
+  item =>
+    item.stem && item.kind === "text"
+      ? ["only picture questions have a stem"]
+      : [],
+  item => {
+    const keys = item.options.map(optionKey)
+    return new Set(keys).size === keys.length
+      ? []
+      : ["two options are the same"]
+  },
+  item => (item.ordered ? orderedProblems(item) : []),
+  (item, { items }) =>
+    (item.enemies ?? []).flatMap(enemy => enemyProblems(item, enemy, items)),
+]
+
+function optionKindProblems(
+  kind: ParsedItem["kind"],
+  o: ParsedItem["options"][number]
+): string[] {
+  const problems: string[] = []
+  if (kind === "text" && (o.text === undefined || o.visual !== undefined))
+    problems.push(`option ${o.id} must be text only`)
+  if (kind === "visual" && (o.visual === undefined || o.text !== undefined))
+    problems.push(`option ${o.id} must be a picture only`)
+  if (o.visual?.kind === "q")
+    problems.push(`option ${o.id} can't be a question mark`)
+  return problems
+}
+
+function orderedProblems(item: ParsedItem): string[] {
+  if (item.kind !== "text") return ["only text options can be ordered"]
+  const nums = item.options.map(o => toNumber(o.text ?? ""))
+  if (nums.some(n => n === null)) return ["ordered options must all be numbers"]
+  const ascending = nums.every(
+    (n, i) => i === 0 || (n as number) >= (nums[i - 1] as number)
+  )
+  return ascending ? [] : ["ordered options must run from smallest to largest"]
+}
+
+function enemyProblems(
+  item: ParsedItem,
+  enemy: string,
+  items: ParsedItem[]
+): string[] {
+  const other = items.find(v => v.id === enemy)
+  if (!other) return [`enemy ${enemy} doesn't exist`]
+  return (other.enemies ?? []).includes(item.id)
+    ? []
+    : [`enemy ${enemy} doesn't list ${item.id} back`]
+}
+
+/** Parse each item on its own, so one bad item doesn't hide the others. */
+function parseItems(raw: unknown[]): {
+  items: ParsedItem[]
+  problems: string[]
+} {
+  const items: ParsedItem[] = []
+  const problems: string[] = []
+  raw.forEach((value, i) => {
+    const r = itemSchema.safeParse(value)
+    if (r.success) items.push(r.data)
+    else
+      problems.push(
+        `item ${i}: ${r.error.issues[0]?.path.join(".")} ${r.error.issues[0]?.message}`
+      )
+  })
+  return { items, problems }
+}
+
+function duplicateIds(items: ParsedItem[]): string[] {
+  const counts = new Map<string, number>()
+  for (const item of items) counts.set(item.id, (counts.get(item.id) ?? 0) + 1)
+  return [...counts]
+    .filter(([, n]) => n > 1)
+    .map(([id, n]) => `${id}: id used ${n} times`)
+}
+
 /** Every problem in the bank, as plain sentences. An empty list means it's fine. */
 export function validateBank(items: unknown, methods: unknown): string[] {
-  const problems: string[] = []
   const parsedMethods = z.record(z.string(), methodSchema).safeParse(methods)
   if (!parsedMethods.success)
     return [`methods: ${parsedMethods.error.issues[0]?.message}`]
-  const parsedItems = z.array(z.unknown()).safeParse(items)
-  if (!parsedItems.success) return ["items: not a list"]
+  const list = z.array(z.unknown()).safeParse(items)
+  if (!list.success) return ["items: not a list"]
 
-  const ids = new Map<string, number>()
-  const valid: z.infer<typeof itemSchema>[] = []
-  parsedItems.data.forEach((raw, i) => {
-    const r = itemSchema.safeParse(raw)
-    if (!r.success) {
-      const issue = r.error.issues[0]
-      problems.push(`item ${i}: ${issue?.path.join(".")} ${issue?.message}`)
-      return
-    }
-    valid.push(r.data)
-    ids.set(r.data.id, (ids.get(r.data.id) ?? 0) + 1)
-  })
-
-  for (const [id, count] of ids)
-    if (count > 1) problems.push(`${id}: id used ${count} times`)
-
-  for (const item of valid) {
-    const p = (msg: string) => problems.push(`${item.id}: ${msg}`)
-    const optIds = item.options.map(o => o.id)
-    if (optIds.join() !== OPTION_IDS.join())
-      p("options must be exactly a, b, c, d, e in order")
-    if (!optIds.includes(item.answer)) p("answer is not one of the options")
-    if (!(item.method in parsedMethods.data))
-      p(`unknown method "${item.method}"`)
-    if (
-      parsedMethods.data[item.method] &&
-      parsedMethods.data[item.method]?.id !== item.method
-    ) {
-      p(`method "${item.method}" has a different id`)
-    }
-
-    const isText = item.kind === "text"
-    for (const o of item.options) {
-      if (isText && (o.text === undefined || o.visual !== undefined))
-        p(`option ${o.id} must be text only`)
-      if (!isText && (o.visual === undefined || o.text !== undefined))
-        p(`option ${o.id} must be a picture only`)
-      if (o.visual?.kind === "q") p(`option ${o.id} can't be a question mark`)
-    }
-    if (item.stem && isText) p("only picture questions have a stem")
-
-    const keys = item.options.map(optionKey)
-    if (new Set(keys).size !== keys.length) p("two options are the same")
-
-    if (item.ordered) {
-      if (!isText) p("only text options can be ordered")
-      const nums = item.options.map(o => toNumber(o.text ?? ""))
-      if (nums.some(n => n === null)) p("ordered options must all be numbers")
-      else if (
-        nums.some((n, i) => i > 0 && (n as number) < (nums[i - 1] as number))
-      ) {
-        p("ordered options must run from smallest to largest")
-      }
-    }
-
-    for (const enemy of item.enemies ?? []) {
-      const other = valid.find(v => v.id === enemy)
-      if (!other) p(`enemy ${enemy} doesn't exist`)
-      else if (!(other.enemies ?? []).includes(item.id))
-        p(`enemy ${enemy} doesn't list ${item.id} back`)
-    }
-  }
-  return problems
+  const parsed = parseItems(list.data)
+  const ctx = { methods: parsedMethods.data, items: parsed.items }
+  const itemProblems = parsed.items.flatMap(item =>
+    RULES.flatMap(rule => rule(item, ctx)).map(p => `${item.id}: ${p}`)
+  )
+  return [...parsed.problems, ...duplicateIds(parsed.items), ...itemProblems]
 }
 
 function optionKey(o: { text?: string | undefined; visual?: unknown }): string {

@@ -35,6 +35,12 @@ export default tseslint.config(
       "no-new-func": "error",
       // Lists here are static content that never reorders, so index keys are right.
       "@eslint-react/no-array-index-key": "off",
+      // Same limits as CodeScene's code health checks, so they fail here first.
+      complexity: ["error", 9],
+      "max-lines-per-function": [
+        "error",
+        { max: 120, skipBlankLines: true, skipComments: true },
+      ],
       // A strict CSP blocks inline style attributes: all styling lives in the stylesheet.
       "no-restricted-syntax": [
         "error",
@@ -48,5 +54,6 @@ export default tseslint.config(
   {
     files: ["tests/**/*.{ts,mjs}", "*.config.{ts,js}"],
     languageOptions: { globals: globals.node },
+    rules: { complexity: ["error", 8] },
   }
 )

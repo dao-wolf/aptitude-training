@@ -33,6 +33,22 @@ async function expectFitsAndTappable(page: Page, screen: string) {
   expect(small, `${screen}: controls under 44 px`).toEqual([])
 }
 
+/** Answer through the paper until both a text and a picture question have been checked. */
+async function checkBothQuestionKinds(page: Page) {
+  const seen = new Set<string>()
+  for (let i = 0; i < 50 && seen.size < 2; i++) {
+    const kind =
+      (await page.locator(".at-options-visual").count()) > 0
+        ? "picture question"
+        : "text question"
+    if (!seen.has(kind)) await expectFitsAndTappable(page, kind)
+    seen.add(kind)
+    await page.getByRole("radio").first().tap()
+    await page.getByRole("button", { name: /^(Next|Skip)$/ }).tap()
+  }
+  expect([...seen].sort()).toEqual(["picture question", "text question"])
+}
+
 test("every screen fits a 320 px phone and every control is tappable", async ({
   page,
 }) => {
@@ -50,22 +66,7 @@ test("every screen fits a 320 px phone and every control is tappable", async ({
   await page.getByRole("button", { name: "Skip practice" }).click()
   await page.getByRole("button", { name: "Start" }).click()
 
-  let sawText = false
-  let sawPictures = false
-  for (let i = 0; i < 50 && !(sawText && sawPictures); i++) {
-    const pictures = (await page.locator(".at-options-visual").count()) > 0
-    if (pictures && !sawPictures) {
-      await expectFitsAndTappable(page, "picture question")
-      sawPictures = true
-    }
-    if (!pictures && !sawText) {
-      await expectFitsAndTappable(page, "text question")
-      sawText = true
-    }
-    await page.getByRole("radio").first().tap()
-    await page.getByRole("button", { name: /^(Next|Skip)$/ }).tap()
-  }
-  expect(sawText && sawPictures).toBe(true)
+  await checkBothQuestionKinds(page)
 
   await page.getByRole("button", { name: "End test" }).tap()
   await page.getByRole("button", { name: "Finish" }).tap()

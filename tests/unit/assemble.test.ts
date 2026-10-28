@@ -86,11 +86,15 @@ describe("assemblePaper", () => {
     const greedy = { ...MIXED_SPRINT, blueprint: { verbal: 99 } }
     expect(() => build(1, [], greedy)).toThrow(/Not enough verbal/)
   })
+})
 
-  it("ignores questions that aren't live", () => {
-    const bank = BANK.map(i =>
-      i.id === "s1" ? { ...i, status: "draft" as const } : i
-    )
+describe("left off every paper", () => {
+  const variants: [string, (item: Item) => Item][] = [
+    ["a question that isn't live", item => ({ ...item, status: "draft" })],
+    ["a practice question", item => ({ ...item, practice: true })],
+  ]
+  it.each(variants)("%s", (_name, change) => {
+    const bank = BANK.map(i => (i.id === "s1" ? change(i) : i))
     fc.assert(
       fc.property(fc.integer(), seed => {
         const p = assemblePaper({
@@ -100,24 +104,6 @@ describe("assemblePaper", () => {
           rng: mulberry32(seed),
         })
         expect(p.questions.map(q => q.itemId)).not.toContain("s1")
-      }),
-      { numRuns: 20 }
-    )
-  })
-})
-
-describe("practice questions", () => {
-  it("never appear on a paper", () => {
-    const bank = [...BANK, { ...(BANK[0] as Item), id: "pzz", practice: true }]
-    fc.assert(
-      fc.property(fc.integer(), seed => {
-        const p = assemblePaper({
-          spec: MIXED_SPRINT,
-          bank,
-          seed,
-          rng: mulberry32(seed),
-        })
-        expect(p.questions.map(q => q.itemId)).not.toContain("pzz")
       }),
       { numRuns: 20 }
     )
