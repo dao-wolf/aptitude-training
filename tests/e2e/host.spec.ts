@@ -87,6 +87,34 @@ test("moving on quickly still shows the whole question", async ({ page }) => {
   }
 })
 
+test("a scroll already running doesn't carry the next question away", async ({
+  page,
+}) => {
+  await openHost(page)
+  await startSprint(page)
+  // A keyboard user moves on while the page is still smooth-scrolling down.
+  await page.getByRole("button", { name: /^(Next|Skip)$/ }).focus()
+  await page.evaluate(() =>
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    })
+  )
+  await page.keyboard.press("Enter")
+  await expect(page.locator(".at-count")).toHaveText("Question 2 of 50")
+  // Let any scroll finish before looking.
+  let last = -1
+  await expect
+    .poll(async () => {
+      const y = await page.evaluate(() => window.scrollY)
+      const settled = y === last
+      last = y
+      return settled
+    })
+    .toBe(true)
+  await expectQuestionInView(page)
+})
+
 test("a double-click on Next moves one question and answers nothing", async ({
   page,
 }) => {

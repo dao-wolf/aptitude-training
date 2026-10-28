@@ -42,9 +42,17 @@ export function useRevealOnChange(
     el.focus({ preventScroll: true })
     const margin = parseFloat(getComputedStyle(el).scrollMarginTop) || 0
     const r = el.getBoundingClientRect()
-    if (r.top < margin || r.bottom > window.innerHeight)
-      el.scrollIntoView({ block: "start", behavior: "instant" })
+    if (r.top < margin || r.bottom > window.innerHeight) scrollToTop(el)
   }, [ref, key])
+}
+
+function scrollToTop(el: HTMLElement) {
+  try {
+    el.scrollIntoView({ block: "start", behavior: "instant" })
+  } catch {
+    // A browser that predates "instant" rejects the option: scroll anyway.
+    el.scrollIntoView(true)
+  }
 }
 
 /** True once the element has scrolled fully out of the viewport. */
