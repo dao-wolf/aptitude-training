@@ -2,8 +2,9 @@ import { defineConfig, devices } from "@playwright/test"
 
 // The live check: tests/live against the real site page after a deploy.
 //   pnpm e2e:live                                        daowolf.com
-//   LIVE_URL=http://localhost:4324/aptitude-training/ pnpm e2e:live   a local site build
-const url = process.env.LIVE_URL ?? "https://daowolf.com/aptitude-training/"
+//   LIVE_URL=http://localhost:4324/projects/aptitude-training/ pnpm e2e:live   a local site build
+const url =
+  process.env.LIVE_URL ?? "https://daowolf.com/projects/aptitude-training/"
 
 export default defineConfig({
   testDir: "tests/live",
