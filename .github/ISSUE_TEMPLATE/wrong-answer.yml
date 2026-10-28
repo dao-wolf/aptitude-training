@@ -1,0 +1,24 @@
+name: Report a wrong answer
+description: A question's marked answer looks wrong, or more than one answer could be right.
+labels: ["question-content"]
+body:
+  - type: input
+    id: question
+    attributes:
+      label: Question
+      description: Paste the question text, or its id from the review screen.
+    validations:
+      required: true
+  - type: input
+    id: marked
+    attributes:
+      label: Answer the app marked as right
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why you think it's wrong
+      description: Your working, in a line or two.
+    validations:
+      required: true

@@ -1,0 +1,46 @@
+/* Theme hooks: the host page maps these to its own tokens. */
+:host {
+  --at-bg: #0f172a;
+  --at-surface: #1e293b;
+  --at-text: #f1f5f9;
+  --at-muted: #cbd5e1;
+  --at-accent: #7dd3fc;
+  --at-accent-text: #0f172a;
+  --at-border: #64748b;
+  --at-radius: 12px;
+  --at-font: system-ui, sans-serif;
+
+  display: block;
+  color: var(--at-text);
+  background: var(--at-bg);
+  font-family: var(--at-font);
+}
+
+.at-app {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+.at-option {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  min-height: 44px;
+}
+
+.at-next {
+  min-height: 44px;
+  padding: 0 1.5rem;
+  border: 0;
+  border-radius: var(--at-radius);
+  background: var(--at-accent);
+  color: var(--at-accent-text);
+  font: inherit;
+  font-weight: 600;
+}
+
+:focus-visible {
+  outline: 3px solid var(--at-accent);
+  outline-offset: 2px;
+}

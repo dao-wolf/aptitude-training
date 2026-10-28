@@ -1,0 +1,50 @@
+# Aptitude Training
+
+Free practice for aptitude tests: verbal reasoning, numerical and spatial.
+Timed like the real thing, with a worked explanation for every question.
+
+**Try it:** [daowolf.com/aptitude-training](https://daowolf.com/aptitude-training) (launching soon)
+
+> Practice only. All questions are original. Your score here doesn't predict
+> your result on any real test, and there's no percentile, because the questions
+> aren't compared against a group of test-takers.
+
+## What you get
+
+- A timed 50-question mixed test, and short drills by section
+- Time presets: standard, +25%, +50%, +100% or no clock
+- A worked explanation and a common trap for every question
+- No account, no tracking, no adverts
+
+## Use it on your own page
+
+```html
+<script type="module" src="aptitude-training.js"></script>
+<aptitude-training></aptitude-training>
+```
+
+Keep `aptitude-training.css` next to the script. Take both files from a
+[release](https://github.com/dao-wolf/aptitude-training/releases). GitHub signs
+each release, so you can check where it came from.
+
+## Develop
+
+You need Node 22 or later and pnpm 10.
+
+```sh
+pnpm install
+pnpm dev     # local page
+pnpm check   # everything CI runs
+```
+
+## How it's tested
+
+- **Journeys:** Playwright runs each user journey against the built element,
+  under a strict security policy, with axe checking accessibility.
+- **Logic:** unit and property tests on the pure code that builds papers and scores them.
+- **Mutation testing:** Stryker changes that code on purpose; the tests must notice.
+- **Security:** lint rules, hostile-input tests, dependency checks and code scanning.
+
+## Licence
+
+Code: [MIT](LICENSE). Questions: [CC BY 4.0](content/LICENSE.md).

@@ -1,0 +1,11 @@
+# Project settings for pnpm (a single package, not a workspace).
+
+# Refuse package versions published less than a day ago (in minutes), so a
+# compromised release is likely to be caught and pulled first.
+minimumReleaseAge: 1440
+
+# Install scripts run only for packages listed here; any other package that
+# wants one fails the install, so nothing runs unreviewed.
+strictDepBuilds: true
+onlyBuiltDependencies:
+  - esbuild
