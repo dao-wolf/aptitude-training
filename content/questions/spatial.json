@@ -1,0 +1,2391 @@
+[
+  {
+    "id": "s1",
+    "category": "spatial",
+    "method": "rotation",
+    "kind": "visual",
+    "prompt": "Which figure comes next in the series?",
+    "stem": [
+      {
+        "kind": "fig",
+        "fig": "flag",
+        "rot": 0,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "fig",
+        "fig": "flag",
+        "rot": 90,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "fig",
+        "fig": "flag",
+        "rot": 180,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "q"
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 270,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 90,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 180,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 0,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 270,
+          "flip": true,
+          "hollow": false
+        }
+      }
+    ],
+    "answer": "a",
+    "explanation": {
+      "why": "The figure turns 90° clockwise at each step, so the next one is a further 90° turn.",
+      "rows": [
+        {
+          "label": "watch",
+          "cells": ["the flag's triangle"]
+        },
+        {
+          "label": "each step",
+          "cells": ["90° clockwise", "90° clockwise", "90° clockwise", "answer"]
+        }
+      ],
+      "steps": ["Track one feature, never the whole shape."],
+      "trap": "Mirrored options put the landmark on the wrong side."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s2",
+    "category": "spatial",
+    "method": "rotation",
+    "kind": "visual",
+    "prompt": "Which figure comes next in the series?",
+    "stem": [
+      {
+        "kind": "fig",
+        "fig": "ell",
+        "rot": 0,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "fig",
+        "fig": "ell",
+        "rot": 90,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "fig",
+        "fig": "ell",
+        "rot": 180,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "q"
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "fig",
+          "fig": "ell",
+          "rot": 270,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "fig",
+          "fig": "ell",
+          "rot": 90,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "fig",
+          "fig": "ell",
+          "rot": 180,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "fig",
+          "fig": "ell",
+          "rot": 0,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "fig",
+          "fig": "ell",
+          "rot": 270,
+          "flip": true,
+          "hollow": false
+        }
+      }
+    ],
+    "answer": "a",
+    "explanation": {
+      "why": "The figure turns 90° clockwise at each step, so the next one is a further 90° turn.",
+      "rows": [
+        {
+          "label": "watch",
+          "cells": ["the foot of the L"]
+        },
+        {
+          "label": "each step",
+          "cells": ["90° clockwise", "90° clockwise", "90° clockwise", "answer"]
+        }
+      ],
+      "steps": ["Track one feature, never the whole shape."],
+      "trap": "Mirrored options put the landmark on the wrong side."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s3",
+    "category": "spatial",
+    "method": "rotation",
+    "kind": "visual",
+    "prompt": "Which figure comes next in the series?",
+    "stem": [
+      {
+        "kind": "fig",
+        "fig": "arrowTab",
+        "rot": 0,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "fig",
+        "fig": "arrowTab",
+        "rot": 45,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "fig",
+        "fig": "arrowTab",
+        "rot": 90,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "q"
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "fig",
+          "fig": "arrowTab",
+          "rot": 135,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "fig",
+          "fig": "arrowTab",
+          "rot": 45,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "fig",
+          "fig": "arrowTab",
+          "rot": 90,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "fig",
+          "fig": "arrowTab",
+          "rot": 180,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "fig",
+          "fig": "arrowTab",
+          "rot": 135,
+          "flip": true,
+          "hollow": false
+        }
+      }
+    ],
+    "answer": "a",
+    "explanation": {
+      "why": "The figure turns 45° clockwise at each step, so the next one is a further 45° turn.",
+      "rows": [
+        {
+          "label": "watch",
+          "cells": ["the tab on the arrow"]
+        },
+        {
+          "label": "each step",
+          "cells": ["45° clockwise", "45° clockwise", "45° clockwise", "answer"]
+        }
+      ],
+      "steps": ["Track one feature, never the whole shape."],
+      "trap": "Mirrored options put the landmark on the wrong side."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s4",
+    "category": "spatial",
+    "method": "rotation",
+    "kind": "visual",
+    "prompt": "Which figure comes next in the series?",
+    "stem": [
+      {
+        "kind": "fig",
+        "fig": "stairs",
+        "rot": 0,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "fig",
+        "fig": "stairs",
+        "rot": 270,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "fig",
+        "fig": "stairs",
+        "rot": 180,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "q"
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "fig",
+          "fig": "stairs",
+          "rot": 90,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "fig",
+          "fig": "stairs",
+          "rot": 270,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "fig",
+          "fig": "stairs",
+          "rot": 180,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "fig",
+          "fig": "stairs",
+          "rot": 0,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "fig",
+          "fig": "stairs",
+          "rot": 135,
+          "flip": false,
+          "hollow": false
+        }
+      }
+    ],
+    "answer": "a",
+    "explanation": {
+      "why": "The figure turns 90° anticlockwise at each step, so the next one is a further 90° turn.",
+      "rows": [
+        {
+          "label": "watch",
+          "cells": ["the tall step"]
+        },
+        {
+          "label": "each step",
+          "cells": [
+            "90° anticlockwise",
+            "90° anticlockwise",
+            "90° anticlockwise",
+            "answer"
+          ]
+        }
+      ],
+      "steps": ["Track one feature, never the whole shape."],
+      "trap": "Mirrored options put the landmark on the wrong side."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s5",
+    "category": "spatial",
+    "method": "rotation",
+    "kind": "visual",
+    "prompt": "Which figure comes next in the series?",
+    "stem": [
+      {
+        "kind": "fig",
+        "fig": "tee",
+        "rot": 0,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "fig",
+        "fig": "tee",
+        "rot": 90,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "fig",
+        "fig": "tee",
+        "rot": 180,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "q"
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "fig",
+          "fig": "tee",
+          "rot": 270,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "fig",
+          "fig": "tee",
+          "rot": 90,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "fig",
+          "fig": "tee",
+          "rot": 180,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "fig",
+          "fig": "tee",
+          "rot": 0,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "fig",
+          "fig": "tee",
+          "rot": 315,
+          "flip": false,
+          "hollow": false
+        }
+      }
+    ],
+    "answer": "a",
+    "explanation": {
+      "why": "The figure turns 90° clockwise at each step, so the next one is a further 90° turn.",
+      "rows": [
+        {
+          "label": "watch",
+          "cells": ["the stem of the T"]
+        },
+        {
+          "label": "each step",
+          "cells": ["90° clockwise", "90° clockwise", "90° clockwise", "answer"]
+        }
+      ],
+      "steps": ["Track one feature, never the whole shape."],
+      "trap": "Mirrored options put the landmark on the wrong side."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s6",
+    "category": "spatial",
+    "method": "rotation",
+    "kind": "visual",
+    "prompt": "Which figure comes next in the series?",
+    "stem": [
+      {
+        "kind": "fig",
+        "fig": "notch",
+        "rot": 0,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "fig",
+        "fig": "notch",
+        "rot": 270,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "fig",
+        "fig": "notch",
+        "rot": 180,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "q"
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "fig",
+          "fig": "notch",
+          "rot": 90,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "fig",
+          "fig": "notch",
+          "rot": 270,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "fig",
+          "fig": "notch",
+          "rot": 180,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "fig",
+          "fig": "notch",
+          "rot": 0,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "fig",
+          "fig": "notch",
+          "rot": 90,
+          "flip": true,
+          "hollow": false
+        }
+      }
+    ],
+    "answer": "a",
+    "explanation": {
+      "why": "The figure turns 90° anticlockwise at each step, so the next one is a further 90° turn.",
+      "rows": [
+        {
+          "label": "watch",
+          "cells": ["the bite in the bottom edge"]
+        },
+        {
+          "label": "each step",
+          "cells": [
+            "90° anticlockwise",
+            "90° anticlockwise",
+            "90° anticlockwise",
+            "answer"
+          ]
+        }
+      ],
+      "steps": ["Track one feature, never the whole shape."],
+      "trap": "Mirrored options put the landmark on the wrong side."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s7",
+    "category": "spatial",
+    "method": "mirror",
+    "kind": "visual",
+    "prompt": "Four of these figures are the same shape turned round. Which one is different?",
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 0,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 90,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 270,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 180,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 90,
+          "flip": true,
+          "hollow": false
+        }
+      }
+    ],
+    "answer": "e",
+    "explanation": {
+      "why": "Four figures are rotations of each other. The odd one is a mirror image, which no amount of turning can produce.",
+      "rows": [
+        {
+          "label": "watch",
+          "cells": ["the flag's triangle"]
+        },
+        {
+          "label": "turn",
+          "cells": ["keeps it on the same side"]
+        },
+        {
+          "label": "flip",
+          "cells": ["swaps it to the other side"]
+        }
+      ],
+      "steps": ["Ask which side it sits on. That is the whole question."],
+      "trap": "Four are rotations. One is flipped."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s8",
+    "category": "spatial",
+    "method": "mirror",
+    "kind": "visual",
+    "prompt": "Four of these figures are the same shape turned round. Which one is different?",
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "fig",
+          "fig": "ell",
+          "rot": 0,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "fig",
+          "fig": "ell",
+          "rot": 90,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "fig",
+          "fig": "ell",
+          "rot": 270,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "fig",
+          "fig": "ell",
+          "rot": 180,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "fig",
+          "fig": "ell",
+          "rot": 90,
+          "flip": true,
+          "hollow": false
+        }
+      }
+    ],
+    "answer": "e",
+    "explanation": {
+      "why": "Four figures are rotations of each other. The odd one is a mirror image, which no amount of turning can produce.",
+      "rows": [
+        {
+          "label": "watch",
+          "cells": ["the foot of the L"]
+        },
+        {
+          "label": "turn",
+          "cells": ["keeps it on the same side"]
+        },
+        {
+          "label": "flip",
+          "cells": ["swaps it to the other side"]
+        }
+      ],
+      "steps": ["Ask which side it sits on. That is the whole question."],
+      "trap": "Four are rotations. One is flipped."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s9",
+    "category": "spatial",
+    "method": "mirror",
+    "kind": "visual",
+    "prompt": "Four of these figures are the same shape turned round. Which one is different?",
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "fig",
+          "fig": "arrowTab",
+          "rot": 0,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "fig",
+          "fig": "arrowTab",
+          "rot": 90,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "fig",
+          "fig": "arrowTab",
+          "rot": 270,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "fig",
+          "fig": "arrowTab",
+          "rot": 180,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "fig",
+          "fig": "arrowTab",
+          "rot": 90,
+          "flip": true,
+          "hollow": false
+        }
+      }
+    ],
+    "answer": "e",
+    "explanation": {
+      "why": "Four figures are rotations of each other. The odd one is a mirror image, which no amount of turning can produce.",
+      "rows": [
+        {
+          "label": "watch",
+          "cells": ["the tab on the arrow"]
+        },
+        {
+          "label": "turn",
+          "cells": ["keeps it on the same side"]
+        },
+        {
+          "label": "flip",
+          "cells": ["swaps it to the other side"]
+        }
+      ],
+      "steps": ["Ask which side it sits on. That is the whole question."],
+      "trap": "Four are rotations. One is flipped."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s10",
+    "category": "spatial",
+    "method": "mirror",
+    "kind": "visual",
+    "prompt": "Four of these figures are the same shape turned round. Which one is different?",
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "fig",
+          "fig": "notch",
+          "rot": 0,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "fig",
+          "fig": "notch",
+          "rot": 90,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "fig",
+          "fig": "notch",
+          "rot": 270,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "fig",
+          "fig": "notch",
+          "rot": 180,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "fig",
+          "fig": "notch",
+          "rot": 90,
+          "flip": true,
+          "hollow": false
+        }
+      }
+    ],
+    "answer": "e",
+    "explanation": {
+      "why": "Four figures are rotations of each other. The odd one is a mirror image, which no amount of turning can produce.",
+      "rows": [
+        {
+          "label": "watch",
+          "cells": ["the bite in the bottom edge"]
+        },
+        {
+          "label": "turn",
+          "cells": ["keeps it on the same side"]
+        },
+        {
+          "label": "flip",
+          "cells": ["swaps it to the other side"]
+        }
+      ],
+      "steps": ["Ask which side it sits on. That is the whole question."],
+      "trap": "Four are rotations. One is flipped."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s11",
+    "category": "spatial",
+    "method": "figanalogy",
+    "kind": "visual",
+    "prompt": "The first two figures are related in a certain way. Choose the figure that completes the second pair.",
+    "stem": [
+      {
+        "kind": "fig",
+        "fig": "flag",
+        "rot": 0,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "sym",
+        "v": "→"
+      },
+      {
+        "kind": "fig",
+        "fig": "flag",
+        "rot": 90,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "sym",
+        "v": "::"
+      },
+      {
+        "kind": "fig",
+        "fig": "ell",
+        "rot": 0,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "sym",
+        "v": "→"
+      },
+      {
+        "kind": "q"
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "fig",
+          "fig": "ell",
+          "rot": 90,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "fig",
+          "fig": "ell",
+          "rot": 180,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "fig",
+          "fig": "ell",
+          "rot": 270,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "fig",
+          "fig": "ell",
+          "rot": 90,
+          "flip": true,
+          "hollow": false
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "fig",
+          "fig": "ell",
+          "rot": 270,
+          "flip": true,
+          "hollow": false
+        }
+      }
+    ],
+    "answer": "a",
+    "explanation": {
+      "why": "The first figure turns 90° clockwise. Apply the same turn to the third figure.",
+      "rows": [
+        {
+          "label": "pair 1",
+          "cells": ["turn 90° clockwise"]
+        },
+        {
+          "label": "pair 2",
+          "cells": ["turn 90° clockwise"]
+        },
+        {
+          "label": "watch",
+          "cells": ["the foot of the L"]
+        }
+      ],
+      "steps": ["Name the change before reading the options."],
+      "trap": "Most options are the right shape at the wrong angle."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s12",
+    "category": "spatial",
+    "method": "figanalogy",
+    "kind": "visual",
+    "prompt": "The first two figures are related in a certain way. Choose the figure that completes the second pair.",
+    "stem": [
+      {
+        "kind": "fig",
+        "fig": "ell",
+        "rot": 0,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "sym",
+        "v": "→"
+      },
+      {
+        "kind": "fig",
+        "fig": "ell",
+        "rot": 270,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "sym",
+        "v": "::"
+      },
+      {
+        "kind": "fig",
+        "fig": "notch",
+        "rot": 0,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "sym",
+        "v": "→"
+      },
+      {
+        "kind": "q"
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "fig",
+          "fig": "notch",
+          "rot": 270,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "fig",
+          "fig": "notch",
+          "rot": 0,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "fig",
+          "fig": "notch",
+          "rot": 90,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "fig",
+          "fig": "notch",
+          "rot": 270,
+          "flip": true,
+          "hollow": false
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "fig",
+          "fig": "notch",
+          "rot": 90,
+          "flip": true,
+          "hollow": false
+        }
+      }
+    ],
+    "answer": "a",
+    "explanation": {
+      "why": "The first figure turns 270° clockwise. Apply the same turn to the third figure.",
+      "rows": [
+        {
+          "label": "pair 1",
+          "cells": ["turn 270° clockwise"]
+        },
+        {
+          "label": "pair 2",
+          "cells": ["turn 270° clockwise"]
+        },
+        {
+          "label": "watch",
+          "cells": ["the bite in the bottom edge"]
+        }
+      ],
+      "steps": ["Name the change before reading the options."],
+      "trap": "Most options are the right shape at the wrong angle."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s13",
+    "category": "spatial",
+    "method": "figanalogy",
+    "kind": "visual",
+    "prompt": "The first two figures are related in a certain way. Choose the figure that completes the second pair.",
+    "stem": [
+      {
+        "kind": "fig",
+        "fig": "arrowTab",
+        "rot": 0,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "sym",
+        "v": "→"
+      },
+      {
+        "kind": "fig",
+        "fig": "arrowTab",
+        "rot": 0,
+        "flip": true,
+        "hollow": false
+      },
+      {
+        "kind": "sym",
+        "v": "::"
+      },
+      {
+        "kind": "fig",
+        "fig": "flag",
+        "rot": 0,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "sym",
+        "v": "→"
+      },
+      {
+        "kind": "q"
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 0,
+          "flip": true,
+          "hollow": false
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 180,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 90,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 180,
+          "flip": true,
+          "hollow": false
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 270,
+          "flip": false,
+          "hollow": false
+        }
+      }
+    ],
+    "answer": "a",
+    "explanation": {
+      "why": "The first figure is flipped left-to-right, not turned. Apply the same flip to the third figure.",
+      "rows": [
+        {
+          "label": "pair 1",
+          "cells": ["flip left to right"]
+        },
+        {
+          "label": "pair 2",
+          "cells": ["flip left to right"]
+        },
+        {
+          "label": "watch",
+          "cells": ["the flag's triangle"]
+        }
+      ],
+      "steps": ["A turn keeps handedness. A flip reverses it."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s14",
+    "category": "spatial",
+    "method": "mirror",
+    "kind": "visual",
+    "prompt": "Which figure is the mirror image of the figure shown, reflected left to right?",
+    "stem": [
+      {
+        "kind": "fig",
+        "fig": "arrowTab",
+        "rot": 0,
+        "flip": false,
+        "hollow": false
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "fig",
+          "fig": "arrowTab",
+          "rot": 0,
+          "flip": true,
+          "hollow": false
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "fig",
+          "fig": "arrowTab",
+          "rot": 180,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "fig",
+          "fig": "arrowTab",
+          "rot": 90,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "fig",
+          "fig": "arrowTab",
+          "rot": 180,
+          "flip": true,
+          "hollow": false
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "fig",
+          "fig": "arrowTab",
+          "rot": 270,
+          "flip": false,
+          "hollow": false
+        }
+      }
+    ],
+    "answer": "a",
+    "explanation": {
+      "why": "A left-to-right reflection swaps the sides without turning the figure. The other options are rotations.",
+      "rows": [
+        {
+          "label": "watch",
+          "cells": ["the tab on the arrow"]
+        },
+        {
+          "label": "flip",
+          "cells": ["right becomes left"]
+        },
+        {
+          "label": "but",
+          "cells": ["top stays top"]
+        }
+      ],
+      "steps": ["Top stays top rules out every rotation."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s15",
+    "category": "spatial",
+    "method": "mirror",
+    "kind": "visual",
+    "prompt": "Which figure is the mirror image of the figure shown, reflected left to right?",
+    "stem": [
+      {
+        "kind": "fig",
+        "fig": "notch",
+        "rot": 0,
+        "flip": false,
+        "hollow": false
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "fig",
+          "fig": "notch",
+          "rot": 0,
+          "flip": true,
+          "hollow": false
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "fig",
+          "fig": "notch",
+          "rot": 180,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "fig",
+          "fig": "notch",
+          "rot": 90,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "fig",
+          "fig": "notch",
+          "rot": 180,
+          "flip": true,
+          "hollow": false
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "fig",
+          "fig": "notch",
+          "rot": 270,
+          "flip": false,
+          "hollow": false
+        }
+      }
+    ],
+    "answer": "a",
+    "explanation": {
+      "why": "A left-to-right reflection swaps the sides without turning the figure. The other options are rotations.",
+      "rows": [
+        {
+          "label": "watch",
+          "cells": ["the bite in the bottom edge"]
+        },
+        {
+          "label": "flip",
+          "cells": ["right becomes left"]
+        },
+        {
+          "label": "but",
+          "cells": ["top stays top"]
+        }
+      ],
+      "steps": ["Top stays top rules out every rotation."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s16",
+    "category": "spatial",
+    "method": "rotation",
+    "kind": "visual",
+    "prompt": "Which figure comes next in the series?",
+    "stem": [
+      {
+        "kind": "fig",
+        "fig": "flag",
+        "rot": 0,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "fig",
+        "fig": "flag",
+        "rot": 90,
+        "flip": false,
+        "hollow": true
+      },
+      {
+        "kind": "fig",
+        "fig": "flag",
+        "rot": 180,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "q"
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 270,
+          "flip": false,
+          "hollow": true
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 270,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 0,
+          "flip": false,
+          "hollow": true
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 270,
+          "flip": true,
+          "hollow": true
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 90,
+          "flip": false,
+          "hollow": true
+        }
+      }
+    ],
+    "answer": "a",
+    "explanation": {
+      "why": "Two things change together: the figure turns 90° clockwise each step, and the shading alternates solid, outline, solid. Next is a 270° turn, outlined.",
+      "rows": [
+        {
+          "label": "watch",
+          "cells": ["the flag's triangle"]
+        },
+        {
+          "label": "rule 1",
+          "cells": ["90°", "90°", "90°", "90°"]
+        },
+        {
+          "label": "rule 2",
+          "cells": ["solid", "outline", "solid", "outline"]
+        }
+      ],
+      "steps": ["Two rules at once. Check both before answering."],
+      "trap": "Right angle, wrong fill is the near miss."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s17",
+    "category": "spatial",
+    "method": "rotation",
+    "kind": "visual",
+    "prompt": "Which figure comes next in the series?",
+    "stem": [
+      {
+        "kind": "fig",
+        "fig": "ell",
+        "rot": 0,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "fig",
+        "fig": "ell",
+        "rot": 90,
+        "flip": false,
+        "hollow": true
+      },
+      {
+        "kind": "fig",
+        "fig": "ell",
+        "rot": 180,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "q"
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "fig",
+          "fig": "ell",
+          "rot": 270,
+          "flip": false,
+          "hollow": true
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "fig",
+          "fig": "ell",
+          "rot": 270,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "fig",
+          "fig": "ell",
+          "rot": 0,
+          "flip": false,
+          "hollow": true
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "fig",
+          "fig": "ell",
+          "rot": 270,
+          "flip": true,
+          "hollow": true
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "fig",
+          "fig": "ell",
+          "rot": 90,
+          "flip": false,
+          "hollow": true
+        }
+      }
+    ],
+    "answer": "a",
+    "explanation": {
+      "why": "Two things change together: the figure turns 90° clockwise each step, and the shading alternates solid, outline, solid. Next is a 270° turn, outlined.",
+      "rows": [
+        {
+          "label": "watch",
+          "cells": ["the foot of the L"]
+        },
+        {
+          "label": "rule 1",
+          "cells": ["90°", "90°", "90°", "90°"]
+        },
+        {
+          "label": "rule 2",
+          "cells": ["solid", "outline", "solid", "outline"]
+        }
+      ],
+      "steps": ["Two rules at once. Check both before answering."],
+      "trap": "Right angle, wrong fill is the near miss."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s18",
+    "category": "spatial",
+    "method": "gridmove",
+    "kind": "visual",
+    "prompt": "Which grid comes next in the series?",
+    "stem": [
+      {
+        "kind": "grid",
+        "cells": [0]
+      },
+      {
+        "kind": "grid",
+        "cells": [1]
+      },
+      {
+        "kind": "grid",
+        "cells": [2]
+      },
+      {
+        "kind": "q"
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "grid",
+          "cells": [5]
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "grid",
+          "cells": [2]
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "grid",
+          "cells": [8]
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "grid",
+          "cells": [3]
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "grid",
+          "cells": [4]
+        }
+      }
+    ],
+    "answer": "a",
+    "explanation": {
+      "why": "The shaded square moves one place clockwise round the edge of the grid each step.",
+      "rows": [
+        {
+          "label": "path",
+          "cells": ["one step", "clockwise", "per frame"]
+        },
+        {
+          "label": "route",
+          "cells": ["top-left", "top-mid", "top-right", "mid-right"]
+        }
+      ],
+      "steps": ["Treat it as a dot on a loop, not a grid."],
+      "trap": "Corner to middle is one step. Do not skip it."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s19",
+    "category": "spatial",
+    "method": "gridmove",
+    "kind": "visual",
+    "prompt": "Which grid comes next in the series?",
+    "stem": [
+      {
+        "kind": "grid",
+        "cells": [2]
+      },
+      {
+        "kind": "grid",
+        "cells": [1]
+      },
+      {
+        "kind": "grid",
+        "cells": [0]
+      },
+      {
+        "kind": "q"
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "grid",
+          "cells": [3]
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "grid",
+          "cells": [0]
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "grid",
+          "cells": [6]
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "grid",
+          "cells": [5]
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "grid",
+          "cells": [4]
+        }
+      }
+    ],
+    "answer": "a",
+    "explanation": {
+      "why": "The shaded square moves one place anticlockwise round the edge of the grid each step.",
+      "rows": [
+        {
+          "label": "path",
+          "cells": ["one step", "anticlockwise", "per frame"]
+        },
+        {
+          "label": "route",
+          "cells": ["top-right", "top-mid", "top-left", "mid-left"]
+        }
+      ],
+      "steps": ["Treat it as a dot on a loop, not a grid."],
+      "trap": "Corner to middle is one step. Do not skip it."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s20",
+    "category": "spatial",
+    "method": "gridmove",
+    "kind": "visual",
+    "prompt": "Which grid comes next in the series?",
+    "stem": [
+      {
+        "kind": "grid",
+        "cells": [4, 6]
+      },
+      {
+        "kind": "grid",
+        "cells": [3, 4]
+      },
+      {
+        "kind": "grid",
+        "cells": [0, 4]
+      },
+      {
+        "kind": "q"
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "grid",
+          "cells": [1, 4]
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "grid",
+          "cells": [2, 4]
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "grid",
+          "cells": [1]
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "grid",
+          "cells": [4, 7]
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "grid",
+          "cells": [0, 4]
+        }
+      }
+    ],
+    "answer": "a",
+    "explanation": {
+      "why": "The centre square stays shaded throughout; the second shaded square moves one place clockwise round the edge each step.",
+      "rows": [
+        {
+          "label": "fixed",
+          "cells": ["centre stays shaded"]
+        },
+        {
+          "label": "moves",
+          "cells": ["one step clockwise"]
+        }
+      ],
+      "steps": ["Park what does not change, then track what does."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s21",
+    "category": "spatial",
+    "method": "gridmove",
+    "kind": "visual",
+    "prompt": "Which grid comes next in the series?",
+    "stem": [
+      {
+        "kind": "grid",
+        "cells": [0, 8]
+      },
+      {
+        "kind": "grid",
+        "cells": [1, 7]
+      },
+      {
+        "kind": "grid",
+        "cells": [2, 6]
+      },
+      {
+        "kind": "q"
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "grid",
+          "cells": [3, 5]
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "grid",
+          "cells": [0, 8]
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "grid",
+          "cells": [2, 6]
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "grid",
+          "cells": [3, 6]
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "grid",
+          "cells": [5, 7]
+        }
+      }
+    ],
+    "answer": "a",
+    "explanation": {
+      "why": "Both shaded squares move one place clockwise each step and stay directly opposite each other.",
+      "rows": [
+        {
+          "label": "both",
+          "cells": ["one step clockwise"]
+        },
+        {
+          "label": "check",
+          "cells": ["always opposite"]
+        }
+      ],
+      "steps": ["Find the link between the two before moving either."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s22",
+    "category": "spatial",
+    "method": "gridodd",
+    "kind": "visual",
+    "prompt": "Four of these grids are the same pattern turned round. Which one is different?",
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "grid",
+          "cells": [0, 1, 2, 5]
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "grid",
+          "cells": [2, 5, 7, 8]
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "grid",
+          "cells": [3, 6, 7, 8]
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "grid",
+          "cells": [0, 1, 3, 6]
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "grid",
+          "cells": [0, 1, 2, 3]
+        }
+      }
+    ],
+    "answer": "e",
+    "explanation": {
+      "why": "Four grids are rotations of the same four-square pattern. The odd one is a mirror image of it.",
+      "rows": [
+        {
+          "label": "count",
+          "cells": ["4", "4", "4", "4", "4"]
+        },
+        {
+          "label": "spin",
+          "cells": ["4 line up", "1 never does"]
+        }
+      ],
+      "steps": ["Counting ties, so spin them instead."],
+      "trap": "The odd one is flipped, not turned."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s23",
+    "category": "spatial",
+    "method": "gridodd",
+    "kind": "visual",
+    "prompt": "Which grid does not belong with the others?",
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "grid",
+          "cells": [0, 1, 3, 4]
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "grid",
+          "cells": [1, 2, 4, 5]
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "grid",
+          "cells": [3, 4, 6, 7]
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "grid",
+          "cells": [4, 5, 7, 8]
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "grid",
+          "cells": [0, 2, 4, 6, 8]
+        }
+      }
+    ],
+    "answer": "e",
+    "explanation": {
+      "why": "The other four each shade a block of four adjoining squares. This one shades five squares in a diagonal cross.",
+      "rows": [
+        {
+          "label": "count",
+          "cells": ["4", "4", "4", "4", "5"]
+        },
+        {
+          "label": "shape",
+          "cells": ["solid blocks", "one cross"]
+        }
+      ],
+      "steps": ["Count first. Fastest check on the paper."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s24",
+    "category": "spatial",
+    "method": "countseries",
+    "kind": "visual",
+    "prompt": "Which figure comes next in the series?",
+    "stem": [
+      {
+        "kind": "poly",
+        "sides": 3
+      },
+      {
+        "kind": "poly",
+        "sides": 4
+      },
+      {
+        "kind": "poly",
+        "sides": 5
+      },
+      {
+        "kind": "q"
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "poly",
+          "sides": 6
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "poly",
+          "sides": 7
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "poly",
+          "sides": 8
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "poly",
+          "sides": 5
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "poly",
+          "sides": 4
+        }
+      }
+    ],
+    "answer": "a",
+    "explanation": {
+      "why": "Each shape gains one side: triangle, square, pentagon, so a hexagon comes next.",
+      "rows": [
+        {
+          "label": "sides",
+          "cells": ["3", "4", "5", "6"]
+        }
+      ],
+      "steps": ["Count corners, not edges. Same number, faster."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "s25",
+    "category": "spatial",
+    "method": "countseries",
+    "kind": "visual",
+    "prompt": "Which card comes next in the series?",
+    "stem": [
+      {
+        "kind": "dots",
+        "n": 2
+      },
+      {
+        "kind": "dots",
+        "n": 4
+      },
+      {
+        "kind": "dots",
+        "n": 6
+      },
+      {
+        "kind": "q"
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "dots",
+          "n": 8
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "dots",
+          "n": 7
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "dots",
+          "n": 9
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "dots",
+          "n": 10
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "dots",
+          "n": 12
+        }
+      }
+    ],
+    "answer": "a",
+    "explanation": {
+      "why": "The number of dots goes up by two each time: 2, 4, 6, then 8.",
+      "rows": [
+        {
+          "label": "count",
+          "cells": ["2", "4", "6", "8"]
+        },
+        {
+          "label": "rule",
+          "cells": ["+2 each time"]
+        }
+      ],
+      "steps": ["Adding or doubling? Doubling would give 2, 4, 8."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  }
+]

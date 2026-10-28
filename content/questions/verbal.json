@@ -1,0 +1,1280 @@
+[
+  {
+    "id": "v1",
+    "category": "verbal",
+    "method": "analogy",
+    "kind": "text",
+    "prompt": "Book is to library as painting is to:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Artist"
+      },
+      {
+        "id": "b",
+        "text": "Gallery"
+      },
+      {
+        "id": "c",
+        "text": "Canvas"
+      },
+      {
+        "id": "d",
+        "text": "Frame"
+      },
+      {
+        "id": "e",
+        "text": "Brush"
+      }
+    ],
+    "answer": "b",
+    "explanation": {
+      "why": "A library is where books are kept and shown; a gallery is where paintings are kept and shown.",
+      "rows": [
+        {
+          "label": "link",
+          "cells": ["book", "shown in", "library"]
+        },
+        {
+          "label": "same",
+          "cells": ["painting", "shown in", "gallery"]
+        }
+      ],
+      "steps": ["Artist, canvas, brush, frame are parts, not places."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "v2",
+    "category": "verbal",
+    "method": "antonym",
+    "kind": "text",
+    "prompt": "Which word is most nearly OPPOSITE in meaning to 'candid'?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Frank"
+      },
+      {
+        "id": "b",
+        "text": "Evasive"
+      },
+      {
+        "id": "c",
+        "text": "Blunt"
+      },
+      {
+        "id": "d",
+        "text": "Sincere"
+      },
+      {
+        "id": "e",
+        "text": "Direct"
+      }
+    ],
+    "answer": "b",
+    "explanation": {
+      "why": "Candid means open and straightforward. Evasive is its opposite; the rest are near synonyms.",
+      "rows": [
+        {
+          "label": "means",
+          "cells": ["candid", "says what he thinks"]
+        },
+        {
+          "label": "want",
+          "cells": ["opposite", "evasive"]
+        }
+      ],
+      "steps": ["Frank, blunt, sincere, direct all match candid."],
+      "trap": "Four synonyms, one antonym. Count them."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    },
+    "enemies": ["v17"]
+  },
+  {
+    "id": "v3",
+    "category": "verbal",
+    "method": "synonym",
+    "kind": "text",
+    "prompt": "Which word is most similar in meaning to 'meticulous'?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Careless"
+      },
+      {
+        "id": "b",
+        "text": "Painstaking"
+      },
+      {
+        "id": "c",
+        "text": "Hasty"
+      },
+      {
+        "id": "d",
+        "text": "Generous"
+      },
+      {
+        "id": "e",
+        "text": "Timid"
+      }
+    ],
+    "answer": "b",
+    "explanation": {
+      "why": "Meticulous means showing great attention to detail, which is what painstaking means.",
+      "rows": [
+        {
+          "label": "means",
+          "cells": ["meticulous", "checks every detail"]
+        },
+        {
+          "label": "match",
+          "cells": ["painstaking"]
+        }
+      ],
+      "steps": ["Careless and hasty are the opposites."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "v4",
+    "category": "verbal",
+    "method": "analogy",
+    "kind": "text",
+    "prompt": "Whisper is to shout as trickle is to:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Drip"
+      },
+      {
+        "id": "b",
+        "text": "Flood"
+      },
+      {
+        "id": "c",
+        "text": "Stream"
+      },
+      {
+        "id": "d",
+        "text": "Drop"
+      },
+      {
+        "id": "e",
+        "text": "Leak"
+      }
+    ],
+    "answer": "b",
+    "explanation": {
+      "why": "The pair moves from a very small version to a very large one: whisper to shout, trickle to flood.",
+      "rows": [
+        {
+          "label": "link",
+          "cells": ["whisper", "at its most extreme", "shout"]
+        },
+        {
+          "label": "same",
+          "cells": ["trickle", "at its most extreme", "flood"]
+        }
+      ],
+      "steps": ["Drip, drop and leak are all small, like trickle."],
+      "trap": "Stream is bigger but not extreme."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "v5",
+    "category": "verbal",
+    "method": "completion",
+    "kind": "text",
+    "prompt": "Although the report was ______, the committee still found several errors that had escaped the author's notice.",
+    "options": [
+      {
+        "id": "a",
+        "text": "thorough"
+      },
+      {
+        "id": "b",
+        "text": "careless"
+      },
+      {
+        "id": "c",
+        "text": "brief"
+      },
+      {
+        "id": "d",
+        "text": "hostile"
+      },
+      {
+        "id": "e",
+        "text": "unread"
+      }
+    ],
+    "answer": "a",
+    "explanation": {
+      "why": "'Although ... still found errors' sets up a contrast, so the report must have been thorough.",
+      "rows": [
+        {
+          "label": "signal",
+          "cells": ["Although", "the halves clash"]
+        },
+        {
+          "label": "half 2",
+          "cells": ["errors found anyway"]
+        },
+        {
+          "label": "so",
+          "cells": ["half 1 praises it", "thorough"]
+        }
+      ],
+      "steps": []
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "v6",
+    "category": "verbal",
+    "method": "oddword",
+    "kind": "text",
+    "prompt": "Which word does not belong with the others?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Oak"
+      },
+      {
+        "id": "b",
+        "text": "Maple"
+      },
+      {
+        "id": "c",
+        "text": "Birch"
+      },
+      {
+        "id": "d",
+        "text": "Shrub"
+      },
+      {
+        "id": "e",
+        "text": "Elm"
+      }
+    ],
+    "answer": "d",
+    "explanation": {
+      "why": "The others are all species of tree. A shrub is a different kind of plant altogether.",
+      "rows": [
+        {
+          "label": "group",
+          "cells": ["oak", "maple", "birch", "elm"]
+        },
+        {
+          "label": "odd",
+          "cells": ["shrub", "a plant type, not a species"]
+        }
+      ],
+      "steps": ["Species against category is the most common split."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "v7",
+    "category": "verbal",
+    "method": "deduction",
+    "kind": "text",
+    "prompt": "All bakers in the town use rye flour. Marta uses rye flour. Which statement must be true?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Marta is a baker"
+      },
+      {
+        "id": "b",
+        "text": "Marta is not a baker"
+      },
+      {
+        "id": "c",
+        "text": "Some bakers do not use rye flour"
+      },
+      {
+        "id": "d",
+        "text": "Marta may or may not be a baker"
+      },
+      {
+        "id": "e",
+        "text": "Everyone who uses rye flour is a baker"
+      }
+    ],
+    "answer": "d",
+    "explanation": {
+      "why": "Bakers all use rye flour, but non-bakers may use it too, so Marta's trade is undetermined.",
+      "rows": [
+        {
+          "label": "given",
+          "cells": ["all bakers", "inside", "rye users"]
+        },
+        {
+          "label": "marta",
+          "cells": ["inside rye users", "trade unknown"]
+        }
+      ],
+      "steps": ["The bigger circle holds non-bakers too."],
+      "trap": "Concluding she is a baker reverses the arrow."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "v8",
+    "category": "verbal",
+    "method": "antonym",
+    "kind": "text",
+    "prompt": "Which word is most nearly OPPOSITE in meaning to 'abundant'?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Plentiful"
+      },
+      {
+        "id": "b",
+        "text": "Scarce"
+      },
+      {
+        "id": "c",
+        "text": "Ample"
+      },
+      {
+        "id": "d",
+        "text": "Copious"
+      },
+      {
+        "id": "e",
+        "text": "Lavish"
+      }
+    ],
+    "answer": "b",
+    "explanation": {
+      "why": "Abundant means present in large quantity. Scarce is the opposite; the others all mean plentiful.",
+      "rows": [
+        {
+          "label": "means",
+          "cells": ["abundant", "loads of it"]
+        },
+        {
+          "label": "want",
+          "cells": ["scarce"]
+        }
+      ],
+      "steps": ["Plentiful, ample, copious, lavish all match abundant."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "v9",
+    "category": "verbal",
+    "method": "analogy",
+    "kind": "text",
+    "prompt": "Thermometer is to temperature as odometer is to:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Speed"
+      },
+      {
+        "id": "b",
+        "text": "Distance"
+      },
+      {
+        "id": "c",
+        "text": "Time"
+      },
+      {
+        "id": "d",
+        "text": "Fuel"
+      },
+      {
+        "id": "e",
+        "text": "Pressure"
+      }
+    ],
+    "answer": "b",
+    "explanation": {
+      "why": "Each instrument is paired with what it measures. An odometer measures distance travelled.",
+      "rows": [
+        {
+          "label": "link",
+          "cells": ["thermometer", "measures", "temperature"]
+        },
+        {
+          "label": "same",
+          "cells": ["odometer", "measures", "distance"]
+        }
+      ],
+      "steps": [],
+      "trap": "Speed is the speedometer."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "v10",
+    "category": "verbal",
+    "method": "synonym",
+    "kind": "text",
+    "prompt": "Which word is most similar in meaning to 'ephemeral'?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Eternal"
+      },
+      {
+        "id": "b",
+        "text": "Fleeting"
+      },
+      {
+        "id": "c",
+        "text": "Sturdy"
+      },
+      {
+        "id": "d",
+        "text": "Hidden"
+      },
+      {
+        "id": "e",
+        "text": "Frequent"
+      }
+    ],
+    "answer": "b",
+    "explanation": {
+      "why": "Ephemeral means lasting for a very short time, which is what fleeting means.",
+      "rows": [
+        {
+          "label": "means",
+          "cells": ["ephemeral", "lasts a moment"]
+        },
+        {
+          "label": "match",
+          "cells": ["fleeting"]
+        }
+      ],
+      "steps": [],
+      "trap": "Eternal is the planted opposite."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "v11",
+    "category": "verbal",
+    "method": "completion",
+    "kind": "text",
+    "prompt": "The manager's instructions were so ______ that no two team members interpreted them the same way.",
+    "options": [
+      {
+        "id": "a",
+        "text": "precise"
+      },
+      {
+        "id": "b",
+        "text": "ambiguous"
+      },
+      {
+        "id": "c",
+        "text": "lengthy"
+      },
+      {
+        "id": "d",
+        "text": "courteous"
+      },
+      {
+        "id": "e",
+        "text": "formal"
+      }
+    ],
+    "answer": "b",
+    "explanation": {
+      "why": "Instructions that produce different interpretations are open to more than one reading, which is what ambiguous means.",
+      "rows": [
+        {
+          "label": "clue",
+          "cells": ["everyone read it differently"]
+        },
+        {
+          "label": "so",
+          "cells": ["wording takes two meanings", "ambiguous"]
+        }
+      ],
+      "steps": ["Precise would give the opposite outcome."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "v12",
+    "category": "verbal",
+    "method": "oddword",
+    "kind": "text",
+    "prompt": "Which word does not belong with the others?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Kilogram"
+      },
+      {
+        "id": "b",
+        "text": "Litre"
+      },
+      {
+        "id": "c",
+        "text": "Metre"
+      },
+      {
+        "id": "d",
+        "text": "Second"
+      },
+      {
+        "id": "e",
+        "text": "Weight"
+      }
+    ],
+    "answer": "e",
+    "explanation": {
+      "why": "The others are units of measurement. Weight is the quantity being measured, not a unit.",
+      "rows": [
+        {
+          "label": "group",
+          "cells": ["kilogram", "litre", "metre", "second"]
+        },
+        {
+          "label": "odd",
+          "cells": ["weight", "the quantity, not the unit"]
+        }
+      ],
+      "steps": []
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "v13",
+    "category": "verbal",
+    "method": "deduction",
+    "kind": "text",
+    "prompt": "No compilers written in Rust are slow. Some tools in the pipeline are slow. Which statement must be true?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Every tool in the pipeline is written in Rust"
+      },
+      {
+        "id": "b",
+        "text": "Some tools in the pipeline are not compilers written in Rust"
+      },
+      {
+        "id": "c",
+        "text": "No tool in the pipeline is a compiler"
+      },
+      {
+        "id": "d",
+        "text": "Some compilers written in Rust are in the pipeline"
+      },
+      {
+        "id": "e",
+        "text": "Every slow tool is a compiler"
+      }
+    ],
+    "answer": "b",
+    "explanation": {
+      "why": "The slow tools cannot be Rust compilers, since no Rust compiler is slow. So some pipeline tools are not Rust compilers.",
+      "rows": [
+        {
+          "label": "given",
+          "cells": ["rust compilers", "never", "slow"]
+        },
+        {
+          "label": "given",
+          "cells": ["some tools", "are", "slow"]
+        },
+        {
+          "label": "so",
+          "cells": ["those tools", "are not rust compilers"]
+        }
+      ],
+      "steps": ["The safe answer is usually the least dramatic."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "v14",
+    "category": "verbal",
+    "method": "analogy",
+    "kind": "text",
+    "prompt": "Cobbler is to shoes as cooper is to:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Barrels"
+      },
+      {
+        "id": "b",
+        "text": "Bread"
+      },
+      {
+        "id": "c",
+        "text": "Copper"
+      },
+      {
+        "id": "d",
+        "text": "Ropes"
+      },
+      {
+        "id": "e",
+        "text": "Hats"
+      }
+    ],
+    "answer": "a",
+    "explanation": {
+      "why": "Each craftsman is paired with what they make. A cooper makes barrels.",
+      "rows": [
+        {
+          "label": "link",
+          "cells": ["cobbler", "makes", "shoes"]
+        },
+        {
+          "label": "same",
+          "cells": ["cooper", "makes", "barrels"]
+        }
+      ],
+      "steps": [],
+      "trap": "Copper is a sound-alike."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "v15",
+    "category": "verbal",
+    "method": "antonym",
+    "kind": "text",
+    "prompt": "Which word is most nearly OPPOSITE in meaning to 'tenacious'?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Persistent"
+      },
+      {
+        "id": "b",
+        "text": "Stubborn"
+      },
+      {
+        "id": "c",
+        "text": "Yielding"
+      },
+      {
+        "id": "d",
+        "text": "Determined"
+      },
+      {
+        "id": "e",
+        "text": "Resolute"
+      }
+    ],
+    "answer": "c",
+    "explanation": {
+      "why": "Tenacious means holding firmly and not giving up. Yielding is the opposite.",
+      "rows": [
+        {
+          "label": "means",
+          "cells": ["tenacious", "will not let go"]
+        },
+        {
+          "label": "want",
+          "cells": ["yielding"]
+        }
+      ],
+      "steps": ["The other four all mean persistent."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "v16",
+    "category": "verbal",
+    "method": "completion",
+    "kind": "text",
+    "prompt": "Far from ______ the process, the new policy increased the number of forms staff had to complete.",
+    "options": [
+      {
+        "id": "a",
+        "text": "complicating"
+      },
+      {
+        "id": "b",
+        "text": "simplifying"
+      },
+      {
+        "id": "c",
+        "text": "delaying"
+      },
+      {
+        "id": "d",
+        "text": "enforcing"
+      },
+      {
+        "id": "e",
+        "text": "documenting"
+      }
+    ],
+    "answer": "b",
+    "explanation": {
+      "why": "'Far from X' means the opposite of X happened. More forms is the opposite of simplifying.",
+      "rows": [
+        {
+          "label": "signal",
+          "cells": ["Far from X", "the opposite of X happened"]
+        },
+        {
+          "label": "happened",
+          "cells": ["more forms"]
+        },
+        {
+          "label": "so",
+          "cells": ["X", "simplifying"]
+        }
+      ],
+      "steps": []
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "v17",
+    "category": "verbal",
+    "method": "synonym",
+    "kind": "text",
+    "prompt": "Which word is most similar in meaning to 'candour'?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Deceit"
+      },
+      {
+        "id": "b",
+        "text": "Frankness"
+      },
+      {
+        "id": "c",
+        "text": "Warmth"
+      },
+      {
+        "id": "d",
+        "text": "Caution"
+      },
+      {
+        "id": "e",
+        "text": "Flattery"
+      }
+    ],
+    "answer": "b",
+    "explanation": {
+      "why": "Candour is the quality of being open and honest, which is frankness.",
+      "rows": [
+        {
+          "label": "means",
+          "cells": ["candour", "openness"]
+        },
+        {
+          "label": "match",
+          "cells": ["frankness"]
+        }
+      ],
+      "steps": ["It is the noun form of candid."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    },
+    "enemies": ["v2"]
+  },
+  {
+    "id": "v18",
+    "category": "verbal",
+    "method": "analogy",
+    "kind": "text",
+    "prompt": "Drought is to rain as famine is to:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Hunger"
+      },
+      {
+        "id": "b",
+        "text": "Food"
+      },
+      {
+        "id": "c",
+        "text": "Harvest"
+      },
+      {
+        "id": "d",
+        "text": "Water"
+      },
+      {
+        "id": "e",
+        "text": "Poverty"
+      }
+    ],
+    "answer": "b",
+    "explanation": {
+      "why": "A drought is a severe shortage of rain; a famine is a severe shortage of food.",
+      "rows": [
+        {
+          "label": "link",
+          "cells": ["drought", "no", "rain"]
+        },
+        {
+          "label": "same",
+          "cells": ["famine", "no", "food"]
+        }
+      ],
+      "steps": [],
+      "trap": "Hunger is the effect, not the missing thing."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "v19",
+    "category": "verbal",
+    "method": "oddword",
+    "kind": "text",
+    "prompt": "Which word does not belong with the others?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Sprint"
+      },
+      {
+        "id": "b",
+        "text": "Jog"
+      },
+      {
+        "id": "c",
+        "text": "Stroll"
+      },
+      {
+        "id": "d",
+        "text": "Bicycle"
+      },
+      {
+        "id": "e",
+        "text": "Amble"
+      }
+    ],
+    "answer": "d",
+    "explanation": {
+      "why": "The others are all ways of moving on foot. A bicycle is a machine you ride.",
+      "rows": [
+        {
+          "label": "group",
+          "cells": ["sprint", "jog", "stroll", "amble"]
+        },
+        {
+          "label": "odd",
+          "cells": ["bicycle", "a machine, and a noun"]
+        }
+      ],
+      "steps": []
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "v20",
+    "category": "verbal",
+    "method": "deduction",
+    "kind": "text",
+    "prompt": "Every server in Rack A has been patched. Server X has not been patched. Which statement must be true?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Server X is in Rack A"
+      },
+      {
+        "id": "b",
+        "text": "Server X is not in Rack A"
+      },
+      {
+        "id": "c",
+        "text": "Rack A contains no servers"
+      },
+      {
+        "id": "d",
+        "text": "Some servers in Rack A are unpatched"
+      },
+      {
+        "id": "e",
+        "text": "Server X is faulty"
+      }
+    ],
+    "answer": "b",
+    "explanation": {
+      "why": "If everything in Rack A is patched and Server X is not patched, Server X cannot be in Rack A.",
+      "rows": [
+        {
+          "label": "rule",
+          "cells": ["in Rack A", "then", "patched"]
+        },
+        {
+          "label": "fact",
+          "cells": ["X", "not patched"]
+        },
+        {
+          "label": "so",
+          "cells": ["X", "not in Rack A"]
+        }
+      ],
+      "steps": ["Flip the rule and negate both halves. Always valid."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "v21",
+    "category": "verbal",
+    "method": "antonym",
+    "kind": "text",
+    "prompt": "Which word is most nearly OPPOSITE in meaning to 'obscure'?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Vague"
+      },
+      {
+        "id": "b",
+        "text": "Cryptic"
+      },
+      {
+        "id": "c",
+        "text": "Evident"
+      },
+      {
+        "id": "d",
+        "text": "Dim"
+      },
+      {
+        "id": "e",
+        "text": "Remote"
+      }
+    ],
+    "answer": "c",
+    "explanation": {
+      "why": "Obscure means unclear or hard to make out. Evident, meaning plain to see, is its opposite.",
+      "rows": [
+        {
+          "label": "means",
+          "cells": ["obscure", "hard to make out"]
+        },
+        {
+          "label": "want",
+          "cells": ["evident"]
+        }
+      ],
+      "steps": ["Vague, cryptic, dim, remote all lean the same way."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "v22",
+    "category": "verbal",
+    "method": "completion",
+    "kind": "text",
+    "prompt": "The witness's account was ______: she recalled the number plate, the time and even the colour of the driver's scarf.",
+    "options": [
+      {
+        "id": "a",
+        "text": "vague"
+      },
+      {
+        "id": "b",
+        "text": "detailed"
+      },
+      {
+        "id": "c",
+        "text": "reluctant"
+      },
+      {
+        "id": "d",
+        "text": "rehearsed"
+      },
+      {
+        "id": "e",
+        "text": "brief"
+      }
+    ],
+    "answer": "b",
+    "explanation": {
+      "why": "The examples after the colon are small specifics, so the account was detailed.",
+      "rows": [
+        {
+          "label": "clue",
+          "cells": ["number plate", "time", "scarf colour"]
+        },
+        {
+          "label": "so",
+          "cells": ["detailed"]
+        }
+      ],
+      "steps": ["After a colon, the second half is your evidence."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "v23",
+    "category": "verbal",
+    "method": "analogy",
+    "kind": "text",
+    "prompt": "Chapter is to novel as movement is to:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Dance"
+      },
+      {
+        "id": "b",
+        "text": "Symphony"
+      },
+      {
+        "id": "c",
+        "text": "Poem"
+      },
+      {
+        "id": "d",
+        "text": "Sculpture"
+      },
+      {
+        "id": "e",
+        "text": "Orchestra"
+      }
+    ],
+    "answer": "b",
+    "explanation": {
+      "why": "A chapter is a named section of a novel; a movement is a named section of a symphony.",
+      "rows": [
+        {
+          "label": "link",
+          "cells": ["chapter", "part of a", "novel"]
+        },
+        {
+          "label": "same",
+          "cells": ["movement", "part of a", "symphony"]
+        }
+      ],
+      "steps": [],
+      "trap": "The orchestra plays it, it is not a part of it."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "v24",
+    "category": "verbal",
+    "method": "synonym",
+    "kind": "text",
+    "prompt": "Which word is most similar in meaning to 'mitigate'?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Aggravate"
+      },
+      {
+        "id": "b",
+        "text": "Alleviate"
+      },
+      {
+        "id": "c",
+        "text": "Ignore"
+      },
+      {
+        "id": "d",
+        "text": "Predict"
+      },
+      {
+        "id": "e",
+        "text": "Confirm"
+      }
+    ],
+    "answer": "b",
+    "explanation": {
+      "why": "To mitigate is to make something less severe, which is what alleviate means.",
+      "rows": [
+        {
+          "label": "means",
+          "cells": ["mitigate", "take the edge off"]
+        },
+        {
+          "label": "match",
+          "cells": ["alleviate"]
+        }
+      ],
+      "steps": ["Think mitigating circumstances, mitigating risk."],
+      "trap": "Aggravate is the exact opposite."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "v25",
+    "category": "verbal",
+    "method": "analogy",
+    "kind": "text",
+    "prompt": "Frigid is to cold as furious is to:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Calm"
+      },
+      {
+        "id": "b",
+        "text": "Annoyed"
+      },
+      {
+        "id": "c",
+        "text": "Angry"
+      },
+      {
+        "id": "d",
+        "text": "Sad"
+      },
+      {
+        "id": "e",
+        "text": "Cheerful"
+      }
+    ],
+    "answer": "c",
+    "explanation": {
+      "why": "Frigid is an extreme form of cold; furious is an extreme form of angry.",
+      "rows": [
+        {
+          "label": "link",
+          "cells": ["frigid", "extreme", "cold"]
+        },
+        {
+          "label": "same",
+          "cells": ["furious", "extreme", "angry"]
+        }
+      ],
+      "steps": [],
+      "trap": "Annoyed is milder, so it runs the wrong way."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  }
+]

@@ -1,0 +1,278 @@
+{
+  "antonym": {
+    "id": "antonym",
+    "name": "Opposites",
+    "method": [
+      "Define the word yourself first.",
+      "Want the reverse, not just something negative.",
+      "One option is a synonym. It is bait."
+    ],
+    "example": "BRIGHTEN = make lighter, so want DARKEN."
+  },
+  "synonym": {
+    "id": "synonym",
+    "name": "Closest meaning",
+    "method": [
+      "Say it in a phrase you have heard.",
+      "Cut the opposite, then the unrelated.",
+      "Pick the closest, not the loosely related."
+    ],
+    "example": "'A prudent decision' = careful with risk = cautious."
+  },
+  "analogy": {
+    "id": "analogy",
+    "name": "Word pairs",
+    "method": [
+      "Say the link as a short sentence.",
+      "Read it back with the third word.",
+      "Two fit? Your sentence was too vague."
+    ],
+    "example": "Pen is the tool a writer uses. Brush, painter."
+  },
+  "completion": {
+    "id": "completion",
+    "name": "Sentence completion",
+    "method": [
+      "Find the joining word first.",
+      "Although, far from = clash. Because, so = agree.",
+      "Predict your own word, then match it."
+    ],
+    "example": "'Because the brief was ___, nobody asked questions.' Predict: clear."
+  },
+  "oddword": {
+    "id": "oddword",
+    "name": "Odd word out",
+    "method": [
+      "Find the group of four, not the odd one.",
+      "Usual splits: species vs category, unit vs quantity, verb vs noun."
+    ],
+    "example": "Sparrow, robin, wren, bird, finch. Four species, one category."
+  },
+  "deduction": {
+    "id": "deduction",
+    "name": "Must-be-true",
+    "method": [
+      "Accept only what is forced.",
+      "All A are B puts A inside the bigger B circle.",
+      "Inside B does not put you in A."
+    ],
+    "example": "All surgeons are doctors. Sam is a doctor. Sam may or may not be."
+  },
+  "series": {
+    "id": "series",
+    "name": "Number series",
+    "method": [
+      "Write the gaps underneath.",
+      "Gaps not constant? Look at the gaps of the gaps.",
+      "Growing fast? Try ratios.",
+      "Zigzag? Two rules, or two woven sequences."
+    ],
+    "trick": [
+      "Check in this order: gaps, gaps-of-gaps, ratios, alternating, squares.",
+      "Nine in ten fall to the first two."
+    ],
+    "example": "4, 7, 13, 25. Gaps 3, 6, 12 double. Next gap 24, so 49."
+  },
+  "percent": {
+    "id": "percent",
+    "name": "Percentages",
+    "method": [
+      "Build from 10% and halves.",
+      "Successive discounts: one then the other, never added.",
+      "Undoing a rise means dividing."
+    ],
+    "trick": [
+      "10% = one decimal place. 5% = half of that. 20% = double it.",
+      "25% = halve twice. 15% = 10% + 5%.",
+      "Undo a 20% rise: divide by 6, times 5."
+    ],
+    "example": "18% of 250 = 25 + 12.5 + 5 + 2.5 = 45."
+  },
+  "pctchange": {
+    "id": "pctchange",
+    "name": "Percentage change",
+    "method": [
+      "Change divided by where you started.",
+      "The starting figure is what people get wrong.",
+      "Turn it into a fraction you know."
+    ],
+    "trick": ["1/2 = 50%, 1/3 = 33%, 1/4 = 25%, 1/5 = 20%, 1/8 = 12.5%."],
+    "example": "80 down to 60. 20/80 = 1/4 = 25% fall."
+  },
+  "ratio": {
+    "id": "ratio",
+    "name": "Ratios and sharing",
+    "method": [
+      "Add the parts to get the number of shares.",
+      "Divide to find one share.",
+      "Multiply up, then check it adds back."
+    ],
+    "trick": [
+      "Scale to one unit first. Per-person figures make the rest trivial."
+    ],
+    "example": "£60 split 1:2:3 = 6 shares of £10."
+  },
+  "average": {
+    "id": "average",
+    "name": "Averages",
+    "method": [
+      "Average times count gives the total.",
+      "Subtract what you know.",
+      "Evenly spaced? The middle one is the average."
+    ],
+    "trick": [
+      "Average × count = total. That one line solves nearly all of them."
+    ],
+    "example": "Four numbers average 20, so total 80. Three make 55, so the fourth is 25."
+  },
+  "rate": {
+    "id": "rate",
+    "name": "Rates and speed",
+    "method": [
+      "Convert minutes to a fraction of an hour first.",
+      "Dividing by a fraction = multiplying by it upside down.",
+      "Split awkward multipliers."
+    ],
+    "trick": [
+      "2h15 = 9/4. 1h20 = 4/3. 45 min = 3/4.",
+      "×3.5 means three of it plus half of it."
+    ],
+    "example": "150 km in 3/2 hours = 150 × 2/3 = 100 km/h."
+  },
+  "work": {
+    "id": "work",
+    "name": "Work rate",
+    "method": [
+      "Turn the job into person-hours.",
+      "Share that total across the new headcount.",
+      "More people means less time. Cross off options first."
+    ],
+    "trick": ["Working side by side does not change how long one unit takes."],
+    "example": "2 people, 9 hours = 18 person-hours. 6 people take 3."
+  },
+  "algebra": {
+    "id": "algebra",
+    "name": "Simple equations",
+    "method": [
+      "Unknowns one side, numbers the other.",
+      "Same operation to both sides.",
+      "Substitute back to check."
+    ],
+    "trick": [
+      "Five options in front of you: testing beats solving.",
+      "Start with the middle value and halve the search."
+    ],
+    "example": "3x − 4 = 11, so 3x = 15, x = 5."
+  },
+  "probability": {
+    "id": "probability",
+    "name": "Probability",
+    "method": [
+      "What you want over everything there is.",
+      "The bottom is the full total, not the other group.",
+      "Simplify, then match the option format."
+    ],
+    "trick": [
+      "Always between 0 and 1. Over a half should feel like most of them."
+    ],
+    "example": "3 green in 12 = 3/12 = 1/4."
+  },
+  "compare": {
+    "id": "compare",
+    "name": "Comparing values",
+    "method": [
+      "Put everything in the same form.",
+      "Same number of decimal places, then read left to right."
+    ],
+    "trick": [
+      "1/8 = 0.125, 1/4 = 0.25, 1/3 = 0.333, 3/8 = 0.375",
+      "5/8 = 0.625, 2/3 = 0.667, 7/8 = 0.875"
+    ],
+    "example": "5/8 = 0.5 + 0.125 = 0.625, so bigger than 0.6."
+  },
+  "clock": {
+    "id": "clock",
+    "name": "Time arithmetic",
+    "method": [
+      "Split into whole hours plus leftover minutes.",
+      "Add the hour, then walk up to the next o'clock.",
+      "40 + 35 is 1h15, not 75."
+    ],
+    "trick": [
+      "Use the next o'clock as a staging post. It removes the carrying errors."
+    ],
+    "example": "09:50 + 40 min: 10 gets you to 10:00, then 30 more."
+  },
+  "position": {
+    "id": "position",
+    "name": "Counting positions",
+    "method": [
+      "Front plus back equals total plus one.",
+      "The plus one is because you count the person twice.",
+      "Test any rule on a queue of three."
+    ],
+    "trick": [
+      "Front + back = total + 1. Every off-by-one comes from forgetting it."
+    ],
+    "example": "Line of 12, 5th from front = 12 − 5 + 1 = 8th from back."
+  },
+  "rotation": {
+    "id": "rotation",
+    "name": "Rotation sequences",
+    "method": [
+      "Pick one landmark and follow only that.",
+      "Measure the turn on the first pair, confirm on the second.",
+      "Check direction as well as size."
+    ],
+    "example": "A quarter turn clockwise moves a top landmark to the right."
+  },
+  "mirror": {
+    "id": "mirror",
+    "name": "Mirror or rotation",
+    "method": [
+      "A turn keeps handedness. A flip reverses it.",
+      "Ask which side your landmark sits on.",
+      "Spin it flat on an imaginary table."
+    ],
+    "example": "Your two hands are the same shape. No turn makes one into the other."
+  },
+  "figanalogy": {
+    "id": "figanalogy",
+    "name": "Figure analogies",
+    "method": [
+      "Name the change before looking at the options.",
+      "Turned how far, flipped, resized, reshaded.",
+      "Apply exactly that to the third figure."
+    ],
+    "example": "First pair turns a quarter clockwise, so the second pair does too."
+  },
+  "gridmove": {
+    "id": "gridmove",
+    "name": "Moving grids",
+    "method": [
+      "Separate what moves from what stays.",
+      "Treat the shaded square as a dot on a loop.",
+      "Corner to edge is one step."
+    ],
+    "example": "Top-left to top-middle to top-right is two steps, not one."
+  },
+  "gridodd": {
+    "id": "gridodd",
+    "name": "Odd grid out",
+    "method": [
+      "Count first. It often ends the question.",
+      "Then spin each grid to line up the block.",
+      "The one that never matches is flipped."
+    ],
+    "example": "Four Ls in different corners, one mirrored L that never lines up."
+  },
+  "countseries": {
+    "id": "countseries",
+    "name": "Counting sequences",
+    "method": [
+      "Count the thing that changes: sides, dots, lines.",
+      "Adding a fixed amount, or multiplying? They diverge fast."
+    ],
+    "example": "3, 4, 5 sides adds one. 2, 4, 8 dots doubles."
+  }
+}

@@ -1,0 +1,1286 @@
+[
+  {
+    "id": "m1",
+    "category": "maths",
+    "method": "series",
+    "kind": "text",
+    "prompt": "What number comes next?  4, 7, 13, 22, 34, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "46"
+      },
+      {
+        "id": "b",
+        "text": "47"
+      },
+      {
+        "id": "c",
+        "text": "49"
+      },
+      {
+        "id": "d",
+        "text": "51"
+      },
+      {
+        "id": "e",
+        "text": "52"
+      }
+    ],
+    "answer": "c",
+    "ordered": true,
+    "explanation": {
+      "why": "The gaps are 3, 6, 9, 12, so the next gap is 15: 34 + 15 = 49.",
+      "rows": [
+        {
+          "label": "gaps",
+          "cells": ["3", "6", "9", "12", "15"]
+        },
+        {
+          "label": "add",
+          "cells": ["34 + 15", "49"]
+        }
+      ],
+      "steps": ["Write the gaps first. Here they climb by 3 each time."],
+      "trap": "46 repeats the last gap instead of growing it."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m2",
+    "category": "maths",
+    "method": "percent",
+    "kind": "text",
+    "prompt": "A jacket priced at £80 is reduced by 25%, then a further 10% is taken off the reduced price. What is the final price?",
+    "options": [
+      {
+        "id": "a",
+        "text": "£52"
+      },
+      {
+        "id": "b",
+        "text": "£54"
+      },
+      {
+        "id": "c",
+        "text": "£55"
+      },
+      {
+        "id": "d",
+        "text": "£56"
+      },
+      {
+        "id": "e",
+        "text": "£58"
+      }
+    ],
+    "answer": "b",
+    "ordered": true,
+    "explanation": {
+      "why": "£80 × 0.75 = £60, then £60 × 0.9 = £54.",
+      "rows": [
+        {
+          "label": "25% off",
+          "cells": ["80", "− 20", "60"]
+        },
+        {
+          "label": "10% off",
+          "cells": ["60", "− 6", "54"]
+        }
+      ],
+      "steps": ["Quarter of 80 is 20. Tenth of 60 is 6."],
+      "trap": "£52 is 35% off in one go. Never add discounts."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m3",
+    "category": "maths",
+    "method": "work",
+    "kind": "text",
+    "prompt": "4 printers print 240 pages in 6 minutes. At the same rate, how many pages do 6 printers print in 4 minutes?",
+    "options": [
+      {
+        "id": "a",
+        "text": "160"
+      },
+      {
+        "id": "b",
+        "text": "200"
+      },
+      {
+        "id": "c",
+        "text": "240"
+      },
+      {
+        "id": "d",
+        "text": "300"
+      },
+      {
+        "id": "e",
+        "text": "360"
+      }
+    ],
+    "answer": "c",
+    "ordered": true,
+    "explanation": {
+      "why": "One printer prints 240 ÷ 4 = 60 pages in 6 minutes, so 10 pages a minute. 6 printers × 4 minutes × 10 = 240.",
+      "rows": [
+        {
+          "label": "one",
+          "cells": ["1 printer", "1 minute", "10 pages"]
+        },
+        {
+          "label": "many",
+          "cells": ["6 printers", "4 minutes", "240"]
+        }
+      ],
+      "steps": ["Find what one printer does in one minute first."],
+      "trap": "360 scales up for the extra printers but forgets the shorter time."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m4",
+    "category": "maths",
+    "method": "series",
+    "kind": "text",
+    "prompt": "What number comes next?  2, 6, 12, 20, 30, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "36"
+      },
+      {
+        "id": "b",
+        "text": "40"
+      },
+      {
+        "id": "c",
+        "text": "42"
+      },
+      {
+        "id": "d",
+        "text": "44"
+      },
+      {
+        "id": "e",
+        "text": "46"
+      }
+    ],
+    "answer": "c",
+    "ordered": true,
+    "explanation": {
+      "why": "The gaps are 4, 6, 8, 10, so the next gap is 12: 30 + 12 = 42.",
+      "rows": [
+        {
+          "label": "gaps",
+          "cells": ["4", "6", "8", "10", "12"]
+        },
+        {
+          "label": "add",
+          "cells": ["30 + 12", "42"]
+        }
+      ],
+      "steps": []
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m5",
+    "category": "maths",
+    "method": "rate",
+    "kind": "text",
+    "prompt": "A train covers 180 km in 2 hours 15 minutes. What is its average speed in km/h?",
+    "options": [
+      {
+        "id": "a",
+        "text": "72"
+      },
+      {
+        "id": "b",
+        "text": "75"
+      },
+      {
+        "id": "c",
+        "text": "80"
+      },
+      {
+        "id": "d",
+        "text": "82"
+      },
+      {
+        "id": "e",
+        "text": "90"
+      }
+    ],
+    "answer": "c",
+    "ordered": true,
+    "explanation": {
+      "why": "2 hours 15 minutes is 2.25 hours, and 180 ÷ 2.25 = 80.",
+      "rows": [
+        {
+          "label": "time",
+          "cells": ["2h 15", "9/4 h"]
+        },
+        {
+          "label": "speed",
+          "cells": ["180 × 4/9", "80"]
+        }
+      ],
+      "steps": ["Dividing by 9/4 is multiplying by 4/9."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m6",
+    "category": "maths",
+    "method": "ratio",
+    "kind": "text",
+    "prompt": "£4,500 is split between Ana and Ben in the ratio 4:5. How much does Ben receive?",
+    "options": [
+      {
+        "id": "a",
+        "text": "£2,000"
+      },
+      {
+        "id": "b",
+        "text": "£2,250"
+      },
+      {
+        "id": "c",
+        "text": "£2,500"
+      },
+      {
+        "id": "d",
+        "text": "£2,700"
+      },
+      {
+        "id": "e",
+        "text": "£2,800"
+      }
+    ],
+    "answer": "c",
+    "ordered": true,
+    "explanation": {
+      "why": "There are 9 parts, so one part is £500. Ben's 5 parts come to £2,500.",
+      "rows": [
+        {
+          "label": "parts",
+          "cells": ["4 + 5", "9"]
+        },
+        {
+          "label": "one",
+          "cells": ["4500 ÷ 9", "500"]
+        },
+        {
+          "label": "ben",
+          "cells": ["5 × 500", "2500"]
+        }
+      ],
+      "steps": []
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m7",
+    "category": "maths",
+    "method": "percent",
+    "kind": "text",
+    "prompt": "A number increased by 20% gives 96. What was the original number?",
+    "options": [
+      {
+        "id": "a",
+        "text": "76"
+      },
+      {
+        "id": "b",
+        "text": "78"
+      },
+      {
+        "id": "c",
+        "text": "80"
+      },
+      {
+        "id": "d",
+        "text": "84"
+      },
+      {
+        "id": "e",
+        "text": "86"
+      }
+    ],
+    "answer": "c",
+    "ordered": true,
+    "explanation": {
+      "why": "The 96 already contains the extra 20%, so divide rather than subtract: 96 ÷ 1.2 = 80.",
+      "rows": [
+        {
+          "label": "means",
+          "cells": ["96", "120%", "6/5"]
+        },
+        {
+          "label": "undo",
+          "cells": ["96 ÷ 6 = 16", "16 × 5", "80"]
+        }
+      ],
+      "steps": ["The bigger number is given, so divide."],
+      "trap": "20% off 96 is a different sum."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m8",
+    "category": "maths",
+    "method": "series",
+    "kind": "text",
+    "prompt": "What number comes next?  81, 27, 9, 3, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "0"
+      },
+      {
+        "id": "b",
+        "text": "1"
+      },
+      {
+        "id": "c",
+        "text": "1.5"
+      },
+      {
+        "id": "d",
+        "text": "2"
+      },
+      {
+        "id": "e",
+        "text": "3"
+      }
+    ],
+    "answer": "b",
+    "ordered": true,
+    "explanation": {
+      "why": "Each term is divided by 3, and 3 ÷ 3 = 1.",
+      "rows": [
+        {
+          "label": "ratio",
+          "cells": ["81", "27", "9", "3", "÷ 3"]
+        },
+        {
+          "label": "next",
+          "cells": ["3 ÷ 3", "1"]
+        }
+      ],
+      "steps": ["Shrinking fast means test division."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m9",
+    "category": "maths",
+    "method": "work",
+    "kind": "text",
+    "prompt": "Three people can paint a fence in 6 hours. Working at the same rate, how long would 4 people take?",
+    "options": [
+      {
+        "id": "a",
+        "text": "4 hours"
+      },
+      {
+        "id": "b",
+        "text": "4 hours 30 minutes"
+      },
+      {
+        "id": "c",
+        "text": "5 hours"
+      },
+      {
+        "id": "d",
+        "text": "5 hours 30 minutes"
+      },
+      {
+        "id": "e",
+        "text": "8 hours"
+      }
+    ],
+    "answer": "b",
+    "explanation": {
+      "why": "The job takes 18 person-hours. Shared between 4 people that is 4.5 hours.",
+      "rows": [
+        {
+          "label": "job",
+          "cells": ["3 × 6", "18 person-hours"]
+        },
+        {
+          "label": "split",
+          "cells": ["18 ÷ 4", "4.5 h"]
+        }
+      ],
+      "steps": ["More people means less time. That kills two options."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m10",
+    "category": "maths",
+    "method": "average",
+    "kind": "text",
+    "prompt": "The average of five numbers is 14. Four of them are 10, 12, 16 and 18. What is the fifth?",
+    "options": [
+      {
+        "id": "a",
+        "text": "12"
+      },
+      {
+        "id": "b",
+        "text": "13"
+      },
+      {
+        "id": "c",
+        "text": "14"
+      },
+      {
+        "id": "d",
+        "text": "15"
+      },
+      {
+        "id": "e",
+        "text": "16"
+      }
+    ],
+    "answer": "c",
+    "ordered": true,
+    "explanation": {
+      "why": "The five must total 70. The four given add to 56, leaving 14.",
+      "rows": [
+        {
+          "label": "total",
+          "cells": ["14 × 5", "70"]
+        },
+        {
+          "label": "known",
+          "cells": ["10+12+16+18", "56"]
+        },
+        {
+          "label": "gap",
+          "cells": ["70 − 56", "14"]
+        }
+      ],
+      "steps": []
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m11",
+    "category": "maths",
+    "method": "position",
+    "kind": "text",
+    "prompt": "In a queue of 20 people, Ravi is 7th from the front. What position is he from the back?",
+    "options": [
+      {
+        "id": "a",
+        "text": "12th"
+      },
+      {
+        "id": "b",
+        "text": "13th"
+      },
+      {
+        "id": "c",
+        "text": "14th"
+      },
+      {
+        "id": "d",
+        "text": "15th"
+      },
+      {
+        "id": "e",
+        "text": "16th"
+      }
+    ],
+    "answer": "c",
+    "ordered": true,
+    "explanation": {
+      "why": "20 − 7 + 1 = 14.",
+      "rows": [
+        {
+          "label": "rule",
+          "cells": ["front + back", "total + 1"]
+        },
+        {
+          "label": "so",
+          "cells": ["20 − 7 + 1", "14"]
+        }
+      ],
+      "steps": []
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m12",
+    "category": "maths",
+    "method": "series",
+    "kind": "text",
+    "prompt": "What number comes next?  1, 4, 9, 16, 25, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "30"
+      },
+      {
+        "id": "b",
+        "text": "32"
+      },
+      {
+        "id": "c",
+        "text": "34"
+      },
+      {
+        "id": "d",
+        "text": "36"
+      },
+      {
+        "id": "e",
+        "text": "49"
+      }
+    ],
+    "answer": "d",
+    "ordered": true,
+    "explanation": {
+      "why": "These are the square numbers, and 6² = 36.",
+      "rows": [
+        {
+          "label": "squares",
+          "cells": ["1²", "2²", "3²", "4²", "5²"]
+        },
+        {
+          "label": "next",
+          "cells": ["6²", "36"]
+        }
+      ],
+      "steps": ["Gaps 3, 5, 7, 9 give the same answer."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m13",
+    "category": "maths",
+    "method": "probability",
+    "kind": "text",
+    "prompt": "A bag holds 4 red counters and 6 blue counters. One is drawn at random. What is the probability it is red?",
+    "options": [
+      {
+        "id": "a",
+        "text": "1/4"
+      },
+      {
+        "id": "b",
+        "text": "1/3"
+      },
+      {
+        "id": "c",
+        "text": "2/5"
+      },
+      {
+        "id": "d",
+        "text": "1/2"
+      },
+      {
+        "id": "e",
+        "text": "3/5"
+      }
+    ],
+    "answer": "c",
+    "explanation": {
+      "why": "4 red out of 10 counters is 4/10, which simplifies to 2/5.",
+      "rows": [
+        {
+          "label": "count",
+          "cells": ["4 red", "10 total"]
+        },
+        {
+          "label": "simplify",
+          "cells": ["4/10", "2/5"]
+        }
+      ],
+      "steps": []
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m14",
+    "category": "maths",
+    "method": "pctchange",
+    "kind": "text",
+    "prompt": "A shop buys an item for £40 and sells it for £52. What is the percentage profit?",
+    "options": [
+      {
+        "id": "a",
+        "text": "12%"
+      },
+      {
+        "id": "b",
+        "text": "20%"
+      },
+      {
+        "id": "c",
+        "text": "23%"
+      },
+      {
+        "id": "d",
+        "text": "30%"
+      },
+      {
+        "id": "e",
+        "text": "32%"
+      }
+    ],
+    "answer": "d",
+    "ordered": true,
+    "explanation": {
+      "why": "The profit is £12 on a £40 cost, and 12 ÷ 40 = 30%.",
+      "rows": [
+        {
+          "label": "profit",
+          "cells": ["52 − 40", "12"]
+        },
+        {
+          "label": "on cost",
+          "cells": ["12 / 40", "30%"]
+        }
+      ],
+      "steps": ["Profit is measured against what you paid."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m15",
+    "category": "maths",
+    "method": "series",
+    "kind": "text",
+    "prompt": "What number comes next?  5, 10, 8, 16, 14, 28, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "24"
+      },
+      {
+        "id": "b",
+        "text": "26"
+      },
+      {
+        "id": "c",
+        "text": "30"
+      },
+      {
+        "id": "d",
+        "text": "32"
+      },
+      {
+        "id": "e",
+        "text": "56"
+      }
+    ],
+    "answer": "b",
+    "ordered": true,
+    "explanation": {
+      "why": "The rule alternates: double, then subtract 2. After doubling to 28, subtract 2 to get 26.",
+      "rows": [
+        {
+          "label": "rules",
+          "cells": ["×2", "−2", "×2", "−2", "×2"]
+        },
+        {
+          "label": "next",
+          "cells": ["28 − 2", "26"]
+        }
+      ],
+      "steps": ["Up then down means two rules taking turns."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m16",
+    "category": "maths",
+    "method": "algebra",
+    "kind": "text",
+    "prompt": "If x + 3 = 2x − 5, what is x?",
+    "options": [
+      {
+        "id": "a",
+        "text": "2"
+      },
+      {
+        "id": "b",
+        "text": "4"
+      },
+      {
+        "id": "c",
+        "text": "6"
+      },
+      {
+        "id": "d",
+        "text": "8"
+      },
+      {
+        "id": "e",
+        "text": "10"
+      }
+    ],
+    "answer": "d",
+    "ordered": true,
+    "explanation": {
+      "why": "Subtract x from both sides to get 3 = x − 5, so x = 8.",
+      "rows": [
+        {
+          "label": "tidy",
+          "cells": ["x + 3 = 2x − 5", "3 = x − 5"]
+        },
+        {
+          "label": "solve",
+          "cells": ["x", "8"]
+        }
+      ],
+      "steps": ["Check: 11 = 11."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m17",
+    "category": "maths",
+    "method": "clock",
+    "kind": "text",
+    "prompt": "A meeting starts at 14:40 and runs for 95 minutes. When does it end?",
+    "options": [
+      {
+        "id": "a",
+        "text": "16:05"
+      },
+      {
+        "id": "b",
+        "text": "16:15"
+      },
+      {
+        "id": "c",
+        "text": "16:25"
+      },
+      {
+        "id": "d",
+        "text": "16:35"
+      },
+      {
+        "id": "e",
+        "text": "17:15"
+      }
+    ],
+    "answer": "b",
+    "explanation": {
+      "why": "95 minutes is 1 hour 35 minutes, and 14:40 plus that is 16:15.",
+      "rows": [
+        {
+          "label": "split",
+          "cells": ["95 min", "1h 35"]
+        },
+        {
+          "label": "add",
+          "cells": ["14:40", "15:40", "16:15"]
+        }
+      ],
+      "steps": []
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m18",
+    "category": "maths",
+    "method": "compare",
+    "kind": "text",
+    "prompt": "Which of these is the largest?",
+    "options": [
+      {
+        "id": "a",
+        "text": "0.6"
+      },
+      {
+        "id": "b",
+        "text": "5/8"
+      },
+      {
+        "id": "c",
+        "text": "62%"
+      },
+      {
+        "id": "d",
+        "text": "3/5"
+      },
+      {
+        "id": "e",
+        "text": "0.605"
+      }
+    ],
+    "answer": "b",
+    "explanation": {
+      "why": "As decimals: 0.600, 0.625, 0.620, 0.600, 0.605. The largest is 5/8.",
+      "rows": [
+        {
+          "label": "decimals",
+          "cells": ["0.600", "0.625", "0.620", "0.600", "0.605"]
+        },
+        {
+          "label": "biggest",
+          "cells": ["5/8", "0.625"]
+        }
+      ],
+      "steps": ["5/8 is 0.5 plus 0.125."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m19",
+    "category": "maths",
+    "method": "rate",
+    "kind": "text",
+    "prompt": "A printer produces 24 pages per minute. How many pages does it produce in 3.5 minutes?",
+    "options": [
+      {
+        "id": "a",
+        "text": "72"
+      },
+      {
+        "id": "b",
+        "text": "78"
+      },
+      {
+        "id": "c",
+        "text": "84"
+      },
+      {
+        "id": "d",
+        "text": "88"
+      },
+      {
+        "id": "e",
+        "text": "96"
+      }
+    ],
+    "answer": "c",
+    "ordered": true,
+    "explanation": {
+      "why": "Multiply the rate by the time: 24 × 3.5 = 84 pages.",
+      "rows": [
+        {
+          "label": "split",
+          "cells": ["3.5", "3 + a half"]
+        },
+        {
+          "label": "add",
+          "cells": ["72 + 12", "84"]
+        }
+      ],
+      "steps": []
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m20",
+    "category": "maths",
+    "method": "deduction",
+    "kind": "text",
+    "prompt": "Every box on the top shelf is blue. Some blue boxes are empty. Which statement must be true?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Some boxes on the top shelf are empty"
+      },
+      {
+        "id": "b",
+        "text": "Every blue box is on the top shelf"
+      },
+      {
+        "id": "c",
+        "text": "No box on the top shelf is empty"
+      },
+      {
+        "id": "d",
+        "text": "Some empty boxes are blue"
+      },
+      {
+        "id": "e",
+        "text": "Every empty box is blue"
+      }
+    ],
+    "answer": "d",
+    "explanation": {
+      "why": "That is simply the second statement restated. Nothing tells us whether the empty blue boxes are the shelf ones.",
+      "rows": [
+        {
+          "label": "given",
+          "cells": ["some blue boxes", "are empty"]
+        },
+        {
+          "label": "reverse",
+          "cells": ["some empty boxes", "are blue"]
+        }
+      ],
+      "steps": ["The same fact stated backwards must be true."],
+      "trap": "Top-shelf boxes being empty is not forced."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m21",
+    "category": "maths",
+    "method": "series",
+    "kind": "text",
+    "prompt": "What number comes next?  7, 14, 28, 56, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "84"
+      },
+      {
+        "id": "b",
+        "text": "96"
+      },
+      {
+        "id": "c",
+        "text": "102"
+      },
+      {
+        "id": "d",
+        "text": "112"
+      },
+      {
+        "id": "e",
+        "text": "128"
+      }
+    ],
+    "answer": "d",
+    "ordered": true,
+    "explanation": {
+      "why": "Each term doubles, and 56 × 2 = 112.",
+      "rows": [
+        {
+          "label": "ratio",
+          "cells": ["×2 each time"]
+        },
+        {
+          "label": "next",
+          "cells": ["56 × 2", "112"]
+        }
+      ],
+      "steps": ["Double in pieces: 50 to 100, 6 to 12."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m22",
+    "category": "maths",
+    "method": "pctchange",
+    "kind": "text",
+    "prompt": "Sales fell from 250 units to 200 units. What is the percentage decrease?",
+    "options": [
+      {
+        "id": "a",
+        "text": "15%"
+      },
+      {
+        "id": "b",
+        "text": "20%"
+      },
+      {
+        "id": "c",
+        "text": "25%"
+      },
+      {
+        "id": "d",
+        "text": "30%"
+      },
+      {
+        "id": "e",
+        "text": "33%"
+      }
+    ],
+    "answer": "b",
+    "ordered": true,
+    "explanation": {
+      "why": "The fall is 50 from a starting point of 250, and 50 ÷ 250 = 20%.",
+      "rows": [
+        {
+          "label": "change",
+          "cells": ["250 → 200", "50"]
+        },
+        {
+          "label": "on start",
+          "cells": ["50 / 250", "20%"]
+        }
+      ],
+      "steps": [],
+      "trap": "25% comes from dividing by 200."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m23",
+    "category": "maths",
+    "method": "ratio",
+    "kind": "text",
+    "prompt": "A recipe for 6 people needs 450 g of rice. How much rice is needed for 10 people?",
+    "options": [
+      {
+        "id": "a",
+        "text": "600 g"
+      },
+      {
+        "id": "b",
+        "text": "700 g"
+      },
+      {
+        "id": "c",
+        "text": "750 g"
+      },
+      {
+        "id": "d",
+        "text": "800 g"
+      },
+      {
+        "id": "e",
+        "text": "900 g"
+      }
+    ],
+    "answer": "c",
+    "ordered": true,
+    "explanation": {
+      "why": "That is 75 g per person, and 75 × 10 = 750 g.",
+      "rows": [
+        {
+          "label": "per head",
+          "cells": ["450 ÷ 6", "75 g"]
+        },
+        {
+          "label": "scale",
+          "cells": ["75 × 10", "750 g"]
+        }
+      ],
+      "steps": []
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m24",
+    "category": "maths",
+    "method": "average",
+    "kind": "text",
+    "prompt": "The sum of three consecutive even numbers is 66. What is the largest of them?",
+    "options": [
+      {
+        "id": "a",
+        "text": "20"
+      },
+      {
+        "id": "b",
+        "text": "22"
+      },
+      {
+        "id": "c",
+        "text": "24"
+      },
+      {
+        "id": "d",
+        "text": "26"
+      },
+      {
+        "id": "e",
+        "text": "28"
+      }
+    ],
+    "answer": "c",
+    "ordered": true,
+    "explanation": {
+      "why": "The middle number is 66 ÷ 3 = 22, so the three are 20, 22 and 24.",
+      "rows": [
+        {
+          "label": "middle",
+          "cells": ["66 ÷ 3", "22"]
+        },
+        {
+          "label": "so",
+          "cells": ["20", "22", "24"]
+        }
+      ],
+      "steps": ["In an evenly spaced run the middle is the average."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  },
+  {
+    "id": "m25",
+    "category": "maths",
+    "method": "series",
+    "kind": "text",
+    "prompt": "What number comes next?  2, 9, 4, 12, 6, 15, 8, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "10"
+      },
+      {
+        "id": "b",
+        "text": "16"
+      },
+      {
+        "id": "c",
+        "text": "17"
+      },
+      {
+        "id": "d",
+        "text": "18"
+      },
+      {
+        "id": "e",
+        "text": "20"
+      }
+    ],
+    "answer": "d",
+    "ordered": true,
+    "explanation": {
+      "why": "Two sequences alternate: 2, 4, 6, 8 rising by 2, and 9, 12, 15 rising by 3. Next in the second is 18.",
+      "rows": [
+        {
+          "label": "1st 3rd 5th",
+          "cells": ["2", "4", "6", "8"]
+        },
+        {
+          "label": "2nd 4th 6th",
+          "cells": ["9", "12", "15", "18"]
+        }
+      ],
+      "steps": ["Zigzag usually means two sequences woven together."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-08"
+    }
+  }
+]
