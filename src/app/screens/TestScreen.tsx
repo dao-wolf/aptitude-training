@@ -33,7 +33,12 @@ function useRunClock(run: Run, onEnd: (run: Run) => void) {
         ),
       })
   }, [expired, run, onEnd])
-  return { timed, remaining, elapsed: Math.max(0, t - run.session.startedAt) }
+  return {
+    timed,
+    remaining,
+    lowTime: timed && remaining <= 60_000,
+    elapsed: Math.max(0, t - run.session.startedAt),
+  }
 }
 
 export function TestScreen({ run, onChange, onEnd }: Props) {
@@ -41,7 +46,7 @@ export function TestScreen({ run, onChange, onEnd }: Props) {
   const index = session.index
   const headingRef = useRef<HTMLHeadingElement>(null)
   const [confirming, setConfirming] = useState(false)
-  const { timed, remaining, elapsed } = useRunClock(run, onEnd)
+  const { timed, remaining, lowTime, elapsed } = useRunClock(run, onEnd)
   const free = settings.navigation === "free"
   const view = viewOf({
     answers: session.answers,
@@ -76,7 +81,7 @@ export function TestScreen({ run, onChange, onEnd }: Props) {
         total={items.length}
         clock={clockText(timed, remaining, elapsed)}
         timed={timed}
-        lowTime={timed && remaining <= 60_000}
+        lowTime={lowTime}
       />
       <p className="at-sr" aria-live="polite">
         Question {index + 1} of {items.length}
@@ -108,7 +113,7 @@ export function TestScreen({ run, onChange, onEnd }: Props) {
           last={view.last}
           flagged={view.flagged}
           primary={view.primary}
-          primaryDisabled={view.primary === "check" && !view.chosen}
+          primaryDisabled={view.primaryDisabled}
           onPrimary={actions.onPrimary}
           onBack={actions.back}
           onFlag={actions.flag}
