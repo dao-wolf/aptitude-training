@@ -1,13 +1,13 @@
-import { useEffect, useRef, useState, type KeyboardEvent } from "react"
-import { reduceSession, type SessionAction } from "../../domain/session"
+import { useEffect, useRef, useState } from "react"
+import { reduceSession } from "../../domain/session"
 import { remainingMs } from "../../domain/timing"
-import type { OptionId } from "../../domain/types"
 import { METHODS } from "../../content/bank"
 import { Explanation } from "../Explanation"
 import { QuestionView } from "../QuestionView"
 import type { Run } from "../run"
-import { clockText, optionForKey, timeWarning, viewOf } from "../test/rules"
+import { clockText, timeWarning, viewOf } from "../test/rules"
 import { FinishConfirm, TestFooter, TestHeader } from "../test/TestParts"
+import { testActions } from "../test/testActions"
 import { now, useNow } from "../useNow"
 
 interface Props {
@@ -38,10 +38,28 @@ function useRunClock(run: Run, onEnd: (run: Run) => void) {
 
 export function TestScreen({ run, onChange, onEnd }: Props) {
   const { session, items, paper, settings } = run
+  const index = session.index
   const headingRef = useRef<HTMLHeadingElement>(null)
   const [confirming, setConfirming] = useState(false)
   const { timed, remaining, elapsed } = useRunClock(run, onEnd)
-  const index = session.index
+  const free = settings.navigation === "free"
+  const view = viewOf({
+    answers: session.answers,
+    flags: session.flags,
+    checked: run.checked,
+    index,
+    free,
+    learn: settings.feedback === "instant",
+  })
+  const actions = testActions({
+    run,
+    onChange,
+    onEnd,
+    primary: view.primary,
+    locked: view.locked,
+    confirmFinish: free && view.unanswered + view.flaggedCount > 0,
+    askToConfirm: () => setConfirming(true),
+  })
 
   // Move focus to each new question, so screen readers start reading it.
   useEffect(() => headingRef.current?.focus(), [index])
@@ -50,53 +68,8 @@ export function TestScreen({ run, onChange, onEnd }: Props) {
   const question = paper.questions[index]
   if (!item || !question) return null
 
-  const free = settings.navigation === "free"
-  const { chosen, last, locked, primary, unanswered, flaggedCount, flagged } =
-    viewOf({
-      answers: session.answers,
-      flags: session.flags,
-      checked: run.checked,
-      index,
-      free,
-      learn: settings.feedback === "instant",
-    })
-
-  const act = (action: SessionAction) => {
-    const next = {
-      ...run,
-      session: reduceSession(run.session, action, settings.navigation),
-    }
-    if (next.session.status === "finished") onEnd(next)
-    else onChange(next)
-  }
-  const choose = (option: OptionId) => {
-    if (!locked) act({ type: "select", option })
-  }
-  const finish = () =>
-    free && unanswered + flaggedCount > 0
-      ? setConfirming(true)
-      : act({ type: "finish", now: now() })
-  const onPrimary = {
-    check: () =>
-      onChange({
-        ...run,
-        checked: run.checked.map((c, i) => c || i === index),
-      }),
-    finish,
-    next: () => act({ type: "next", now: now() }),
-    skip: () => act({ type: "next", now: now() }),
-  }[primary]
-
-  // Answer keys work only while focus is inside the test.
-  const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
-    const option = optionForKey(e, question.optionOrder)
-    if (!option) return
-    e.preventDefault()
-    choose(option)
-  }
-
   return (
-    <div className="at-test" onKeyDown={onKeyDown}>
+    <div className="at-test" onKeyDown={actions.onKeyDown}>
       <TestHeader
         category={item.category}
         index={index}
@@ -115,30 +88,30 @@ export function TestScreen({ run, onChange, onEnd }: Props) {
         key={index}
         item={item}
         optionOrder={question.optionOrder}
-        chosen={chosen}
-        {...(locked ? {} : { onChoose: choose })}
-        reveal={locked}
+        chosen={view.chosen}
+        {...(view.locked ? {} : { onChoose: actions.choose })}
+        reveal={view.locked}
         headingRef={headingRef}
       />
-      {locked && <Explanation item={item} method={METHODS[item.method]} />}
+      {view.locked && <Explanation item={item} method={METHODS[item.method]} />}
       {confirming ? (
         <FinishConfirm
-          unanswered={unanswered}
-          flagged={flaggedCount}
-          onFinish={() => act({ type: "finish", now: now() })}
+          unanswered={view.unanswered}
+          flagged={view.flaggedCount}
+          onFinish={actions.finish}
           onCancel={() => setConfirming(false)}
         />
       ) : (
         <TestFooter
           free={free}
           first={index === 0}
-          last={last}
-          flagged={flagged}
-          primary={primary}
-          primaryDisabled={primary === "check" && !chosen}
-          onPrimary={onPrimary}
-          onBack={() => act({ type: "back", now: now() })}
-          onFlag={() => act({ type: "flag" })}
+          last={view.last}
+          flagged={view.flagged}
+          primary={view.primary}
+          primaryDisabled={view.primary === "check" && !view.chosen}
+          onPrimary={actions.onPrimary}
+          onBack={actions.back}
+          onFlag={actions.flag}
           onEnd={() => setConfirming(true)}
         />
       )}
