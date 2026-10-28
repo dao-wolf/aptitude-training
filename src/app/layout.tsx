@@ -29,6 +29,8 @@ export const Title = forwardRef<HTMLHeadingElement, { children: ReactNode }>(
 /**
  * When `key` changes, move focus to the element (so screen readers start there)
  * and scroll it into view if it isn't already. Before paint, so nothing jumps.
+ * The scroll is instant, even on a page with smooth scrolling: a smooth scroll
+ * can still be running when the next question appears, and leave it off screen.
  */
 export function useRevealOnChange(
   ref: RefObject<HTMLElement | null>,
@@ -41,7 +43,7 @@ export function useRevealOnChange(
     const margin = parseFloat(getComputedStyle(el).scrollMarginTop) || 0
     const r = el.getBoundingClientRect()
     if (r.top < margin || r.bottom > window.innerHeight)
-      el.scrollIntoView({ block: "start" })
+      el.scrollIntoView({ block: "start", behavior: "instant" })
   }, [ref, key])
 }
 

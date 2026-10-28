@@ -1,5 +1,9 @@
-/* Copied from the real site (global.css): overflow-x hidden on body and the
-   page wrapper, which breaks position: sticky for everything inside. */
+/* Copied from the real site (global.css): smooth scrolling, and overflow-x
+   hidden on body and the page wrapper, which breaks position: sticky for
+   everything inside. */
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   font-family: system-ui, sans-serif;

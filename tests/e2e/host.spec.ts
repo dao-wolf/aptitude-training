@@ -77,6 +77,16 @@ test("each screen and question starts in view, clear of the floating button", as
   }
 })
 
+test("moving on quickly still shows the whole question", async ({ page }) => {
+  await openHost(page)
+  await startSprint(page)
+  // Click as soon as each question appears, while the page may still be scrolling.
+  for (let i = 0; i < 6; i++) {
+    await page.getByRole("button", { name: /^(Next|Skip)$/ }).click()
+    await expectQuestionInView(page)
+  }
+})
+
 test("a double-click on Next moves one question and answers nothing", async ({
   page,
 }) => {
