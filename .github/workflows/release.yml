@@ -23,6 +23,16 @@ jobs:
         with:
           node-version-file: .nvmrc
           cache: pnpm
+      # Checked first, so a wrong tag fails before anything is published.
+      - name: Tag and package version must match
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          version="v$(node -p "require('./package.json').version")"
+          if [ "$TAG" != "$version" ]; then
+            echo "::error::Tag $TAG doesn't match package.json version $version."
+            exit 1
+          fi
       - run: pnpm install --frozen-lockfile
       - run: pnpm typecheck
       - run: pnpm lint
@@ -42,8 +52,11 @@ jobs:
             dist/SHA256SUMS
           retention-days: 7
 
+  # The GitHub release stays a draft until npm has staged the package. Immutable
+  # releases lock a version once it's published, so publishing it before a failed npm
+  # step would use up the version number.
   publish:
-    name: Sign and publish
+    name: Sign and draft
     needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -61,7 +74,7 @@ jobs:
         with:
           subject-checksums: release/SHA256SUMS
           create-storage-record: false
-      - name: Publish the release
+      - name: Draft the release
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ github.ref_name }}
@@ -69,10 +82,9 @@ jobs:
           gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --draft --verify-tag \
             --title "$TAG" --generate-notes \
             release/aptitude-training.js release/aptitude-training.css release/SHA256SUMS
-          gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --draft=false
 
   npm:
-    name: Publish to npm
+    name: Stage on npm
     needs: [build, publish]
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -91,15 +103,20 @@ jobs:
         with:
           name: release
           path: dist
-      - name: Tag and package version must match
-        env:
-          TAG: ${{ github.ref_name }}
-        run: |
-          version="v$(node -p "require('./package.json').version")"
-          if [ "$TAG" != "$version" ]; then
-            echo "::error::Tag $TAG doesn't match package.json version $version."
-            exit 1
-          fi
       # Staged: the version stays hidden until the maintainer approves it on
       # npmjs.com with two-factor sign-in. publishConfig sets public access and provenance.
       - run: npm stage publish
+
+  release:
+    name: Publish the release
+    needs: npm
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write # publish the draft
+    steps:
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --draft=false
