@@ -102,17 +102,20 @@ export function viewOf({
   const chosen = answers[index] ?? null
   const isChecked = checked[index] ?? false
   const last = index === answers.length - 1
+  const primary = primaryAction({
+    learn,
+    checked: isChecked,
+    last,
+    answered: chosen !== null,
+    oneWay: !free,
+  })
   return {
     chosen,
     last,
     locked: learn && isChecked,
-    primary: primaryAction({
-      learn,
-      checked: isChecked,
-      last,
-      answered: chosen !== null,
-      oneWay: !free,
-    }),
+    primary,
+    /** Check stays disabled until an answer is picked. */
+    primaryDisabled: primary === "check" && chosen === null,
     unanswered: answers.filter(a => a === null).length,
     flaggedCount: flags.filter(Boolean).length,
     flagged: flags[index] ?? false,
