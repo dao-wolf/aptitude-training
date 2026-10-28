@@ -158,6 +158,17 @@ test.describe("ending", () => {
     ).toHaveText("1")
   })
 
+  test("a section you never reached says so, not 0.0s", async ({ page }) => {
+    await open(page)
+    await startSprint(page)
+    await page.getByRole("button", { name: "End test" }).click()
+    await page.getByRole("button", { name: "Finish" }).click()
+    // Only question 1 was reached, so two of the three sections weren't.
+    const table = page.getByRole("table", { name: "By section" })
+    await expect(table.getByText("Not reached")).toHaveCount(2)
+    await expect(table).not.toContainText("0.0s")
+  })
+
   test("finish early, read the result, review an answer", async ({ page }) => {
     await open(page)
     await startSprint(page)

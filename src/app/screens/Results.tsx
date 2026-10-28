@@ -138,7 +138,9 @@ function SectionTable({ sections }: { sections: Section[] }) {
             <td>
               {s.correct} of {s.total}
             </td>
-            <td>{seconds(s.averageMs)}</td>
+            <td>
+              {s.averageMs === null ? "Not reached" : seconds(s.averageMs)}
+            </td>
           </tr>
         ))}
       </tbody>
