@@ -17,6 +17,22 @@ updates:
     cooldown:
       default-days: 7
       semver-major-days: 14
+    # Held back on purpose: typescript-eslint supports TypeScript below 6.1,
+    # React 18 matches the site, and Node types follow the Node 22 floor.
+    # Patches and minors inside these majors still come through.
+    ignore:
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react-dom"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@types/react"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@types/react-dom"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
     groups:
       npm-minor-patch:
         applies-to: version-updates
