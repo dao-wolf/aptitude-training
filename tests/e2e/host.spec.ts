@@ -92,6 +92,20 @@ test("the clock stays in view while you answer", async ({ page }) => {
   await expectClockInViewAfterScroll(page)
 })
 
+test("on a page that breaks sticky, the clock pill keeps the time in view", async ({
+  page,
+}) => {
+  await openHost(page)
+  // The site's old rule: overflow-x hidden on the wrapper stops position: sticky.
+  await page.evaluate(() => {
+    const wrapper = document.querySelector<HTMLElement>(".wrapper")
+    if (wrapper) wrapper.style.overflowX = "hidden"
+  })
+  await startSprint(page)
+  await expectClockInViewAfterScroll(page)
+  await expect(page.locator(".at-dock")).toBeInViewport()
+})
+
 test("picture answers are big enough to tell apart (72 px or more)", async ({
   page,
 }) => {

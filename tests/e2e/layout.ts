@@ -25,30 +25,36 @@ export async function expectQuestionInView(page: Page) {
       const x = r.left + 24
       const y = r.top + r.height / 2
       if (y < 0 || y > window.innerHeight) return "off screen"
+      // Covered by the page (a menu button), or by the app's own sticky header.
+      const root = option.getRootNode() as ShadowRoot
       const top = document.elementFromPoint(x, y)
-      return top === (option.getRootNode() as ShadowRoot).host ||
-        option.contains(top)
-        ? ""
-        : `covered by ${top?.tagName}`
+      if (top !== root.host) return `covered by ${top?.tagName}`
+      const inner = root.elementFromPoint(x, y)
+      return option.contains(inner) ? "" : `covered by .${inner?.className}`
     })
   expect(covered).toBe("")
 }
 
-/** Scroll the test header off screen, then expect a clock still on screen and uncovered. */
+/**
+ * Scroll past where the test header started, then expect a clock still on
+ * screen and uncovered: the sticky header's, or the pill's where sticky fails.
+ */
 export async function expectClockInViewAfterScroll(page: Page) {
-  // Scroll until the header has really left the screen (no racing a smooth scroll).
   const header = page.locator(".at-test-header")
-  await header.evaluate(h =>
-    window.scrollBy(0, h.getBoundingClientRect().bottom + 40)
+  const start = await page.evaluate(() => window.scrollY)
+  const distance = await header.evaluate(
+    h => h.getBoundingClientRect().bottom + 40
   )
-  // On a short page the header can't leave the screen: stop at the page's end.
+  await page.evaluate(d => window.scrollBy(0, d), distance)
+  // Wait for the scroll to finish: the distance, or the page's end on a short page.
   await expect
     .poll(() =>
-      header.evaluate(
-        h =>
-          h.getBoundingClientRect().bottom < 0 ||
+      page.evaluate(
+        ({ from, d }) =>
+          window.scrollY >= from + d - 1 ||
           Math.ceil(window.scrollY + window.innerHeight) >=
-            document.documentElement.scrollHeight
+            document.documentElement.scrollHeight,
+        { from: start, d: distance }
       )
     )
     .toBe(true)
