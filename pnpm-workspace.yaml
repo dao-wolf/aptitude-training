@@ -7,6 +7,10 @@ minimumReleaseAge: 1440
 # Install scripts run only for packages listed here; any other package that
 # wants one fails the install, so nothing runs unreviewed.
 strictDepBuilds: true
+
+# Refuse a package version whose publishing trust is weaker than an earlier
+# version's (e.g. signed provenance that suddenly disappears).
+trustPolicy: no-downgrade
 onlyBuiltDependencies:
   - esbuild
 

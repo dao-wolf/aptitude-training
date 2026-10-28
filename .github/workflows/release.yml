@@ -70,3 +70,35 @@ jobs:
             --title "$TAG" --generate-notes \
             release/aptitude-training.js release/aptitude-training.css release/SHA256SUMS
           gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --draft=false
+
+  npm:
+    name: Publish to npm
+    needs: [build, publish]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      id-token: write # trusted publishing: npm checks this workflow's identity, no token stored
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          registry-url: https://registry.npmjs.org
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: release
+          path: dist
+      - name: Tag and package version must match
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          version="v$(node -p "require('./package.json').version")"
+          if [ "$TAG" != "$version" ]; then
+            echo "::error::Tag $TAG doesn't match package.json version $version."
+            exit 1
+          fi
+      # publishConfig sets public access and signed provenance.
+      - run: npm publish
