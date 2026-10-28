@@ -423,7 +423,7 @@
         }
       ],
       "steps": ["Track one feature, never the whole shape."],
-      "trap": "Mirrored options put the landmark on the wrong side."
+      "trap": "Options turned the wrong way look right at a glance. Check the direction of the turn."
     },
     "status": "live",
     "provenance": {
@@ -530,7 +530,7 @@
         }
       ],
       "steps": ["Track one feature, never the whole shape."],
-      "trap": "Mirrored options put the landmark on the wrong side."
+      "trap": "Options turned the wrong way look right at a glance. Check the direction of the turn."
     },
     "status": "live",
     "provenance": {
@@ -1639,7 +1639,7 @@
         },
         {
           "label": "rule 1",
-          "cells": ["90°", "90°", "90°", "90°"]
+          "cells": ["90°", "90°", "90°", "answer"]
         },
         {
           "label": "rule 2",
@@ -1750,7 +1750,7 @@
         },
         {
           "label": "rule 1",
-          "cells": ["90°", "90°", "90°", "90°"]
+          "cells": ["90°", "90°", "90°", "answer"]
         },
         {
           "label": "rule 2",
@@ -2212,7 +2212,7 @@
       "rows": [
         {
           "label": "count",
-          "cells": ["4", "4", "4", "4", "5"]
+          "cells": ["four grids shade 4", "one shades 5"]
         },
         {
           "label": "shape",

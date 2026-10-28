@@ -11,7 +11,6 @@ export default tseslint.config(
       "dist",
       "reports",
       "coverage",
-      "legacy",
       "playwright-report",
       "test-results",
       ".stryker-tmp",
@@ -34,6 +33,16 @@ export default tseslint.config(
       "no-eval": "error",
       "no-implied-eval": "error",
       "no-new-func": "error",
+      // Lists here are static content that never reorders, so index keys are right.
+      "@eslint-react/no-array-index-key": "off",
+      // A strict CSP blocks inline style attributes: all styling lives in the stylesheet.
+      "no-restricted-syntax": [
+        "error",
+        {
+          selector: "JSXAttribute[name.name='style']",
+          message: "Use a class: a strict CSP blocks inline styles.",
+        },
+      ],
     },
   },
   {

@@ -83,7 +83,7 @@
       "rows": [
         {
           "label": "means",
-          "cells": ["candid", "says what he thinks"]
+          "cells": ["candid", "says what they think"]
         },
         {
           "label": "want",
@@ -286,7 +286,7 @@
     ],
     "answer": "d",
     "explanation": {
-      "why": "The others are all species of tree. A shrub is a different kind of plant altogether.",
+      "why": "The others are all kinds of tree. A shrub is a different kind of plant altogether.",
       "rows": [
         {
           "label": "group",
@@ -294,10 +294,12 @@
         },
         {
           "label": "odd",
-          "cells": ["shrub", "a plant type, not a species"]
+          "cells": ["shrub", "not a tree"]
         }
       ],
-      "steps": ["Species against category is the most common split."]
+      "steps": [
+        "Look for the group most of the words share, then the one outside it."
+      ]
     },
     "status": "live",
     "provenance": {
@@ -654,7 +656,7 @@
           "cells": ["those tools", "are not rust compilers"]
         }
       ],
-      "steps": ["The safe answer is usually the least dramatic."]
+      "steps": ["Join the two statements through the word they share: slow."]
     },
     "status": "live",
     "provenance": {
@@ -693,7 +695,7 @@
     ],
     "answer": "a",
     "explanation": {
-      "why": "Each craftsman is paired with what they make. A cooper makes barrels.",
+      "why": "Each trade is paired with what it makes. A cooper makes barrels.",
       "rows": [
         {
           "label": "link",
@@ -958,7 +960,7 @@
         },
         {
           "label": "odd",
-          "cells": ["bicycle", "a machine, and a noun"]
+          "cells": ["bicycle", "a machine, not a way of moving on foot"]
         }
       ],
       "steps": []

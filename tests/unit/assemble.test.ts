@@ -105,3 +105,21 @@ describe("assemblePaper", () => {
     )
   })
 })
+
+describe("practice questions", () => {
+  it("never appear on a paper", () => {
+    const bank = [...BANK, { ...(BANK[0] as Item), id: "pzz", practice: true }]
+    fc.assert(
+      fc.property(fc.integer(), seed => {
+        const p = assemblePaper({
+          spec: MIXED_SPRINT,
+          bank,
+          seed,
+          rng: mulberry32(seed),
+        })
+        expect(p.questions.map(q => q.itemId)).not.toContain("pzz")
+      }),
+      { numRuns: 20 }
+    )
+  })
+})

@@ -55,6 +55,7 @@ export const itemSchema = z
     answer: optionId,
     ordered: z.boolean().optional(),
     enemies: z.array(z.string()).optional(),
+    practice: z.literal(true).optional(),
     explanation: z
       .object({
         why: z.string().min(1),

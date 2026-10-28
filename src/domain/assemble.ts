@@ -31,7 +31,10 @@ export function assemblePaper({
     number,
   ][]) {
     const pool = shuffle(
-      bank.filter(item => item.category === category && item.status === "live"),
+      bank.filter(
+        item =>
+          item.category === category && item.status === "live" && !item.practice
+      ),
       rng
     ).sort((x, y) => (seenAt.get(x.id) ?? -1) - (seenAt.get(y.id) ?? -1))
 

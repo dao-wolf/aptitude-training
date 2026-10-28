@@ -355,7 +355,7 @@
         }
       ],
       "steps": ["The bigger number is given, so divide."],
-      "trap": "20% off 96 is a different sum."
+      "trap": "76 comes from taking 20 off 96. The 20% belongs to the original number, not to 96."
     },
     "status": "live",
     "provenance": {
@@ -456,7 +456,9 @@
           "cells": ["18 ÷ 4", "4.5 h"]
         }
       ],
-      "steps": ["More people means less time. That kills two options."]
+      "steps": [
+        "More people means less time. That rules out 8 hours straight away."
+      ]
     },
     "status": "live",
     "provenance": {

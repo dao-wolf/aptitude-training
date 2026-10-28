@@ -1,0 +1,589 @@
+[
+  {
+    "id": "pv1",
+    "category": "verbal",
+    "method": "analogy",
+    "kind": "text",
+    "prompt": "Hot is to cold as tall is to:",
+    "options": [
+      {
+        "id": "a",
+        "text": "Short"
+      },
+      {
+        "id": "b",
+        "text": "High"
+      },
+      {
+        "id": "c",
+        "text": "Large"
+      },
+      {
+        "id": "d",
+        "text": "Warm"
+      },
+      {
+        "id": "e",
+        "text": "Wide"
+      }
+    ],
+    "answer": "a",
+    "practice": true,
+    "explanation": {
+      "why": "Hot and cold are opposites, so you want the opposite of tall: short.",
+      "rows": [
+        {
+          "label": "link",
+          "cells": ["hot", "opposite", "cold"]
+        },
+        {
+          "label": "same",
+          "cells": ["tall", "opposite", "short"]
+        }
+      ],
+      "steps": [
+        "Say the link as a sentence, then use the same sentence on the second pair."
+      ],
+      "trap": "High means nearly the same as tall, not the opposite."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-10-28"
+    }
+  },
+  {
+    "id": "pv2",
+    "category": "verbal",
+    "method": "synonym",
+    "kind": "text",
+    "prompt": "Which word is most nearly the SAME in meaning as rapid?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Slow"
+      },
+      {
+        "id": "b",
+        "text": "Quick"
+      },
+      {
+        "id": "c",
+        "text": "Late"
+      },
+      {
+        "id": "d",
+        "text": "Heavy"
+      },
+      {
+        "id": "e",
+        "text": "Calm"
+      }
+    ],
+    "answer": "b",
+    "practice": true,
+    "explanation": {
+      "why": "Rapid means fast, and quick means fast.",
+      "rows": [
+        {
+          "label": "rapid",
+          "cells": ["fast"]
+        },
+        {
+          "label": "match",
+          "cells": ["quick"]
+        }
+      ],
+      "steps": ["Define the word yourself before you read the options."],
+      "trap": "Slow is the opposite. Opposites are common bait."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-10-28"
+    }
+  },
+  {
+    "id": "pv3",
+    "category": "verbal",
+    "method": "deduction",
+    "kind": "text",
+    "prompt": "All the cups in the kitchen are blue. Ana's mug is a cup in the kitchen. Which must be true?",
+    "options": [
+      {
+        "id": "a",
+        "text": "Ana's mug is blue"
+      },
+      {
+        "id": "b",
+        "text": "Ana's mug is new"
+      },
+      {
+        "id": "c",
+        "text": "Everything blue is a cup"
+      },
+      {
+        "id": "d",
+        "text": "Ana owns the kitchen"
+      },
+      {
+        "id": "e",
+        "text": "Ana's mug is not blue"
+      }
+    ],
+    "answer": "a",
+    "practice": true,
+    "explanation": {
+      "why": "Every cup in the kitchen is blue, and Ana's mug is one of them, so it must be blue.",
+      "rows": [
+        {
+          "label": "all",
+          "cells": ["kitchen cups", "blue"]
+        },
+        {
+          "label": "so",
+          "cells": ["Ana's mug", "blue"]
+        }
+      ],
+      "steps": ["Use only what the statements say, not what seems likely."],
+      "trap": "\"Everything blue is a cup\" turns the first statement round. That doesn't follow."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-10-28"
+    }
+  },
+  {
+    "id": "pm1",
+    "category": "maths",
+    "method": "series",
+    "kind": "text",
+    "prompt": "What number comes next?  2, 4, 6, 8, ?",
+    "options": [
+      {
+        "id": "a",
+        "text": "9"
+      },
+      {
+        "id": "b",
+        "text": "10"
+      },
+      {
+        "id": "c",
+        "text": "11"
+      },
+      {
+        "id": "d",
+        "text": "12"
+      },
+      {
+        "id": "e",
+        "text": "14"
+      }
+    ],
+    "answer": "b",
+    "ordered": true,
+    "practice": true,
+    "explanation": {
+      "why": "Each number is 2 more than the one before, so 8 + 2 = 10.",
+      "rows": [
+        {
+          "label": "gaps",
+          "cells": ["2", "2", "2", "2"]
+        },
+        {
+          "label": "add",
+          "cells": ["8 + 2", "10"]
+        }
+      ],
+      "steps": ["Write the gaps between the numbers first."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-10-28"
+    }
+  },
+  {
+    "id": "pm2",
+    "category": "maths",
+    "method": "ratio",
+    "kind": "text",
+    "prompt": "A book costs £8. How much do 3 books cost?",
+    "options": [
+      {
+        "id": "a",
+        "text": "£16"
+      },
+      {
+        "id": "b",
+        "text": "£21"
+      },
+      {
+        "id": "c",
+        "text": "£24"
+      },
+      {
+        "id": "d",
+        "text": "£27"
+      },
+      {
+        "id": "e",
+        "text": "£32"
+      }
+    ],
+    "answer": "c",
+    "ordered": true,
+    "practice": true,
+    "explanation": {
+      "why": "3 books at £8 each cost 3 × £8 = £24.",
+      "rows": [
+        {
+          "label": "one",
+          "cells": ["£8"]
+        },
+        {
+          "label": "three",
+          "cells": ["3 × £8", "£24"]
+        }
+      ],
+      "steps": ["Find the cost of one, then scale up."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-10-28"
+    }
+  },
+  {
+    "id": "pm3",
+    "category": "maths",
+    "method": "percent",
+    "kind": "text",
+    "prompt": "What is 25% of 40?",
+    "options": [
+      {
+        "id": "a",
+        "text": "4"
+      },
+      {
+        "id": "b",
+        "text": "8"
+      },
+      {
+        "id": "c",
+        "text": "10"
+      },
+      {
+        "id": "d",
+        "text": "15"
+      },
+      {
+        "id": "e",
+        "text": "20"
+      }
+    ],
+    "answer": "c",
+    "ordered": true,
+    "practice": true,
+    "explanation": {
+      "why": "25% is a quarter, and a quarter of 40 is 10.",
+      "rows": [
+        {
+          "label": "25%",
+          "cells": ["a quarter"]
+        },
+        {
+          "label": "40 ÷ 4",
+          "cells": ["10"]
+        }
+      ],
+      "steps": [
+        "Turn easy percentages into fractions: 50% is a half, 25% a quarter."
+      ]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-10-28"
+    }
+  },
+  {
+    "id": "ps1",
+    "category": "spatial",
+    "method": "rotation",
+    "kind": "visual",
+    "prompt": "Which figure comes next in the series?",
+    "stem": [
+      {
+        "kind": "fig",
+        "fig": "flag",
+        "rot": 0,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "fig",
+        "fig": "flag",
+        "rot": 90,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "fig",
+        "fig": "flag",
+        "rot": 180,
+        "flip": false,
+        "hollow": false
+      },
+      {
+        "kind": "q"
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 270,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 90,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 0,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 180,
+          "flip": false,
+          "hollow": false
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "fig",
+          "fig": "flag",
+          "rot": 270,
+          "flip": true,
+          "hollow": false
+        }
+      }
+    ],
+    "answer": "a",
+    "practice": true,
+    "explanation": {
+      "why": "The flag turns 90° clockwise at each step, so the next one has turned 270°.",
+      "rows": [
+        {
+          "label": "watch",
+          "cells": ["the flag's triangle"]
+        },
+        {
+          "label": "each step",
+          "cells": ["90° clockwise"]
+        }
+      ],
+      "steps": ["Pick one part of the figure and follow only that."],
+      "trap": "The last option is turned the right amount but mirrored."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-10-28"
+    }
+  },
+  {
+    "id": "ps2",
+    "category": "spatial",
+    "method": "countseries",
+    "kind": "visual",
+    "prompt": "Which figure comes next in the series?",
+    "stem": [
+      {
+        "kind": "poly",
+        "sides": 3
+      },
+      {
+        "kind": "poly",
+        "sides": 4
+      },
+      {
+        "kind": "poly",
+        "sides": 5
+      },
+      {
+        "kind": "q"
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "poly",
+          "sides": 6
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "poly",
+          "sides": 7
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "poly",
+          "sides": 4
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "poly",
+          "sides": 5
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "poly",
+          "sides": 8
+        }
+      }
+    ],
+    "answer": "a",
+    "practice": true,
+    "explanation": {
+      "why": "Each shape has one more side than the last: 3, 4, 5, so 6 comes next.",
+      "rows": [
+        {
+          "label": "sides",
+          "cells": ["3", "4", "5", "6"]
+        }
+      ],
+      "steps": ["Count the corners."]
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-10-28"
+    }
+  },
+  {
+    "id": "ps3",
+    "category": "spatial",
+    "method": "gridmove",
+    "kind": "visual",
+    "prompt": "Which grid comes next in the series?",
+    "stem": [
+      {
+        "kind": "grid",
+        "cells": [0]
+      },
+      {
+        "kind": "grid",
+        "cells": [1]
+      },
+      {
+        "kind": "grid",
+        "cells": [2]
+      },
+      {
+        "kind": "q"
+      }
+    ],
+    "options": [
+      {
+        "id": "a",
+        "visual": {
+          "kind": "grid",
+          "cells": [5]
+        }
+      },
+      {
+        "id": "b",
+        "visual": {
+          "kind": "grid",
+          "cells": [3]
+        }
+      },
+      {
+        "id": "c",
+        "visual": {
+          "kind": "grid",
+          "cells": [4]
+        }
+      },
+      {
+        "id": "d",
+        "visual": {
+          "kind": "grid",
+          "cells": [8]
+        }
+      },
+      {
+        "id": "e",
+        "visual": {
+          "kind": "grid",
+          "cells": [6]
+        }
+      }
+    ],
+    "answer": "a",
+    "practice": true,
+    "explanation": {
+      "why": "The shaded square moves one place clockwise round the edge each step, so after the top-right corner it moves down one.",
+      "rows": [
+        {
+          "label": "moves",
+          "cells": ["one place clockwise"]
+        },
+        {
+          "label": "next",
+          "cells": ["right-hand middle"]
+        }
+      ],
+      "steps": ["Trace the path with your finger."],
+      "trap": "The centre square is never on the path round the edge."
+    },
+    "status": "live",
+    "provenance": {
+      "origin": "original",
+      "writtenBy": "Claude (AI)",
+      "created": "2026-10-28"
+    }
+  }
+]

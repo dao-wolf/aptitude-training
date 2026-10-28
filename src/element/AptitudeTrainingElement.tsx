@@ -25,7 +25,12 @@ export class AptitudeTrainingElement extends HTMLElement {
     this.#root = createRoot(mount)
     this.#root.render(
       <StrictMode>
-        <App />
+        <App
+          seed={
+            this.getAttribute("seed") ??
+            new URLSearchParams(window.location.search).get("seed")
+          }
+        />
       </StrictMode>
     )
   }
