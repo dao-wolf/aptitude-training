@@ -23,14 +23,14 @@ Install it from npm, or load it from a CDN:
 ```html
 <script
   type="module"
-  src="https://cdn.jsdelivr.net/npm/@daowolf/aptitude-training@0.1.1/dist/aptitude-training.js"
+  src="https://cdn.jsdelivr.net/npm/@daowolf/aptitude-training@0.1.0/dist/aptitude-training.js"
 ></script>
 <aptitude-training></aptitude-training>
 ```
 
 The stylesheet loads from next to the script. Add `embedded` when your page
-already has its own heading. GitHub Actions builds every version,
-and the maintainer approves each one on npm before it goes public.
+already has its own heading. GitHub Actions builds and signs every version,
+and it reaches npm (and the CDN) once the maintainer approves it there.
 
 ## Develop
 
