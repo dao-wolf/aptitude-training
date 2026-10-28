@@ -41,9 +41,17 @@ export async function expectClockInViewAfterScroll(page: Page) {
   await header.evaluate(h =>
     window.scrollBy(0, h.getBoundingClientRect().bottom + 40)
   )
+  // On a short page the header can't leave the screen: stop at the page's end.
   await expect
-    .poll(() => header.evaluate(h => h.getBoundingClientRect().bottom))
-    .toBeLessThan(0)
+    .poll(() =>
+      header.evaluate(
+        h =>
+          h.getBoundingClientRect().bottom < 0 ||
+          Math.ceil(window.scrollY + window.innerHeight) >=
+            document.documentElement.scrollHeight
+      )
+    )
+    .toBe(true)
   // Either the header clock or the clock pill must be on screen and uncovered.
   await expect
     .poll(() =>
