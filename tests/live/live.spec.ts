@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto"
 import { expect, test, type Page } from "@playwright/test"
 import {
   expectClockInViewAfterScroll,
@@ -9,18 +10,22 @@ import {
 // After each deploy: the app on the real site page (LIVE_URL), at desktop and
 // phone size. It only reads: answers stay in the test browser.
 
-// The site's own page-view analytics, the only other host the page may call.
+// The site's own page-view analytics, answered here so test runs don't count as visits.
 const ANALYTICS = /(^|\.)(googletagmanager|google-analytics)\.com$/
+// Every site page also loads its fonts from Google Fonts.
+const FONTS = /^fonts\.(googleapis|gstatic)\.com$/
 
 const errors: string[] = []
+// Requests that could carry answers, recorded from before the page loads.
+let calls: string[] = []
 
-test.beforeEach(async ({ page }) => {
+test.beforeEach(async ({ page, baseURL }) => {
   errors.length = 0
+  calls = trackCalls(page, new URL(baseURL ?? "").host)
   page.on("console", m => {
     if (m.type() === "error") errors.push(m.text())
   })
   page.on("pageerror", e => errors.push(e.message))
-  // Answer analytics calls here, so test runs don't count as visits.
   await page.route(
     url => ANALYTICS.test(url.host),
     route => route.fulfill({ status: 204, body: "" })
@@ -33,6 +38,7 @@ test.beforeEach(async ({ page }) => {
 
 test.afterEach(() => {
   expect(errors).toEqual([])
+  expect(calls).toEqual([])
 })
 
 test("serves the app with its stylesheet, and the app adds no main heading", async ({
@@ -84,7 +90,6 @@ test("leaving during a test asks first", async ({ page }) => {
 test("a test runs to the result and review, and nothing leaves the browser", async ({
   page,
 }) => {
-  const calls = trackCalls(page)
   await startSprint(page)
   await page.getByRole("radio").first().check()
   await page.getByRole("button", { name: "Next" }).click()
@@ -96,17 +101,51 @@ test("a test runs to the result and review, and nothing leaves the browser", asy
     .getByRole("button", { name: /^Question 1: (right|wrong)$/ })
     .click()
   await expect(page.getByRole("heading", { name: "Review" })).toBeVisible()
-  expect(calls).toEqual([])
 })
 
-/** Requests that could carry answers: any to a host other than the page's own or its analytics, or any non-GET to its own. */
-function trackCalls(page: Page) {
-  const own = new URL(page.url()).host
-  const calls: string[] = []
+test("serves the signed release's files, byte for byte", async ({
+  page,
+  request,
+}) => {
+  const src = await page
+    .locator('script[src*="/tools/aptitude-training/"]')
+    .getAttribute("src")
+  const version = /\/tools\/aptitude-training\/([^/]+)\//.exec(src ?? "")?.[1]
+  expect(version, "the page loads a versioned tool path").toBeTruthy()
+  const sums = await request.get(
+    `https://github.com/dao-wolf/aptitude-training/releases/download/v${version}/SHA256SUMS`
+  )
+  expect(sums.ok(), "the release has SHA256SUMS").toBe(true)
+  const expected = (await sums.text()).trim().split("\n")
+  expect(expected).toHaveLength(2)
+  for (const line of expected) {
+    const [hash, file] = line.split(/\s+\*?/)
+    const served = await request.get(
+      new URL(`${file}`, new URL(src!, page.url())).href
+    )
+    expect(served.ok(), file).toBe(true)
+    const actual = createHash("sha256")
+      .update(await served.body())
+      .digest("hex")
+    expect(actual, file).toBe(hash)
+  }
+})
+
+/**
+ * Requests that could carry answers: to any host but the page's own, its
+ * analytics or its fonts, or to its own with a method other than GET or with
+ * a query string.
+ */
+function trackCalls(page: Page, own: string) {
+  const found: string[] = []
   page.on("request", r => {
     const url = new URL(r.url())
-    if (url.host === own ? r.method() !== "GET" : !ANALYTICS.test(url.host))
-      calls.push(`${r.method()} ${url.origin}${url.pathname}`)
+    const risky =
+      url.host === own
+        ? r.method() !== "GET" || url.search !== ""
+        : !ANALYTICS.test(url.host) && !FONTS.test(url.host)
+    if (risky)
+      found.push(`${r.method()} ${url.origin}${url.pathname}${url.search}`)
   })
-  return calls
+  return found
 }

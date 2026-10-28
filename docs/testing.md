@@ -10,7 +10,7 @@ agent) using the app, because automated tests miss what users feel.
 | Journeys                | Broken flows, on desktop and a phone, under a strict security policy | `tests/e2e`                              |
 | Host-page journeys      | Problems that only show inside a real page                           | `tests/e2e/host.spec.ts`                 |
 | Exploratory pass        | Anything else                                                        | The checklist below, before each release |
-| Live check              | A broken or stale page on the real site, after each deploy           | `pnpm e2e:live`, then the checklist      |
+| Live check              | A broken, stale or unsigned page on the real site, after each deploy | `pnpm e2e:live`, then the checklist      |
 
 ## Rules we learned the hard way
 
@@ -47,9 +47,11 @@ Each problem found becomes a failing test first, then a fix.
 
 Check the real page, not just the deploy log:
 
-1. The app's files on the site match the signed release byte for byte:
-   compare them with the release's `SHA256SUMS`.
-2. Run `pnpm e2e:live`. It runs the host-page checks, a full test and a
-   privacy check on the live page, at desktop and phone size. It answers the
-   site's analytics calls itself, so test runs don't count as visits.
+1. Run `pnpm e2e:live`, at desktop and phone size. It checks the site serves
+   the signed release's files byte for byte, then runs the host-page checks
+   and a full test. From page load on, it fails on any request that could
+   carry answers. The site's fonts and analytics are allowed, and it answers
+   the analytics calls itself, so test runs don't count as visits.
+2. Run it again with `--repeat-each 4 --workers 4`. Some bugs only show when
+   a click beats an animation, which needs a busy machine.
 3. Run the exploratory checklist above on the live page.

@@ -14,9 +14,12 @@ export async function startSprint(page: Page) {
   await expect(page.locator(".at-count")).toHaveText("Question 1 of 50")
 }
 
-/** The question can be read and its first answer isn't hidden under anything. */
+/** The whole question and its pictures are on screen, and its first answer isn't hidden under anything. */
 export async function expectQuestionInView(page: Page) {
-  await expect(page.locator(".at-prompt")).toBeInViewport()
+  await expect(page.locator(".at-prompt")).toBeInViewport({ ratio: 1 })
+  const pictures = page.locator(".at-stem")
+  if (await pictures.count())
+    await expect(pictures).toBeInViewport({ ratio: 1 })
   const covered = await page
     .locator(".at-option")
     .first()
