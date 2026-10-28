@@ -46,6 +46,7 @@ pnpm check   # everything CI runs
 - **Logic:** unit and property tests on the pure code that builds papers and scores them.
 - **Mutation testing:** Stryker changes that code on purpose; the tests must notice.
 - **Security:** lint rules, hostile-input tests, dependency checks and code scanning.
+- **Exploratory:** a hands-on pass before each release. See [docs/testing.md](docs/testing.md).
 
 ## Licence
 

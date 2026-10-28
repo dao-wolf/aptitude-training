@@ -23,7 +23,10 @@ const CSP = [
   "require-trusted-types-for 'script'",
 ].join("; ")
 
-const routes = { "/": "tests/e2e/fixtures/index.html" }
+const routes = {
+  "/": "tests/e2e/fixtures/index.html",
+  "/host": "tests/e2e/fixtures/host.html",
+}
 
 createServer(async (req, res) => {
   const url = new URL(req.url ?? "/", `http://127.0.0.1:${PORT}`)

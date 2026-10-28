@@ -1,4 +1,4 @@
-import { useId, type Ref } from "react"
+import { useId, type MouseEvent, type Ref } from "react"
 import type { Item, Option, OptionId } from "../domain/types"
 import { Figure } from "./figures"
 import { LETTERS } from "./labels"
@@ -40,7 +40,7 @@ export function QuestionView({
           aria-label="Pictures for this question"
         >
           {item.stem.map((v, i) => (
-            <Figure key={i} visual={v} size={72} />
+            <Figure key={i} visual={v} size={80} />
           ))}
         </div>
       )}
@@ -96,7 +96,7 @@ function OptionRow({
     .filter(Boolean)
     .join(" ")
   return (
-    <label className={classes}>
+    <label className={classes} onClickCapture={ignoreRepeatClick}>
       <input
         type="radio"
         name={group}
@@ -110,7 +110,7 @@ function OptionRow({
         {letter}
       </span>
       {option.visual ? (
-        <Figure visual={option.visual} size={64} />
+        <Figure visual={option.visual} size={80} />
       ) : (
         <span className="at-option-text">{option.text}</span>
       )}
@@ -131,4 +131,12 @@ export function markFor(
     }
   if (isChosen) return { state: "wrong", text: "✗ Your answer" }
   return null
+}
+
+/** The second click of a double-click (e.g. on Next) must never land as an answer. */
+function ignoreRepeatClick(e: MouseEvent) {
+  if (e.detail > 1) {
+    e.preventDefault()
+    e.stopPropagation()
+  }
 }

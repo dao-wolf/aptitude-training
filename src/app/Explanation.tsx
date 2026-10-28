@@ -17,7 +17,13 @@ export function Explanation({
           {rows.map((row, i) => (
             <div key={i}>
               <dt>{row.label}</dt>
-              <dd>{row.cells.join(", ")}</dd>
+              <dd>
+                {row.cells.map((cell, j) => (
+                  <span key={j} className="at-step">
+                    {cell}
+                  </span>
+                ))}
+              </dd>
             </div>
           ))}
         </dl>

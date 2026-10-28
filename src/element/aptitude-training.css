@@ -100,6 +100,12 @@ button {
   cursor: pointer;
 }
 
+/* No double-tap zoom on controls, so a quick second tap is just a tap. */
+button,
+label {
+  touch-action: manipulation;
+}
+
 .at-primary,
 .at-secondary {
   min-height: 44px;
@@ -238,12 +244,54 @@ button:disabled {
 }
 
 /* Test */
+/* The clock and counter stay in view while you scroll. A host page with its
+   own fixed bar sets --at-sticky-top so the header sits below it. */
 .at-test-header {
+  position: sticky;
+  top: var(--at-sticky-top, 0px);
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 0.25rem 1rem;
   align-items: end;
-  margin-bottom: 1rem;
+  margin: 0 -1rem 1rem;
+  padding: 0.75rem 1rem 0.5rem;
+  background: var(--at-bg);
+}
+
+/* The clock pill, shown only when the header has scrolled out of view. */
+.at-dock {
+  position: fixed;
+  top: calc(var(--at-sticky-top, 0px) + 0.5rem);
+  right: 1rem;
+  z-index: 5;
+  margin: 0;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--at-border);
+  border-radius: 999px;
+  background: var(--at-surface);
+  font-family: var(--at-mono);
+  font-variant-numeric: tabular-nums;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 35%);
+}
+
+.at-dock.is-low {
+  border-color: var(--at-warn);
+  color: var(--at-warn);
+}
+
+/* Room above a heading we scroll to, so it lands clear of fixed bars. */
+.at-title,
+.at-prompt {
+  scroll-margin-top: calc(var(--at-sticky-top, 0px) + 3rem);
+}
+
+.at-screen > .at-section-title:first-child {
+  margin-top: 0;
+}
+
+.at-test .at-prompt {
+  scroll-margin-top: calc(var(--at-sticky-top, 0px) + 6.5rem);
 }
 
 .at-count {
@@ -439,7 +487,17 @@ button:disabled {
 }
 
 .at-rows dd {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
   margin: 0;
+}
+
+.at-step {
+  padding: 0.1rem 0.5rem;
+  border: 1px solid var(--at-border);
+  border-radius: 6px;
+  background: var(--at-bg);
 }
 
 .at-trap {

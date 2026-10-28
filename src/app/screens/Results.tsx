@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
+import { Title, useRevealOnChange } from "../layout"
 import type {
   CategorySummary,
   QuestionResult,
@@ -37,15 +38,13 @@ export function Results({
   onHome,
 }: Props) {
   const ref = useRef<HTMLHeadingElement>(null)
-  useEffect(() => ref.current?.focus(), [])
+  useRevealOnChange(ref, null)
   const sections = Object.entries(summary.byCategory) as Section[]
   const weakest = weakestSection(sections)
 
   return (
     <div className="at-screen">
-      <h1 ref={ref} tabIndex={-1}>
-        Your result
-      </h1>
+      <Title ref={ref}>Your result</Title>
       <p className="at-score">
         {summary.correct} of {summary.total} correct{" "}
         <span>({summary.percent}%)</span>
@@ -139,7 +138,7 @@ function SectionTable({ sections }: { sections: Section[] }) {
             <td>
               {s.correct} of {s.total}
             </td>
-            <td>{seconds(s.total ? s.spentMs / s.total : 0)}</td>
+            <td>{seconds(s.averageMs)}</td>
           </tr>
         ))}
       </tbody>
