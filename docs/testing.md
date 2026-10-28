@@ -50,7 +50,7 @@ Check the real page, not just the deploy log:
 1. Run `pnpm e2e:live`, at desktop and phone size. It checks the site serves
    the signed release's files byte for byte, then runs the host-page checks
    and a full test. From page load on, it fails on any request that could
-   carry answers. The site's fonts and analytics are allowed, and it answers
+   carry answers. It allows only the site's fonts and analytics, and answers
    the analytics calls itself, so test runs don't count as visits.
 2. Run it again with `--repeat-each 4 --workers 4`. Some bugs only show when
    a click beats an animation, which needs a busy machine.
