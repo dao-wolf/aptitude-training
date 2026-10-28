@@ -1,13 +1,12 @@
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
+import { Title, useRevealOnChange } from "../layout"
 
 export function TimeUp({ onContinue }: { onContinue: () => void }) {
   const ref = useRef<HTMLHeadingElement>(null)
-  useEffect(() => ref.current?.focus(), [])
+  useRevealOnChange(ref, null)
   return (
     <div className="at-screen">
-      <h1 ref={ref} tabIndex={-1}>
-        Time&apos;s up
-      </h1>
+      <Title ref={ref}>Time&apos;s up</Title>
       <p className="at-lead">We&apos;ve kept the answers you gave.</p>
       <div className="at-actions">
         <button type="button" className="at-primary" onClick={onContinue}>

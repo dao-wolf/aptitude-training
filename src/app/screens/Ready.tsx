@@ -1,4 +1,5 @@
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
+import { Title, useRevealOnChange } from "../layout"
 import { formatClock } from "../../domain/timing"
 
 export function Ready({
@@ -11,12 +12,10 @@ export function Ready({
   onStart: () => void
 }) {
   const ref = useRef<HTMLHeadingElement>(null)
-  useEffect(() => ref.current?.focus(), [])
+  useRevealOnChange(ref, null)
   return (
     <div className="at-screen">
-      <h1 ref={ref} tabIndex={-1}>
-        Ready?
-      </h1>
+      <Title ref={ref}>Ready?</Title>
       <p className="at-lead">
         {count} questions,{" "}
         {seconds

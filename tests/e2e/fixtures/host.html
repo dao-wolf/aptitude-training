@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Host page</title>
+    <link rel="stylesheet" href="/tests/e2e/fixtures/host.css" />
+    <script type="module" src="/dist/aptitude-training.js"></script>
+  </head>
+  <body>
+    <!-- Like the real site: a floating menu button, a page heading and an intro above the app. -->
+    <button class="menu" type="button" aria-label="Open menu">≡</button>
+    <div class="wrapper">
+      <main>
+        <h1>Host page heading</h1>
+        <p class="intro">
+          An intro paragraph that pushes the app down the page, as the real site
+          does.
+        </p>
+        <p class="intro">
+          A second paragraph, so the app starts well below the top on a phone.
+        </p>
+        <aptitude-training class="trainer" embedded></aptitude-training>
+        <p class="intro">Content after the app.</p>
+        <div class="spacer"></div>
+      </main>
+    </div>
+  </body>
+</html>

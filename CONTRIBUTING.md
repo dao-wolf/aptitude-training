@@ -16,6 +16,9 @@ pnpm check
 2. Add a failing unit test underneath, then make both pass.
 3. Keep tests about behaviour. Don't test styles or component internals.
 
+See [docs/testing.md](docs/testing.md) for the test layers, the rules and the
+exploratory checklist we run before each release.
+
 ## Questions
 
 - Write every question yourself. Never copy or reword one from a real test,

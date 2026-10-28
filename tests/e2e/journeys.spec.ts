@@ -24,7 +24,9 @@ test.describe("starting a test", () => {
       .getByRole("button", { name: "Continue to the worked example" })
       .click()
     await expect(page.getByText(/Worked example · not scored/)).toBeVisible()
-    await expect(page.getByText("✓ Your answer, correct")).toBeVisible()
+    // Nobody has answered a worked example: it shows the answer, not "your answer".
+    await expect(page.getByText("✓ Correct answer")).toBeVisible()
+    await expect(page.getByText(/Your answer/)).toHaveCount(0)
     await axe(page, errors)
     await page.getByRole("button", { name: "Next practice question" }).click()
 

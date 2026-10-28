@@ -1,0 +1,42 @@
+/* Copied from the real site (global.css): overflow-x hidden on body and the
+   page wrapper, which breaks position: sticky for everything inside. */
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #0b1120;
+  color: #e2e8f0;
+  overflow-x: hidden;
+}
+.wrapper {
+  overflow-x: hidden;
+}
+main {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+.intro {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  min-height: 6rem;
+}
+.spacer {
+  height: 120vh;
+}
+.menu {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  width: 50px;
+  height: 50px;
+  z-index: 10;
+}
+/* What the real site sets: keep the app's sticky header clear of the menu button. */
+.trainer {
+  --at-sticky-top: 0px;
+}
+@media (max-width: 768px) {
+  .trainer {
+    --at-sticky-top: 84px;
+  }
+}

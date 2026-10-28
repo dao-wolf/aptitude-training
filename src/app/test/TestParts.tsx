@@ -1,4 +1,6 @@
+import { useRef } from "react"
 import { CATEGORY_LABEL } from "../labels"
+import { useOutOfView } from "../layout"
 import type { Category } from "../../domain/types"
 import type { PrimaryAction } from "./rules"
 
@@ -19,28 +21,44 @@ export function TestHeader({
   timed,
   lowTime,
 }: HeaderProps) {
+  const ref = useRef<HTMLElement>(null)
+  // Some host pages break position: sticky (e.g. overflow-x: hidden on body).
+  // When the header scrolls away anyway, a small fixed pill keeps the clock in view.
+  const docked = useOutOfView(ref)
   return (
-    <header className="at-test-header">
-      <div>
-        <p className="at-eyebrow">{CATEGORY_LABEL[category]}</p>
-        <p className="at-count">
-          Question {index + 1} of {total}
+    <>
+      {docked && (
+        <p
+          className={lowTime ? "at-dock is-low" : "at-dock"}
+          aria-hidden="true"
+          data-clock
+        >
+          {index + 1}/{total} · {clock}
         </p>
-      </div>
-      <p
-        className={lowTime ? "at-clock is-low" : "at-clock"}
-        aria-label={timed ? "Time left" : "Time taken"}
-      >
-        {clock}
-        {lowTime && <span className="at-sr"> (under a minute)</span>}
-      </p>
-      <progress
-        className="at-progress"
-        max={total}
-        value={index}
-        aria-label="Progress"
-      />
-    </header>
+      )}
+      <header className="at-test-header" ref={ref}>
+        <div>
+          <p className="at-eyebrow">{CATEGORY_LABEL[category]}</p>
+          <p className="at-count">
+            Question {index + 1} of {total}
+          </p>
+        </div>
+        <p
+          className={lowTime ? "at-clock is-low" : "at-clock"}
+          data-clock
+          aria-label={timed ? "Time left" : "Time taken"}
+        >
+          {clock}
+          {lowTime && <span className="at-sr"> (under a minute)</span>}
+        </p>
+        <progress
+          className="at-progress"
+          max={total}
+          value={index}
+          aria-label="Progress"
+        />
+      </header>
+    </>
   )
 }
 
@@ -127,7 +145,7 @@ export function TestFooter(p: FooterProps) {
         type="button"
         className="at-primary"
         disabled={p.primaryDisabled}
-        onClick={p.onPrimary}
+        onClick={e => e.detail <= 1 && p.onPrimary()}
       >
         {PRIMARY_LABEL[p.primary]}
       </button>

@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState, type Ref } from "react"
+import { useRef, useState, type Ref } from "react"
+import { Title, useRevealOnChange } from "../layout"
 import type { QuestionResult, Summary } from "../../domain/scoring"
 import { METHODS } from "../../content/bank"
 import { Explanation } from "../Explanation"
@@ -40,11 +41,11 @@ export function Review({ run, summary, start, onDone }: Props) {
     FILTER_TEST[filter](r, run.session.flags[i] ?? false) ? [i] : []
   )
   const current = matches.includes(index) ? index : matches[0]
-  useEffect(() => headingRef.current?.focus(), [current])
+  useRevealOnChange(headingRef, current)
 
   return (
     <div className="at-screen">
-      <h1>Review</h1>
+      <Title>Review</Title>
       <fieldset className="at-filters">
         <legend className="at-sr">Show</legend>
         {FILTERS.map(f => (

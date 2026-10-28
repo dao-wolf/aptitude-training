@@ -18,14 +18,19 @@ Timed like the real thing, with a worked explanation for every question.
 
 ## Use it on your own page
 
+Install it from npm, or load it from a CDN:
+
 ```html
-<script type="module" src="aptitude-training.js"></script>
+<script
+  type="module"
+  src="https://cdn.jsdelivr.net/npm/@daowolf/aptitude-training@0.1.0/dist/aptitude-training.js"
+></script>
 <aptitude-training></aptitude-training>
 ```
 
-Keep `aptitude-training.css` next to the script. Take both files from a
-[release](https://github.com/dao-wolf/aptitude-training/releases). GitHub signs
-each release, so you can check where it came from.
+The stylesheet loads from next to the script. Add `embedded` when your page
+already has its own heading. GitHub Actions publishes every
+version, with signed provenance.
 
 ## Develop
 
@@ -46,6 +51,7 @@ pnpm check   # everything CI runs
 - **Logic:** unit and property tests on the pure code that builds papers and scores them.
 - **Mutation testing:** Stryker changes that code on purpose; the tests must notice.
 - **Security:** lint rules, hostile-input tests, dependency checks and code scanning.
+- **Exploratory:** a hands-on pass before each release. See [docs/testing.md](docs/testing.md).
 
 ## Licence
 

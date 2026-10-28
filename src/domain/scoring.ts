@@ -21,6 +21,10 @@ export interface CategorySummary {
   correct: number
   answered: number
   spentMs: number
+  /** Questions in this section the candidate got to. */
+  reached: number
+  /** Average time on the questions reached in this section, in milliseconds. */
+  averageMs: number
 }
 
 export interface Summary {
@@ -57,22 +61,17 @@ export function score(
     }
   })
 
+  const reached = Math.min(results.length, state.furthest + 1)
   const byCategory: Partial<Record<Category, CategorySummary>> = {}
   for (const category of CATEGORIES) {
     const mine = results.filter(r => r.category === category)
-    if (mine.length === 0) continue
-    byCategory[category] = {
-      total: mine.length,
-      correct: mine.filter(r => r.correct).length,
-      answered: mine.filter(r => r.chosen !== null).length,
-      spentMs: mine.reduce((sum, r) => sum + r.spentMs, 0),
-    }
+    if (mine.length > 0)
+      byCategory[category] = sectionSummary(mine, results.slice(0, reached))
   }
 
   const total = results.length
   const correct = results.filter(r => r.correct).length
   const answered = results.filter(r => r.chosen !== null).length
-  const reached = Math.min(total, state.furthest + 1)
   const spent = results.slice(0, reached).reduce((sum, r) => sum + r.spentMs, 0)
 
   return {
@@ -85,5 +84,22 @@ export function score(
     averageMs: reached === 0 ? 0 : Math.round(spent / reached),
     byCategory,
     results,
+  }
+}
+
+function sectionSummary(
+  mine: QuestionResult[],
+  reachedResults: QuestionResult[]
+): CategorySummary {
+  const reachedHere = reachedResults.filter(r => mine.includes(r))
+  const reachedMs = reachedHere.reduce((sum, r) => sum + r.spentMs, 0)
+  return {
+    total: mine.length,
+    correct: mine.filter(r => r.correct).length,
+    answered: mine.filter(r => r.chosen !== null).length,
+    spentMs: mine.reduce((sum, r) => sum + r.spentMs, 0),
+    reached: reachedHere.length,
+    averageMs:
+      reachedHere.length === 0 ? 0 : Math.round(reachedMs / reachedHere.length),
   }
 }

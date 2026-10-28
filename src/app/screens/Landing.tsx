@@ -1,3 +1,5 @@
+import { useContext } from "react"
+import { EmbeddedContext } from "../layout"
 import { formatClock } from "../../domain/timing"
 import { MIXED_SPRINT, drill } from "../../domain/specs"
 import { CATEGORIES, type TestSpec } from "../../domain/types"
@@ -12,14 +14,19 @@ const DESCRIPTIONS: Record<string, string> = {
 }
 
 export function Landing({ onPick }: { onPick: (spec: TestSpec) => void }) {
+  const embedded = useContext(EmbeddedContext)
   const drills = CATEGORIES.map(c => drill(c))
   return (
     <div className="at-screen">
-      <h1>Aptitude Training</h1>
-      <p className="at-lead">
-        Free practice for aptitude tests. Timed like the real thing, with a
-        worked explanation for every question.
-      </p>
+      {!embedded && (
+        <>
+          <h1>Aptitude Training</h1>
+          <p className="at-lead">
+            Free practice for aptitude tests. Timed like the real thing, with a
+            worked explanation for every question.
+          </p>
+        </>
+      )}
 
       <h2 className="at-section-title">Full test</h2>
       <Card spec={MIXED_SPRINT} onPick={onPick} />

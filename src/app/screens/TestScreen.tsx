@@ -8,6 +8,7 @@ import type { Run } from "../run"
 import { clockText, timeWarning, viewOf } from "../test/rules"
 import { FinishConfirm, TestFooter, TestHeader } from "../test/TestParts"
 import { testActions } from "../test/testActions"
+import { useRevealOnChange } from "../layout"
 import { now, useNow } from "../useNow"
 
 interface Props {
@@ -67,7 +68,14 @@ export function TestScreen({ run, onChange, onEnd }: Props) {
   })
 
   // Move focus to each new question, so screen readers start reading it.
-  useEffect(() => headingRef.current?.focus(), [index])
+  useRevealOnChange(headingRef, index)
+
+  // Leaving mid-test would lose the attempt, so the browser asks first.
+  useEffect(() => {
+    const warn = (e: BeforeUnloadEvent) => e.preventDefault()
+    window.addEventListener("beforeunload", warn)
+    return () => window.removeEventListener("beforeunload", warn)
+  }, [])
 
   const item = items[index]
   const question = paper.questions[index]

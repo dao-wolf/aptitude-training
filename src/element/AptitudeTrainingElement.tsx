@@ -1,6 +1,7 @@
 import { StrictMode } from "react"
 import { createRoot, type Root } from "react-dom/client"
 import { App } from "../app/App"
+import { EmbeddedContext } from "../app/layout"
 
 // A variable, not a literal: Vite would otherwise inline the file as a data
 // URL, which a strict CSP blocks.
@@ -25,12 +26,14 @@ export class AptitudeTrainingElement extends HTMLElement {
     this.#root = createRoot(mount)
     this.#root.render(
       <StrictMode>
-        <App
-          seed={
-            this.getAttribute("seed") ??
-            new URLSearchParams(window.location.search).get("seed")
-          }
-        />
+        <EmbeddedContext.Provider value={this.hasAttribute("embedded")}>
+          <App
+            seed={
+              this.getAttribute("seed") ??
+              new URLSearchParams(window.location.search).get("seed")
+            }
+          />
+        </EmbeddedContext.Provider>
       </StrictMode>
     )
   }

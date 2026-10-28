@@ -86,18 +86,24 @@ describe("score", () => {
       correct: 1,
       answered: 1,
       spentMs: 10000,
+      reached: 1,
+      averageMs: 10000,
     })
     expect(summary.byCategory.verbal).toEqual({
       total: 1,
       correct: 0,
       answered: 1,
       spentMs: 6000,
+      reached: 1,
+      averageMs: 6000,
     })
     expect(summary.byCategory.spatial).toEqual({
       total: 1,
       correct: 0,
       answered: 0,
       spentMs: 2000,
+      reached: 1,
+      averageMs: 2000,
     })
   })
   it("handles an empty paper and refuses unknown questions", () => {
@@ -112,5 +118,57 @@ describe("score", () => {
         s0
       )
     ).toThrow(/Unknown/)
+  })
+})
+
+describe("score: section averages", () => {
+  it("average only over the questions reached in that section", () => {
+    const paper: Paper = {
+      specId: "t",
+      seed: 1,
+      questions: ["v1", "m2", "v2", "v3"].map(itemId => ({
+        itemId,
+        optionOrder: ["a", "b", "c", "d", "e"],
+      })),
+    }
+    // Reach v1 (8 s) and m2 (2 s), then finish: v2 and v3 are never reached.
+    const played = [
+      { type: "next", now: 8000 },
+      { type: "finish", now: 10000 },
+    ] as const
+    const state = played.reduce(
+      (s, a) => reduceSession(s, a, "one-way"),
+      startSession(4, 0)
+    )
+    const summary = score(paper, BANK, state)
+    expect(summary.byCategory.verbal).toMatchObject({
+      total: 3,
+      reached: 1,
+      averageMs: 8000,
+    })
+    expect(summary.byCategory.maths).toMatchObject({
+      total: 1,
+      reached: 1,
+      averageMs: 2000,
+    })
+  })
+  it("a section with nothing reached averages zero", () => {
+    const paper: Paper = {
+      specId: "t",
+      seed: 1,
+      questions: [
+        { itemId: "v1", optionOrder: ["a", "b", "c", "d", "e"] },
+        { itemId: "m2", optionOrder: ["a", "b", "c", "d", "e"] },
+      ],
+    }
+    const state = reduceSession(
+      startSession(2, 0),
+      { type: "finish", now: 5000 },
+      "one-way"
+    )
+    expect(score(paper, BANK, state).byCategory.maths).toMatchObject({
+      reached: 0,
+      averageMs: 0,
+    })
   })
 })

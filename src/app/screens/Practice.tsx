@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
+import { useRevealOnChange } from "../layout"
 import type { Item, OptionId } from "../../domain/types"
 import { METHODS } from "../../content/bank"
 import { Explanation } from "../Explanation"
@@ -15,15 +16,11 @@ export function Practice({ items, onDone }: Props) {
   const [chosen, setChosen] = useState<OptionId | null>(null)
   const [checked, setChecked] = useState(false)
   const headingRef = useRef<HTMLHeadingElement>(null)
-  useEffect(() => headingRef.current?.focus(), [step])
+  useRevealOnChange(headingRef, `${step}-${checked}`)
 
   const item = items[step]
   if (!item) return null
-  const { worked, eyebrow, label, stage } = practiceStep(
-    step,
-    items.length,
-    checked
-  )
+  const { worked, eyebrow, stage } = practiceStep(step, items.length, checked)
   const shown = stage !== "answering"
   const last = step === items.length - 1
 
@@ -37,13 +34,11 @@ export function Practice({ items, onDone }: Props) {
   return (
     <div className="at-screen">
       <p className="at-eyebrow">{eyebrow} · not scored</p>
-      <h1 ref={headingRef} tabIndex={-1} className="at-sr-heading">
-        {label}
-      </h1>
       <QuestionView
         item={item}
         optionOrder={item.options.map(o => o.id)}
-        chosen={worked ? item.answer : chosen}
+        chosen={worked ? null : chosen}
+        headingRef={headingRef}
         {...(shown ? {} : { onChoose: setChosen })}
         reveal={shown}
       />
@@ -77,13 +72,11 @@ function practiceStep(step: number, total: number, checked: boolean) {
     return {
       worked: true,
       eyebrow: "Worked example",
-      label: "Worked example",
       stage: "worked" as const,
     }
   return {
     worked: false,
     eyebrow: `Practice ${step} of ${total - 1}`,
-    label: `Practice question ${step}`,
     stage: checked ? ("checked" as const) : ("answering" as const),
   }
 }

@@ -5,6 +5,7 @@ import {
   type TimePresetId,
 } from "../../domain/timing"
 import type { TestSpec } from "../../domain/types"
+import { Title } from "../layout"
 import { questionCount, type Settings } from "../run"
 
 interface Props {
@@ -29,7 +30,7 @@ export function Instructions({
 
   return (
     <div className="at-screen">
-      <h1>{spec.name}</h1>
+      <Title>{spec.name}</Title>
       <p className="at-lead">
         Reading this page isn&apos;t timed. The clock starts only when you press
         Start.
