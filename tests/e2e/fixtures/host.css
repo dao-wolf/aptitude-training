@@ -1,6 +1,9 @@
-/* Copied from the real site (global.css): overflow-x hidden on body, clip on
-   the page wrapper (hidden there broke position: sticky), and --sticky-top,
-   which clears the fixed menu button on narrow screens. */
+/* Copied from the real site (global.css): smooth scrolling, overflow-x hidden
+   on body, clip on the page wrapper (hidden there broke position: sticky), and
+   --sticky-top, which clears the fixed menu button on narrow screens. */
+html {
+  scroll-behavior: smooth;
+}
 :root {
   --sticky-top: 0px;
 }
