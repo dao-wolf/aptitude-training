@@ -76,6 +76,8 @@ export async function expectDoubleClickMovesOne(page: Page) {
     await expect(page.locator(".at-count")).toHaveText(
       `Question ${i + 1} of 50`
     )
+    // Count first: looping over no radios would pass without checking anything.
+    await expect(page.getByRole("radio")).toHaveCount(5)
     for (const radio of await page.getByRole("radio").all())
       await expect(radio).not.toBeChecked()
   }
