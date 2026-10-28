@@ -17,13 +17,14 @@ export default defineConfig({
     url: "http://127.0.0.1:4180/health",
     reuseExistingServer: !process.env.CI,
   },
+  // Chromium only, by choice (Chrome, Edge and other Chromium browsers), on
+  // desktop and on an emulated phone with touch: mobile matters most.
   projects: [
-    { name: "chromium", use: { ...devices["Desktop Chrome"] } },
-    ...(process.env.ALL_BROWSERS
-      ? [
-          { name: "firefox", use: { ...devices["Desktop Firefox"] } },
-          { name: "webkit", use: { ...devices["Desktop Safari"] } },
-        ]
-      : []),
+    {
+      name: "desktop",
+      use: { ...devices["Desktop Chrome"] },
+      testIgnore: /mobile\.spec/,
+    },
+    { name: "mobile", use: { ...devices["Pixel 7"] } },
   ],
 })

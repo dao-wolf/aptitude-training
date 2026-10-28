@@ -39,8 +39,10 @@ pnpm check   # everything CI runs
 
 ## How it's tested
 
-- **Journeys:** Playwright runs each user journey against the built element,
-  under a strict security policy, with axe checking accessibility.
+- **Journeys:** Playwright runs each user journey against the built element in
+  Chromium, on desktop and on an emulated phone, under a strict security policy,
+  with axe checking accessibility. A 320 px check makes sure every screen fits a
+  small phone and every control is big enough to tap.
 - **Logic:** unit and property tests on the pure code that builds papers and scores them.
 - **Mutation testing:** Stryker changes that code on purpose; the tests must notice.
 - **Security:** lint rules, hostile-input tests, dependency checks and code scanning.

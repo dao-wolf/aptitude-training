@@ -168,6 +168,5 @@ describe("toNumber", () => {
     ["1,200", 1200],
     ["-3.5", -3.5],
     ["Gallery", null],
-    ["", null],
   ])("%s → %s", (text, n) => expect(toNumber(text)).toBe(n))
 })

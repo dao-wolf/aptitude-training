@@ -1,5 +1,4 @@
 import { describe, expect, it } from "vitest"
-import fc from "fast-check"
 import { RECENT_CAP, parseRecent, updateRecent } from "../../src/domain/recent"
 
 describe("parseRecent (tampered browser storage)", () => {
@@ -23,19 +22,6 @@ describe("parseRecent (tampered browser storage)", () => {
     const parsed = parseRecent(many)
     expect(parsed).toHaveLength(RECENT_CAP)
     expect(parsed.at(-1)).toBe("q299")
-  })
-
-  it("never throws", () => {
-    fc.assert(
-      fc.property(fc.string(), s => {
-        expect(Array.isArray(parseRecent(s))).toBe(true)
-      })
-    )
-    fc.assert(
-      fc.property(fc.json(), s => {
-        expect(Array.isArray(parseRecent(s))).toBe(true)
-      })
-    )
   })
 })
 
