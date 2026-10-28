@@ -23,7 +23,7 @@ Install it from npm, or load it from a CDN:
 ```html
 <script
   type="module"
-  src="https://cdn.jsdelivr.net/npm/@daowolf/aptitude-training@0.1.0/dist/aptitude-training.js"
+  src="https://cdn.jsdelivr.net/npm/@daowolf/aptitude-training@0.1.1/dist/aptitude-training.js"
 ></script>
 <aptitude-training></aptitude-training>
 ```
