@@ -29,8 +29,8 @@ Install it from npm, or load it from a CDN:
 ```
 
 The stylesheet loads from next to the script. Add `embedded` when your page
-already has its own heading. GitHub Actions builds every version,
-and the maintainer approves each one on npm before it goes public.
+already has its own heading. GitHub Actions builds and signs every version,
+and it reaches npm (and the CDN) once the maintainer approves it there.
 
 ## Develop
 
