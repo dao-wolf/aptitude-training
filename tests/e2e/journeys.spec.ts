@@ -108,6 +108,7 @@ test.describe("answering", () => {
       document.body.prepend(input)
     })
     await page.getByLabel("Site search").fill("abcde")
+    await expect(page.getByRole("radio")).toHaveCount(5)
     for (const radio of await page.getByRole("radio").all())
       await expect(radio).not.toBeChecked()
   })

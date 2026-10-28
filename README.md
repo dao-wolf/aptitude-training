@@ -3,7 +3,7 @@
 Free practice for aptitude tests: verbal reasoning, numerical and spatial.
 Timed like the real thing, with a worked explanation for every question.
 
-**Try it:** [daowolf.com/aptitude-training](https://daowolf.com/aptitude-training) (launching soon)
+**Try it:** [daowolf.com/projects/aptitude-training](https://daowolf.com/projects/aptitude-training) (launching soon)
 
 > Practice only. All questions are original. Your score here doesn't predict
 > your result on any real test, and there's no percentile, because the questions

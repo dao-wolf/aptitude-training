@@ -1,6 +1,6 @@
 # How we test
 
-Every change has to pass all five layers. The last one is a person (or an
+Every change has to pass the first five layers, and every deploy the sixth. The last one is a person (or an
 agent) using the app, because automated tests miss what users feel.
 
 | Layer                   | What it catches                                                      | Where                                    |
@@ -10,6 +10,7 @@ agent) using the app, because automated tests miss what users feel.
 | Journeys                | Broken flows, on desktop and a phone, under a strict security policy | `tests/e2e`                              |
 | Host-page journeys      | Problems that only show inside a real page                           | `tests/e2e/host.spec.ts`                 |
 | Exploratory pass        | Anything else                                                        | The checklist below, before each release |
+| Live check              | A broken, stale or unsigned page on the real site, after each deploy | `pnpm e2e:live`, then the checklist      |
 
 ## Rules we learned the hard way
 
@@ -41,3 +42,16 @@ and at phone size. Try the happy path, then each of these:
 - Check the results add up.
 
 Each problem found becomes a failing test first, then a fix.
+
+## After each deploy
+
+Check the real page, not just the deploy log:
+
+1. Run `pnpm e2e:live`, at desktop and phone size. It checks the site serves
+   the signed release's files byte for byte, then runs the host-page checks
+   and a full test. From page load on, it fails on any request that could
+   carry answers. It allows only the site's fonts and analytics, and answers
+   the analytics calls itself, so test runs don't count as visits.
+2. Run it again with `--repeat-each 4 --workers 4`. Some bugs only show when
+   a click beats an animation, which needs a busy machine.
+3. Run the exploratory checklist above on the live page.
