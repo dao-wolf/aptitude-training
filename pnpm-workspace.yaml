@@ -9,3 +9,9 @@ minimumReleaseAge: 1440
 strictDepBuilds: true
 onlyBuiltDependencies:
   - esbuild
+
+# Security fixes for dev-only packages pulled in by other tools. Remove an
+# entry once the tool that needs it ships the fixed version itself.
+overrides:
+  # Via Stryker (typed-rest-client); denial-of-service fixes in 6.16.1.
+  qs: ">=6.16.1"

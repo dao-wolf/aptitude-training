@@ -54,6 +54,8 @@ export interface Item {
   answer: OptionId
   ordered?: boolean
   enemies?: string[]
+  /** A worked example or practice question: shown before the clock, never on a paper. */
+  practice?: boolean
   explanation: Explanation
   status: ItemStatus
   provenance: { origin: "original"; writtenBy: string; created: string }

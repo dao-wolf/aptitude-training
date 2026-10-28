@@ -86,11 +86,15 @@ describe("assemblePaper", () => {
     const greedy = { ...MIXED_SPRINT, blueprint: { verbal: 99 } }
     expect(() => build(1, [], greedy)).toThrow(/Not enough verbal/)
   })
+})
 
-  it("ignores questions that aren't live", () => {
-    const bank = BANK.map(i =>
-      i.id === "s1" ? { ...i, status: "draft" as const } : i
-    )
+describe("left off every paper", () => {
+  const variants: [string, (item: Item) => Item][] = [
+    ["a question that isn't live", item => ({ ...item, status: "draft" })],
+    ["a practice question", item => ({ ...item, practice: true })],
+  ]
+  it.each(variants)("%s", (_name, change) => {
+    const bank = BANK.map(i => (i.id === "s1" ? change(i) : i))
     fc.assert(
       fc.property(fc.integer(), seed => {
         const p = assemblePaper({

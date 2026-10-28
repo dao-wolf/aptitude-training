@@ -42,6 +42,33 @@ export function startSession(count: number, now: number): SessionState {
   }
 }
 
+type Handler<A extends SessionAction["type"]> = (
+  state: SessionState,
+  action: Extract<SessionAction, { type: A }>,
+  oneWay: boolean
+) => SessionState
+
+const HANDLERS: { [A in SessionAction["type"]]: Handler<A> } = {
+  select: (state, action) => {
+    const answers = [...state.answers]
+    answers[state.index] = action.option
+    return { ...state, answers }
+  },
+  next: (state, action) => moveTo(state, state.index + 1, action.now),
+  back: (state, action, oneWay) =>
+    oneWay ? state : moveTo(state, state.index - 1, action.now),
+  goto: (state, action, oneWay) =>
+    oneWay ? state : moveTo(state, action.index, action.now),
+  flag: (state, _action, oneWay) => {
+    if (oneWay) return state
+    const flags = [...state.flags]
+    flags[state.index] = !flags[state.index]
+    return { ...state, flags }
+  },
+  expire: (state, action) => end(state, "time-up", action.now),
+  finish: (state, action) => end(state, "finished", action.now),
+}
+
 /**
  * One-way: you can change an answer until you leave the question, then it's
  * locked; no Back, no jumping, no flags. Free: move anywhere, flag anything.
@@ -52,31 +79,8 @@ export function reduceSession(
   navigation: Navigation
 ): SessionState {
   if (state.status === "finished") return state
-  const oneWay = navigation === "one-way"
-
-  switch (action.type) {
-    case "select": {
-      const answers = [...state.answers]
-      answers[state.index] = action.option
-      return { ...state, answers }
-    }
-    case "next":
-      return moveTo(state, state.index + 1, action.now)
-    case "back":
-      return oneWay ? state : moveTo(state, state.index - 1, action.now)
-    case "goto":
-      return oneWay ? state : moveTo(state, action.index, action.now)
-    case "flag": {
-      if (oneWay) return state
-      const flags = [...state.flags]
-      flags[state.index] = !flags[state.index]
-      return { ...state, flags }
-    }
-    case "expire":
-      return end(state, "time-up", action.now)
-    case "finish":
-      return end(state, "finished", action.now)
-  }
+  const handle = HANDLERS[action.type] as Handler<typeof action.type>
+  return handle(state, action as never, navigation === "one-way")
 }
 
 function moveTo(
