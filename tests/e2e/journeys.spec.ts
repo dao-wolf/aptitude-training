@@ -158,15 +158,30 @@ test.describe("ending", () => {
     ).toHaveText("1")
   })
 
-  test("a section you never reached says so, not 0.0s", async ({ page }) => {
+  test("ending before answering anything: no 0.0s, no 0% accuracy", async ({
+    page,
+  }) => {
+    await page.clock.install()
     await open(page)
     await startSprint(page)
+    await page.clock.fastForward("00:05")
     await page.getByRole("button", { name: "End test" }).click()
     await page.getByRole("button", { name: "Finish" }).click()
     // Only question 1 was reached, so two of the three sections weren't.
-    const table = page.getByRole("table", { name: "By section" })
-    await expect(table.getByText("Not reached")).toHaveCount(2)
-    await expect(table).not.toContainText("0.0s")
+    const times = page
+      .getByRole("table", { name: "By section" })
+      .getByRole("row")
+      .locator("td:last-child")
+    // The reached section shows its real time (5 s or a little more), never 0.0s.
+    const reachedOrNot = /^([1-9]\d*\.\ds|Not reached)$/
+    await expect(times).toHaveText([reachedOrNot, reachedOrNot, reachedOrNot])
+    await expect(times.filter({ hasText: "Not reached" })).toHaveCount(2)
+    await expect(
+      page.getByText("You didn't answer any questions.")
+    ).toBeVisible()
+    await expect(page.getByText(/% of the questions you answered/)).toHaveCount(
+      0
+    )
   })
 
   test("finish early, read the result, review an answer", async ({ page }) => {
