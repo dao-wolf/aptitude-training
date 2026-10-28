@@ -13,7 +13,7 @@ agent) using the app, because automated tests miss what users feel.
 
 ## Rules we learned the hard way
 
-These come from the exploratory pass on 28 Oct 2026, which found 10 problems
+These come from the exploratory pass on 28 Oct 2026, which found 11 problems
 that 136 automated tests missed.
 
 1. **Test inside a realistic page.** A blank test page hides scroll, overlap
