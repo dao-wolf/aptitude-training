@@ -23,8 +23,9 @@ exploratory checklist we run before each release.
 
 - Write every question yourself. Never copy or reword one from a real test,
   a prep site or a book.
-- Follow `docs/writing-questions.md`: one right answer, plausible wrong ones,
-  plain words.
+- Give each question one right answer, plausible wrong ones and plain words.
+  Copy the shape of the questions in `content/questions/`; the tests check it
+  against `src/domain/schema.ts`.
 - New questions start as drafts. They go live only after a second person
   solves them without seeing the answer.
 

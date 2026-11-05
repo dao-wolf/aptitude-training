@@ -3,7 +3,7 @@
 Free practice for aptitude tests: verbal reasoning, numerical and spatial.
 Timed like the real thing, with a worked explanation for every question.
 
-**Try it:** [daowolf.com/projects/aptitude-training](https://daowolf.com/projects/aptitude-training) (launching soon)
+**Try it:** [daowolf.com/projects/aptitude-training](https://daowolf.com/projects/aptitude-training)
 
 > Practice only. All questions are original. Your score here doesn't predict
 > your result on any real test, and there's no percentile, because the questions
@@ -13,8 +13,9 @@ Timed like the real thing, with a worked explanation for every question.
 
 - A timed 50-question mixed test, and short drills by section
 - Time presets: standard, +25%, +50%, +100% or no clock
-- A worked explanation and a common trap for every question
-- No account, no tracking, no adverts
+- A worked explanation for every question, and a common trap where there is one
+- No account and no adverts. The package has no tracking; daowolf.com, which
+  hosts it, runs Google Analytics only with your consent
 
 ## Use it on your own page
 
